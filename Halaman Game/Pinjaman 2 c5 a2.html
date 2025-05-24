@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lusa Kemudian</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background-color: #fcd82b;
+      color: #1e1e1e;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .bubble {
+      background-color: #ffff99;
+      padding: 12px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      animation: bounce-in 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+      80% {
+        transform: scale(0.95);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .speech {
+      background-color: #ffff99;
+      display: inline-block;
+      padding: 10px 15px;
+      font-style: italic;
+      border-radius: 20px;
+      position: relative;
+      font-size: 16px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .speech::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: #ffff99;
+    }
+
+    .image-box {
+      max-width: 250px;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .info-box {
+      background-color: #ffff99;
+      padding: 14px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: normal;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      line-height: 1.4;
+    }
+
+    .info-box strong {
+      font-weight: bold;
+    }
+
+    .next-button {
+      background-color: #ffff99;
+      color: black;
+      font-weight: bold;
+      padding: 10px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      border: 2px solid black;
+      transition: all 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="bubble">Lusa Kemudian...</div>
+
+    <div class="image-box">
+      <img src="../Images/Logo_Pinjaman.png">
+    </div>
+
+    <div class="speech"><i>"Akhirnya... Bisa pegang duit."</i></div>
+
+    <div class="info-box">
+      Brady akhirnya dapat uang buat bayar utang.  
+      <br><br>
+      Pinjam uang di bank memang pilihan yang lebih aman dan jelas. Tapi apakah semua langsung beres?  
+      <strong>Belum tentu!</strong>
+    </div>
+
+    <button class="next-button" onclick="location.href='Pinjaman 2 c5 a3.html'">NEXT</button>
+
+  </div>
+</body>
+</html>

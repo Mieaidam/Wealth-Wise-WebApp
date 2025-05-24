@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aryo Nonton Bioskop – Dompet Kosong</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+    body{
+      height:100vh;display:flex;justify-content:center;align-items:center;
+      background:linear-gradient(to bottom,#ffee58,#ffeb3b);
+    }
+
+    .container{
+      width:92%;max-width:400px;background:#fffde7;border:4px solid #fbc02d;
+      border-radius:20px;padding:22px;text-align:center;position:relative;
+      box-shadow:0 10px 25px rgba(0,0,0,.25);animation:fadeIn .6s ease;
+    }
+
+    /* ---------- saldo ---------- */
+    .game-balance-box{
+      position:absolute;top:-42px;right:18px;display:flex;align-items:center;
+      background:#fff;padding:10px 16px;border-radius:12px;
+      box-shadow:0 4px 6px rgba(0,0,0,.3);font-size:1.1rem;font-weight:700;
+      border:2px solid #000;color:#d32f2f; /* merah = dompet kosong */
+    }
+    .game-balance-box img{width:30px;margin-right:8px}
+
+    /* ---------- narasi ---------- */
+    .narration{
+      background:#fff9c4;border:2px solid #000;border-radius:14px;
+      padding:12px;margin-bottom:22px;font-size:.95rem;color:#4e342e;
+    }
+
+    /* ---------- dialog ---------- */
+    .dialog{
+      background:#fff;border:2px solid #bbb;border-radius:14px;
+      padding:10px;font-style:italic;font-size:.92rem;width:fit-content;
+      margin:0 auto 22px auto;box-shadow:1px 2px 0 #aaa;
+    }
+
+    /* ---------- gambar adegan ---------- */
+    .scene{display:flex;justify-content:center;gap:18px;margin-bottom:25px}
+    .sceneTICK{
+      width:140px;height:140px;border-radius:14px;margin-top:30px;
+      animation:bounceShake 1.1s infinite;
+    }
+    .scenePOST{width:140px;border-radius:14px}
+
+    @keyframes bounceShake{
+      0%{transform:translateY(0) rotate(0deg)}
+      20%{transform:translateY(-14px) rotate(-5deg)}
+      40%{transform:translateY(0) rotate(5deg)}
+      60%{transform:translateY(-6px) rotate(-3deg)}
+      80%{transform:translateY(0) rotate(2deg)}
+      100%{transform:translateY(0) rotate(0deg)}
+    }
+
+    /* ---------- tombol ---------- */
+    .next-button{
+      width:100%;padding:10px;border:none;border-radius:12px;
+      background:#ffff8d;color:#212121;font-weight:700;font-size:1rem;
+      cursor:pointer;transition:.3s;
+    }
+    .next-button:hover{background:#fdd835}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- saldo kosong -->
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang">
+      Rp&nbsp;0
+    </div>
+
+    <!-- narasi -->
+    <div class="narration">
+      Aryo akhirnya ikut menonton film bersama teman-teman. Seru sih, tapi semua uang jajannya ludes demi tiket dan camilan.
+    </div>
+
+    <!-- dialog pribadi -->
+    <div class="dialog">
+      “Dompetku kosong… tapi filmnya keren banget! Besok harus mulai nabung lagi, deh.”
+    </div>
+
+    <!-- adegan gambar -->
+    <div class="scene">
+      <img src="../Images/Logo_Tiket.png" class="sceneTICK" alt="Tiket Bioskop">
+      <img src="../Images/Logo_Movie.jpg" class="scenePOST" alt="Poster Film">
+    </div>
+
+    <!-- tombol lanjut -->
+    <button class="next-button" onclick="location.href='Tabungan 3c a4 b2.html'">NEXT</button>
+  </div>
+</body>
+</html>

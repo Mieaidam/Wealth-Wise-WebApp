@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Wise — Literasi Keuangan Pelajar</title>
+
+<style>
+/* ========= CSS RESET ========= */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ========= LAYOUT ========= */
+body{
+  min-height:100vh;
+  display:flex;                 /* vertical-center entire card */
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:linear-gradient(135deg,#bbdefb,#e3f2fd);
+}
+
+/* ========= CARD ========= */
+.card{
+  width:90%;
+  max-width:430px;
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  animation:fadeUp .8s ease;
+  position:relative;
+}
+
+/* ========= HEADER ========= */
+header{
+  background:#64b5f6;
+  color:#fff;
+  text-align:center;
+  padding:14px 10px 18px;
+}
+header h1{font-size:1.15rem;font-weight:700}
+header p {font-size:.85rem;margin-top:4px}
+.back-btn{
+  position:absolute;top:12px;left:12px;
+  padding:4px 12px;
+  font-size:.8rem;
+  color:#0d47a1;text-decoration:none;
+  border:2px solid #bbdeff;
+  border-radius:24px;
+  background:#e3f2fd;
+  transition:.25s;
+}
+.back-btn:hover{background:#bbdefb}
+
+/* ========= THUMBNAILS ========= */
+.thumb-row{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding:22px 0;
+}
+.thumb{
+  height:115px;                 /* equal height */
+  aspect-ratio:4/3;             /* keep proportion */
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+
+/* ========= CONTENT ========= */
+.content{
+  padding:0 18px 24px;
+  color:#263238;
+}
+.content h2{
+  font-size:1.05rem;
+  color:#0d47a1;
+  margin-bottom:10px;
+}
+.content p{
+  font-size:.93rem;
+  line-height:1.55;
+  margin-bottom:12px;
+}
+.content ul{padding-left:20px;margin-bottom:14px}
+.content li{margin-bottom:6px;font-size:.92rem}
+
+/* ========= FOOTER / CTA ========= */
+footer{
+  background:#fffde7;
+  text-align:center;
+  padding:15px 12px;
+  font-size:.83rem;
+  color:#5d4037;
+}
+.btn-group{
+  display:flex;
+  justify-content:space-around;
+  gap:12px;
+  padding:16px 18px 22px;
+  background:#f1f8e9;
+}
+.btn{
+  flex:1;
+  padding:10px 0;
+  font-size:.85rem;
+  font-weight:600;
+  border:2px solid #aed581;
+  background:#fff;
+  color:#33691e;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.25s;
+}
+.btn:hover{background:#dcedc8;transform:scale(1.05)}
+
+/* ========= ANIMATION ========= */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== CARD ====== -->
+<article class="card">
+
+  <!-- app logo top right -->
+  <img src="../Images/Logo_WealthWise.png" alt="Logo" style="position:absolute;top:10px;right:14px;width:54px;height:54px;object-fit:contain;z-index:2;">
+
+  <!-- back nav -->
+  <a href="../Halaman Utama.html" class="back-btn">← Kembali</a>
+
+  <!-- header -->
+  <header>
+    <h1>Wealth Wise</h1>
+    <p>Edukasi Keuangan untuk Pelajar</p>
+  </header>
+
+  <!-- thumbs -->
+  <div class="thumb-row">
+    <img src="../Images/Logo_MengelolaUang2.jpg" class="thumb">
+    <img src="../Images/Logo_Bayar2.jpg" class="thumb">
+  </div>
+
+  <!-- main content -->
+  <section class="content">
+    <h2>Definisi Literasi Keuangan</h2>
+    <p><strong>Literasi keuangan</strong> adalah kemampuan memahami <em>bagaimana uang bekerja</em> — mulai dari cara mendapatkannya, mengelolanya, sampai membuatnya tumbuh. Pelajar yang literat finansial mampu menilai risiko, merencanakan masa depan, dan membuat keputusan cerdas setiap hari.</p>
+
+    <p>Keterampilan ini mencakup pengetahuan tentang:</p>
+    <ul>
+      <li><strong>Pendapatan</strong> – misalnya uang jajan, hadiah, pekerjaan paruh waktu.</li>
+      <li><strong>Anggaran</strong> – menyusun rencana pemasukan &amp; pengeluaran agar kebutuhan utama aman lebih dulu.</li>
+      <li><strong>Tabungan &amp; Rekening</strong> – menyimpan uang secara teratur untuk tujuan jangka pendek dan darurat.</li>
+      <li><strong>Investasi dasar</strong> – memahami bahwa uang dapat berkembang (contoh: emas atau reksa dana) dan selalu ada risiko.</li>
+      <li><strong>Pinjaman & Utang</strong> – kapan berutang itu wajar, kapan berbahaya (terutama pinjol ilegal).</li>
+    </ul>
+
+    <p>Memiliki literasi keuangan berarti mampu berkata “ya” atau “tidak” pada suatu pengeluaran dengan alasan jelas—bukan sekadar ikut tren. Semakin dini kamu belajar, semakin kuat pondasi finansialmu nanti!</p>
+  </section>
+
+  <!-- footer / CTA -->
+  <footer>Siap uji pengetahuanmu? Pilih topik di bawah ini!</footer>
+
+  <div class="btn-group">
+    <button class="btn" onclick="location.href='Tabungan 1.html'">Tabungan</button>
+    <button class="btn" onclick="location.href='Investasi 1.html'">Investasi</button>
+    <button class="btn" onclick="location.href='Kredit 1.html'">Pinjaman</button>
+    <span style="flex:0 0 18px"></span> <!-- Spacer -->
+    <button class="btn" onclick="location.href='Tambahan 1.html'">Tambahan</button>
+  </div>
+
+</article>
+<!-- ====== /CARD ====== -->
+
+</body>
+</html>

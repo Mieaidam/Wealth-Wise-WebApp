@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinjaman Berhasil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      background-color: #FFD700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+      gap: 15px;
+    }
+
+    .money-status {
+    background-color: #FFF;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    color: #000;
+    border: 2px solid black;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Add these lines to position on the right */
+    margin-left: auto;
+    margin-right: 0px; /* Optional: Add some right margin */
+    }
+
+    .money-info {
+      text-align: left;
+    }
+
+    .money-amount {
+      font-weight: bold;
+      color: #008000;
+      font-size: 18px;
+    }
+
+    .money-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .text-box {
+        background-color: #FFF;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        font-size: 18px;
+        color: #000;
+        text-align: center;
+        line-height: 1.6;
+        border: 2px solid black;
+        width: 100%;
+        margin-bottom: 20px; /* Adds space below each text box */
+    }
+
+    .title-box {
+        font-size: 34px;
+        font-weight: bold;
+        color: #000000;
+        text-transform: uppercase;
+        padding: 20px;
+        margin-bottom: 20px; /* Adds space below the title box */
+    }
+
+    .boxes-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px; /* Adds space below the pros and cons container */
+    }
+
+    .pros-box, .cons-box {
+        text-align: center; /* Centers the text horizontally */
+        padding: 15px 20px;
+        display: flex; /* Enables flexbox */
+        justify-content: center; /* Centers the text horizontally */
+        align-items: center; /* Centers the text vertically */
+        width: 45%;
+        margin: 5px;
+        vertical-align: top;
+        flex-direction: column; /* Ensures multi-line text stacks properly */
+    }
+
+    .pros-box {
+        color: #008000; /* Green text for pros */
+    }
+
+    .cons-box {
+        color: #FF0000; /* Red text for cons */
+    }
+
+    .button {
+        background-color: #000;
+        color: #FFF;
+        padding: 12px 25px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+        margin-top: 10px;
+    }
+
+    .button:hover {
+        transform: scale(1.05);
+        background-color: #FF0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- New money status section -->
+    <div class="money-status">
+      <div class="money-info">
+        <div class="money-amount">2jt</div>
+      </div>
+      <img src="../Images/Logo_Duit.png" class="money-icon">
+    </div>
+
+    <div class="text-box title-box">
+      SELAMAATTT KAMU SUKSES!
+    </div>
+
+    <div class="text-box">
+      YAA BENAARR, pinjam ke teman adalah solusi aman untuk dapat uang cepat. <strong>TAPI JANGAN KETERUSAN!</strong> Kalau tiap hari mah namanya morotin temen broo...
+    </div>
+
+    <div class="boxes-container">
+      <div class="text-box pros-box">
+        ✓ No bunga<br>
+        ✓ Proses instan
+      </div>
+      <div class="text-box cons-box">
+        ✗ Risiko rusak persahabatan<br>
+        ✗ Tidak sustainable
+      </div>
+    </div>
+
+    <div class="text-box">
+      Okey, kamu udah tau konsekuensinya. Mau tau lebih dalam?
+    </div>
+
+    <button class="button" onclick="location.href='Pinjaman 2 a3.html'">TEKAN INII!!</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelebihan dan Kekurangan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFD700; /* Yellowish background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center everything vertically */
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .boxes-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pros-box, .cons-box {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        .pros-box {
+            border-left: 4px solid #28a745; /* Green border for pros */
+        }
+
+        .cons-box {
+            border-left: 4px solid #dc3545; /* Red border for cons */
+        }
+
+        .pros-box h3, .cons-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .pros-box ol, .cons-box ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .pros-box li, .cons-box li {
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        .text-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .success-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: #28a745; /* Green button */
+            position: relative;
+            overflow: hidden; /* Ensures the ripple stays within the button */
+            box-shadow: 0 0 10px #28a745, 0 0 20px #28a745; /* Glowing effect */
+            transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for effects */
+        }
+
+        .success-button:hover {
+            background-color: #218838;
+            box-shadow: 0 0 20px #218838, 0 0 30px #218838; /* Stronger glow on hover */
+        }
+
+        .success-button:active {
+            transform: scale(1.1); /* Scale up the button slightly */
+            animation: bounce 0.3s ease; /* Bounce effect */
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none; /* Prevents interference with button clicks */
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Confetti animation */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #FFD700; /* Gold confetti */
+            border-radius: 50%;
+            animation: confetti-fall 2s ease-out forwards; /* Increased duration to 2s */
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(300px) rotate(360deg);
+            }
+        }
+
+        .home-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30%; /* Smaller width */
+            padding: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 auto; /* Center the button horizontally */
+            background-color: #007bff; /* Blue button */
+            transition: transform 0.2s, background-color 0.2s; /* Smooth transition for effects */
+        }
+
+        .home-button img {
+            width: 24px; /* Placeholder icon size */
+            height: 24px;
+            margin-right: 8px; /* Space between icon and text */
+        }
+
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Kelebihan dan Kekurangan</h2>
+
+        <div class="boxes-container">
+            <div class="pros-box">
+                <h3>Kelebihan:</h3>
+                <ol>
+                    <li>Tanpa Bunga atau Biaya Tambahan</li>
+                    <li>Proses Cepat dan Mudah</li>
+                    <li>Fleksibilitas dalam Pembayaran</li>
+                    <li>Menghindari Formalitas</li>
+                </ol>
+            </div>
+            <div class="cons-box">
+                <h3>Kekurangan:</h3>
+                <ol>
+                    <li>Risiko Merusak Hubungan</li>
+                    <li>Ketergantungan Emosional</li>
+                    <li>Kurangnya Kepastian Hukum</li>
+                    <li>Batasan Pinjaman</li>
+                    <li>Perasaan Tidak Enak</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="text-box">
+            Memang benar meminjam ke teman bisa menjadi solusi yang baik dalam situasi darurat atau kebutuhan mendesak, tetapi... <b>penting untuk mempertimbangkan baik-baik dampaknya pada hubungan jangka panjang.</b>
+        </div>
+
+        <button class="success-button" onclick="showRippleEffect(event)">SUKSES!!</button>
+        <button class="home-button" onclick="location.href='Halaman Game 2.html'">
+            <img src="../Images/Logo_Home.png" alt="Home Icon"> HOME
+        </button>
+    </div>
+    <script>
+        localStorage.setItem('levelCompleted', 'Pinjaman');
+                function showRippleEffect(event) {
+            const button = event.currentTarget;
+
+            // Ripple effect
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            ripple.className = 'ripple';
+            button.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600); // Remove ripple after animation
+
+            // Confetti effect
+            for (let i = 0; i < 10; i++) {
+                createConfetti(button);
+            }
+        }
+
+        function createConfetti(button) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            const rect = button.getBoundingClientRect();
+            const x = Math.random() * rect.width;
+            const y = Math.random() * rect.height;
+
+            confetti.style.left = `${x}px`;
+            confetti.style.top = `${y}px`;
+            confetti.style.backgroundColor = getRandomColor(); // Random confetti color
+            button.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 1000); // Remove confetti after animation
+        }
+
+        function getRandomColor() {
+            const colors = ['#FFD700', '#FF4500', '#1E90FF', '#32CD32', '#FF69B4'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kisah Bayu</title>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #FFD700;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fffde1;
+        border: 2px solid #000;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    .section {
+        margin-bottom: 24px;
+        text-align: justify;
+    }
+
+    .section2 {
+       text-align: center;
+       margin-bottom: 15px; /* Remove bottom margin */
+    }
+
+    .section3 {
+        text-align: center;
+    }
+
+    .text-box {
+        background-color: #000;
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .image-wrapper {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    .image-wrapper img.bayu {
+        width: 190px;
+        height: auto;
+        margin-left: -120px;
+        margin-bottom: 10px; /* Add bottom margin */
+        border: 2px solid #000; /* Add a black border */
+        border-radius: 10px; /* Slightly rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        background-color: #fffde1; /* Light yellow background to match the theme */
+        padding: 10px; /* Add padding inside the border */
+    }
+
+    .saldo-wrapper {
+        display: flex;
+        align-items: center;
+        background-color: #fffde1; /* Light yellow background */
+        border: 2px solid #000; /* Black border */
+        border-radius: 20px; /* Rounded corners */
+        padding: 10px 15px; /* Padding inside the wrapper */
+        position: absolute;
+        top: 80px; /* Adjusted to appear near Bayu’s hand */
+        left: 50px; /* Moved slightly to the right */
+    }
+
+    .money-icon img {
+        width: 40px; /* Adjust size of the money icon */
+        height: auto;
+        margin-right: 10px; /* Space between icon and text */
+    }
+
+    .saldo-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .saldo-nominal {
+        font-size: 20px; /* Larger font for nominal */
+        font-weight: bold;
+        color: #000; /* Black text */
+    }
+
+    .saldo-label {
+        font-size: 12px; /* Smaller font for label */
+        color: #000; /* Black text */
+        text-align: left; /* Align text to the left */
+        line-height: 1.2; /* Adjust line height for better spacing */
+    }
+
+    .button {
+        width: 30%;
+        text-align: center;
+        background-color: #fdd835;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: bold;
+        border: 2px solid #000;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .button:hover {
+        background-color: #ffe066;
+    }
+
+    .speech-bubble {
+        background-color: #fdd835;
+        padding: 12px;
+        border-radius: 10px;
+        font-style: italic;
+        font-size: 14px;
+        margin-top: -10px; /* Negative margin to remove space */
+        margin-bottom: 20px; /* Space below the speech bubble */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section text-box">
+        Bayu, mahasiswa Teknik Kimia yang juga bekerja paruh waktu, mulai lelah dengan rutinitasnya yang padat. Dengan saldo saat ini hanya Rp1 juta, <b>ia merasa terjebak: tidak bekerja berarti tidak ada pemasukan.</b>
+    </div>
+
+    <div class="section image-wrapper">
+      <img src="../Images/Logo_Bayu.png" class="bayu">
+      <div class="saldo-wrapper">
+        <div class="money-icon">
+          <img src="../Images/Logo_Duit.png" alt="Money Icon">
+        </div>
+        <div class="saldo-info">
+          <div class="saldo-nominal">1 Jt</div>
+          <div class="saldo-label">saldonya<br>saat ini...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="speech-bubble">
+      "Capek juga ya kerja terus, tapi kalau nggak kerja, nggak ada pemasukan. Gimana, ya?"
+    </div>
+
+    <div class="section2 text-box">
+        Ia pun berpikir: bagaimanakah cara mengatur keuangan lebih cerdas? Bayu ingin tetap menghasilkan tanpa selalu mengandalkan tenaga fisik, misalnya dengan investasi, usaha sampingan, atau mengembangkan keterampilan digital.
+    </div>
+
+    <div class="section3">
+      <button class="button" onclick="location.href='Investasi 2.html'">LANJUT</button>
+    </div>
+  </div>
+</body>
+</html>

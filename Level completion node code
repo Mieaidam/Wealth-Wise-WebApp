@@ -1,0 +1,5 @@
+//Taruh setiap akhir level pinjaman (kan banyak skenario, pokoknya finish skenario 1 buka level next)
+localStorage.setItem('levelCompleted', 'Pinjaman');
+
+//ini sama tapi buat investasi
+localStorage.setItem('levelCompleted', 'Investasi');

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWise - Main Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            background-color: #87CEFA; /* Light blue background */
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center;
+            padding: 3% 3%;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center all content vertically */
+            overflow-y: auto; /* Allow scrolling if content overflows */
+        }
+
+        .header {
+            display: flex;
+            justify-content: center; /* Center align logos horizontally */
+            align-items: center; /* Center align logos vertically */
+            gap: 20px; /* Add spacing between logos */
+            margin-bottom: 20px; /* Add spacing below the header */
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none; /* Remove any background */
+            border: none; /* Remove any borders */
+            padding: 0; /* Remove padding */
+        }
+
+        .logo img {
+            width: 100px; /* Set a fixed width for all logos */
+            height: 80px; /* Default height for all logos */
+            object-fit: contain; /* Ensure the image fits within the box without distortion */
+            display: block; /* Remove inline spacing issues */
+            margin: 0 auto; /* Center the logos within their containers */
+            border: none; /* Remove any borders */
+            background: none; /* Remove any background */
+            box-shadow: none; /* Remove any shadow effects */
+        }
+
+        .logo:first-child img, /* First logo */
+        .logo:nth-child(2) img { /* Second logo */
+            height: 60px; /* Adjust height for the first and second logos */
+        }
+
+        .logo:last-child img { /* Target the WealthWise logo */
+            margin-top: 10px; /* Lower the position slightly */
+        }
+
+        .welcome-section {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 5%;
+        }
+
+        .welcome-text {
+            color: white;
+            font-size: 7vw;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .username-text {
+            color: white;
+            font-size: 5vw;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .intro-box {
+            background-color: #e3f2fd;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            font-size: 4.5vw;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Style for the "Menu" label */
+        .menu-label {
+            display: flex;
+            justify-content: center; /* Center the label horizontally */
+            margin-bottom: 20px; /* Add space below the label */
+        }
+
+        .menu-label-box {
+            background-color: #ffffff; /* White background for the label */
+            color: #333; /* Dark text color */
+            font-size: 18px; /* Adjust font size */
+            font-weight: bold; /* Make the text bold */
+            padding: 10px 20px; /* Add padding around the text */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            width: 110px; /* Slightly reduce the width */
+            height: 110px; /* Slightly reduce the height */
+            background-color: #ffffff; /* White background */
+            border: none; /* Remove the border */
+            border-radius: 10px; /* Keep the rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px; /* Adjust padding */
+            transition: transform 0.2s; /* Add smooth hover effect */
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .menu-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .menu-icon img {
+            width: 90%;
+            height: auto;
+            max-height: 40px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .menu-icon svg {
+            width: 40px; /* Reduce the width of the icons */
+            height: 40px; /* Reduce the height of the icons */
+        }
+
+        .menu-item:nth-child(4) .menu-icon img {
+            width: 72%; /* Scale the Developer logo to 100% */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .menu-item:nth-child(5) .menu-icon img {
+            width: 100%; /* Scale the AI logo to 100% */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .menu-text {
+            font-size: 13px; /* Adjust text size */
+            text-align: center;
+            color: #333; /* Set the text color to dark gray */
+        }
+
+        .menu-link {
+            text-decoration: none; /* Remove underline from the link */
+            color: inherit; /* Inherit the text color */
+            display: flex;
+            flex-direction: column; /* Stack the icon and text vertically */
+            align-items: center; /* Center align the content */
+        }
+
+        .logout-btn {
+            width: 80%;
+            height: 45px;
+            background-color: #e3f2fd;
+            border-radius: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        .logout-btn:hover {
+            background-color: #d4e8f9;
+        }
+
+        .menu-icon img {
+            width: 100%; /* Scale the image to fit the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure the image fits within the container */
+        }
+
+        /* Responsive adjustments for different screen sizes */
+        @media (min-height: 700px) {
+            .menu-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .menu-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-height: 500px) {
+            .header {
+                margin-bottom: 2%;
+            }
+            
+            .welcome-section {
+                margin-bottom: 2%;
+            }
+            
+            .welcome-text {
+                font-size: 6vw;
+            }
+            
+            .username-text {
+                font-size: 4vw;
+            }
+            
+            .intro-box {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .intro-text {
+                font-size: 3.5vw;
+            }
+            
+            .menu-label {
+                margin-bottom: 5px;
+            }
+            
+            .menu-grid {
+                gap: 10px;
+            }
+            
+            .menu-item {
+                padding: 10px 5px;
+            }
+            
+            .menu-icon {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 5px;
+            }
+            
+            .menu-text {
+                font-size: 2.5vw;
+            }
+            
+            .logout-btn {
+                height: 35px;
+                margin-top: 10px;
+            }
+        }
+
+        /* For smaller screens */
+        @media (max-width: 350px) {
+            .welcome-text {
+                font-size: 24px;
+            }
+            
+            .username-text {
+                font-size: 18px;
+            }
+            
+            .intro-text {
+                font-size: 16px;
+            }
+            
+            .menu-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="header">
+                <div class="logo">
+                    <img src="Images/Logo_MTs.png" alt="Logo MTs">
+                </div>
+                <div class="logo">
+                    <img src="Images/Logo_KIR.png" alt="Logo KIR">
+                </div>
+                <div class="logo">
+                    <img src="Images/Logo_WealthWise.png" alt="Logo WealthWise">
+                </div>
+            </div>
+            
+            <div class="welcome-section">
+                <div class="welcome-text">SELAMAT DATANG</div>
+                <div class="username-text" id="usernameDisplay">user</div>
+            </div>
+            
+            <div class="intro-box">
+                <div class="intro-text">Yuk, kita belajar bersama mengenai pengelolaan keuangan!</div>
+            </div>
+            
+            <div class="menu-label">
+                <div class="menu-label-box">Menu:</div>
+            </div>
+            
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <a href="../Wealth Wise/Literasi Keuangan/Literasi Keuangan 1.html" class="menu-link">
+                        <div class="menu-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <div class="menu-text">Literasi Keuangan</div>
+                    </a>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="Pinjaman Online/Pinjaman Online 1.html" class="menu-link">
+                        <div class="menu-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <line x1="6" y1="12" x2="18" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="menu-text">Pinjaman Online</div>
+                    </a>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="Judi Online/Judi Online 1.html" class="menu-link">
+                        <div class="menu-icon">
+                            <img src="Images/Logo_Judol.jpg" alt="Judi Online Logo">
+                        </div>
+                        <div class="menu-text">Judi Online</div>
+                    </a>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="Halaman Game/Halaman Game.html" class="menu-link">
+                        <div class="menu-icon">
+                            <img src="Images/Logo_Game.png" alt="Game Logo">
+                        </div>
+                        <div class="menu-text">Game</div>
+                    </a>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="CV/Halaman Developer.html" class="menu-link">
+                        <div class="menu-icon">
+                            <img src="Images/Logo_Developer.png" alt="Developer Logo">
+                        </div>
+                        <div class="menu-text">Developer</div>
+                    </a>
+                </div>
+            
+                <div class="menu-item">
+                    <a href="../Wealth Wise/ai-assistant/frontend/index.html" class="menu-link">
+                    <div class="menu-icon">
+                        <img src="Images/Logo_AI.png" alt="AI Logo">
+                    </div>
+                    <div class="menu-text">WealthWise AI</div>
+                    </a>
+                </div>
+            </div>        
+            
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Try to get username from URL parameters first
+            const urlParams = new URLSearchParams(window.location.search);
+            let username = urlParams.get('username');
+            
+            // If not in URL, try localStorage
+            if (!username) {
+                username = localStorage.getItem('username');
+            }
+            
+            // Update the greeting if username exists
+            if (username) {
+                document.getElementById('usernameDisplay').textContent = username;
+            }
+
+            // Logout functionality
+            const logoutButton = document.getElementById('logoutBtn');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function() {
+                    // Clear any stored user data
+                    localStorage.removeItem('username');
+                    
+                    // Redirect to login page in Firebase folder
+                    window.location.href = '../Wealth Wise/Firebase/index.html';
+                });
+            } else {
+                console.error('Logout button not found!');
+            }
+        };
+        window.onload = function() {
+    // Display username from URL or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    let username = urlParams.get('username');
+    if (!username) username = localStorage.getItem('username');
+    if (username) document.getElementById('usernameDisplay').textContent = username;
+
+    // Logout button
+    const logoutButton = document.getElementById('logoutBtn');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function () {
+            localStorage.removeItem('username');
+            localStorage.removeItem('hasSeenTutorial');
+            window.location.href = '../Wealth Wise/Firebase/index.html';
+        });
+    }
+
+    // Run tutorial if first time
+    if (!localStorage.getItem('hasSeenTutorial')) {
+        runTutorial();
+    }
+
+    function runTutorial() {
+        const steps = [
+            {
+                selector: '.menu-item:nth-child(1)',
+                text: 'Ini merupakan materi pembelajaran "Literasi Keuangan", tempat kamu belajar dasar-dasar pengelolaan uang dengan bijak.'
+            },
+            {
+                selector: '.menu-item:nth-child(2)',
+                text: '"Pinjaman Online" membahas cara kerja pinjaman digital, risiko, dan cara menghindari jebakan utang.'
+            },
+            {
+                selector: '.menu-item:nth-child(3)',
+                text: 'Bagian ini menjelaskan bahaya "Judi Online" dan dampaknya terhadap keuangan dan kehidupan.'
+            },
+            {
+                selector: '.menu-item:nth-child(4)',
+                text: 'Di sini kamu bisa bermain game interaktif untuk menguji seberapa baik kamu memahami pengelolaan keuangan!'
+            },
+            {
+                selector: '.menu-item:nth-child(6)',
+                text: '"WealthWise AI" adalah asisten pintar yang bisa kamu tanya apa saja tentang keuangan — gunakan sepuasnya!'
+            }
+        ];
+
+        const overlay = document.getElementById('tutorialOverlay');
+        const highlightBox = document.getElementById('tutorialHighlight');
+        const textBox = document.getElementById('tutorialText');
+        const nextBtn = document.getElementById('nextTutorialBtn');
+
+        let currentStep = 0;
+
+        function showStep(step) {
+            const target = document.querySelector(step.selector);
+            const rect = target.getBoundingClientRect();
+
+            highlightBox.style.width = rect.width + 'px';
+            highlightBox.style.height = rect.height + 'px';
+            highlightBox.style.top = rect.top + window.scrollY + 'px';
+            highlightBox.style.left = rect.left + window.scrollX + 'px';
+
+            textBox.textContent = step.text;
+        }
+
+        overlay.style.display = 'flex';
+        showStep(steps[currentStep]);
+
+        nextBtn.onclick = () => {
+            currentStep++;
+            if (currentStep < steps.length) {
+                showStep(steps[currentStep]);
+            } else {
+                overlay.style.display = 'none';
+                localStorage.setItem('hasSeenTutorial', 'true');
+            }
+        };
+    }
+};
+    </script>
+<!-- TUTORIAL OVERLAY -->
+<div id="tutorialOverlay" style="display: none; position: fixed; top: 0; left: 0; 
+    width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); 
+    z-index: 9999; justify-content: center; align-items: center; flex-direction: column;">
+    
+    <!-- Highlight Box -->
+    <div id="tutorialHighlight" style="position: absolute; border: 3px solid yellow; border-radius: 10px; pointer-events: none;"></div>
+
+    <!-- Tutorial Text Box -->
+    <div style="background: white; padding: 20px; border-radius: 10px; max-width: 80%; 
+        text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10000; margin-bottom: 145px;">
+        <p id="tutorialText" style="font-size: 16px; margin-bottom: 15px; color: #333;"></p>
+        <button id="nextTutorialBtn" style="padding: 10px 20px; font-size: 14px; font-weight: bold; 
+            background-color: #87CEFA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Selanjutnya
+        </button>
+    </div>
+</div>
+</body>
+</html>

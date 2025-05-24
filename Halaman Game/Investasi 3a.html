@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=340, initial-scale=1.0">
+  <title>Investasi - Pilihan Saham</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      height: 100vh;
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 340px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      padding: 24px 0 24px 0;
+    }
+    .header-bubble, .footer-bubble {
+      background: #ffffcc;
+      border-radius: 22px;
+      margin: 0 0 18px 0;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 95%;
+      animation: fadeIn 1s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .footer-bubble {
+      font-weight: normal;
+      font-size: 15px;
+      margin: 18px 0 18px 0;
+      border-radius: 22px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0;
+    }
+    .scene {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+      min-height: 220px;
+      position: relative;
+    }
+    .speech-bubble {
+      background: #ffffcc;
+      border-radius: 22px;
+      padding: 14px 18px 18px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: -12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      font-weight: bold;
+      max-width: 90%;
+      text-align: left;
+      z-index: 2;
+      opacity: 0.7;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      left: 38px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #ffffcc;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .character-img {
+      width: 140px; /* Increased width */
+      height: 160px; /* Increased height */
+      object-fit: contain;
+      margin-top: 18px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 22px; /* Slightly larger border radius */
+      border: 2px solid #222;
+      animation: floatChar 2.5s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes floatChar {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-8px);}
+      100% { transform: translateY(0);}
+    }
+    .prompt-text {
+      margin: 12px 0 8px 0;
+      font-size: 17px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 1px;
+      animation: fadeIn 1.2s;
+    }
+    .choice-btn {
+      background-color: #ffffcc;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 0;
+      font-size: 21px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 8px 0;
+      width: 92%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.13);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 1px;
+      animation: popIn 1.2s;
+      display: block;
+    }
+    .choice-btn:hover {
+      background-color: #ffe600;
+      transform: scale(1.04);
+    }
+    /* Responsive */
+    @media (max-width: 400px) {
+      .container { width: 100vw; }
+      .header-bubble, .footer-bubble { width: 98vw; }
+      .scene { width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Bayu pun membuka Rekening Dana Nasabah (RDN) dengan KTP dan NPWP. Ini adalah rekening khusus untuk menyimpan uang sebelum ia membeli saham. Sekarang, ia tinggal memilih saham dari perusahaan mana yang ingin ia beli...
+    </div>
+    <div class="scene">
+      <div class="speech-bubble">
+        <i>"Hmm... tapi masa langsung beli saham gitu aja? Kalau rugi gimana?"</i>
+      </div>
+      <img class="character-img" src="../Images/Logo_OrangHP.png">
+    </div>
+    <div class="prompt-text">
+      Pilih keputusan untuk Bayu lagi!!
+    </div>
+    <button class="choice-btn" onclick="location.href='Investasi 3a a1.html'">Langsung beli saham bank</button>
+    <button class="choice-btn" onclick="location.href='Investasi 3a b1.html'">Coba pelajari-pelajari saham dulu</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinjaman Online - Pilihan Brady</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fffde1;
+      border: 2px solid #000;
+      border-radius: 12px;
+      max-width: 360px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .narration-box {
+      background-color: #fff89a;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+
+    .illustration-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+      padding-top: 60px; /* Adjusted so speech bubble sits closer */
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: -40px; /* Lowered speech bubble */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fdd835;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-style: italic;
+      width: 260px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      opacity: 0.55;
+    }
+
+    /* Cute little pointer triangle */
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: #fdd835; /* Same as bubble background */
+      border-bottom: 0;
+    }
+
+    .illustration {
+      width: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .info-box {
+      background-color: #fff89a;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .choice-button {
+      flex: 1;
+      background-color: #fdd835;
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 10px 5px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .choice-button:hover {
+      background-color: #ffe066;
+      transform: translateY(-2px);
+    }
+
+    .ojk {
+      color: green;
+    }
+
+    .non-ojk {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="narration-box">
+    Setelah mempertimbangkan berbagai pilihan, akhirnya Brady memutuskan untuk mencoba mengajukan pinjaman online.
+  </div>
+
+  <div class="illustration-wrapper">
+    <div class="speech-bubble">
+      "Aplikasi pinjaman online banyak sekali! Tapi aku harus pilih yang aman. Bagaimana caranya, ya?"
+    </div>
+    <img src="../Images/Logo_Pinjaman.png" alt="Ilustrasi Brady" class="illustration">
+  </div>
+
+  <div class="info-box">
+    Ternyata, ada aplikasi yang terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK), dan ada juga yang tidak. Yuk, bantu Brady memilih dengan benar!
+  </div>
+
+  <div class="button-group">
+    <button class="choice-button ojk" onclick="location.href='Pinjaman 2 b1 a1.html'">Terdaftar OJK</button>
+    <button class="choice-button non-ojk" onclick="location.href='Pinjaman 2 b1 b1.html'">Tidak Terdaftar OJK</button>
+  </div>
+</div>
+
+</body>
+</html>

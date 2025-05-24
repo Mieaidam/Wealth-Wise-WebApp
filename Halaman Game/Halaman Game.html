@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+</head>
+<style>
+            body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFD700; /* Yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background-color: #FFD700; /* Match the yellow background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .game-header img {
+            width: 70px; /* Default size for all logos */
+            height: auto;
+        }
+
+        .logo-wealthwise {
+            width: 128px; /* Enlarge the WealthWise logo */
+            height: auto;
+        }
+
+        .game-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-character {
+            width: 235px; /* Enlarge the game icon */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-size: 28px; /* Slightly larger title */
+            font-weight: bold;
+            color: #000000; /* Black text */
+            text-shadow: 2px 2px 0px #FFFFFF; /* White outline */
+            margin-bottom: 20px;
+        }
+
+        /* Add keyframes for the jumping effect */
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0); /* Initial and final position */
+            }
+            50% {
+                transform: translateY(-10px); /* Move up slightly */
+            }
+        }
+
+        /* Apply the jumping animation to the play button */
+        .play-button {
+            background-color: transparent; /* Transparent background */
+            border: none;
+            width: 100px; /* Enlarge the play button */
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            animation: jump 1s infinite; /* Add the jumping effect */
+            transition: transform 0.2s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .play-button svg {
+            width: 100px; /* Match the size of the play button */
+            height: 100px;
+        }
+</style>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <img src="../Images/Logo_WealthWise.png" class="logo-wealthwise">
+            <img src="../Images/Logo_KIR.png" class="logo">
+            <img src="../Images/Logo_MTs.png" class="logo">
+        </div>
+        <div class="game-content">
+            <img src="../Images/Logo_Game.png" class="game-character">
+            <div class="game-title">BUTUH DUIT CEPAT!!!</div>
+            <button class="play-button" onclick="location.href='Halaman Game 2.html'">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2" fill="white"></circle>
+                    <polygon points="10,8 16,12 10,16" fill="black"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

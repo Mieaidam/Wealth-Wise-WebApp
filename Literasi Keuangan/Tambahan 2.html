@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wealth Wise — Cakupan Literasi Finansial (1)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+    }
+    .card {
+      width: 90%;
+      max-width: 360px;
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+      position: relative;
+      animation: fadeUp .8s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(34px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header {
+      background: #64b5f6;
+      color: #fff;
+      text-align: center;
+      padding: 18px 12px 22px;
+      position: relative;
+    }
+    header h1 { font-size: 1.2rem; font-weight: 700; }
+    header p { font-size: .85rem; margin-top: 4px; }
+    .back-btn {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: #e3f2fd;
+      font-size: 1.25rem;
+      color: #0d47a1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: .25s;
+    }
+    .back-btn:hover { background: #bbdefb; transform: scale(1.05); }
+    .logo {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      z-index: 2;
+    }
+    .hero {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: #cfd8dc;
+      text-align: center;
+      padding: 0;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      display: block;
+    }
+    section.content {
+      padding: 20px 18px 30px;
+      color: #263238;
+    }
+    .content h2 {
+      font-size: 1.15rem;
+      color: #0d47a1;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .content p {
+      font-size: .93rem;
+      line-height: 1.55;
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+    .content h3 {
+      font-size: 1rem;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      color: #1565c0;
+    }
+    .cta {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .next-btn {
+      width: 58px;
+      height: 58px;
+      border: 3px solid #90caf9;
+      border-radius: 16px;
+      background: #f1f8ff;
+      font-size: 1.45rem;
+      color: #0d47a1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: .3s;
+    }
+    .next-btn:hover { background: #e3f2fd; transform: translateY(-2px) scale(1.05); }
+    .navbar {
+      background: #64b5f6;
+      display: flex;
+      gap: 8px;
+      justify-content: space-around;
+      padding: 14px 0 18px;
+    }
+    .nav-item {
+      flex: 1;
+      text-align: center;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-item img {
+      width: 34px;
+      height: 34px;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <img src="../Images/Logo_WealthWise.png" alt="Logo" class="logo">
+    <button class="back-btn" onclick="history.back()">←</button>
+
+    <header>
+      <h1>Wealth Wise</h1>
+      <p>Cakupan Literasi Finansial – Bagian 1</p>
+    </header>
+
+    <div class="hero">
+      <img src="../Images/Logo_Pemasukan.jpg" alt="Ilustrasi Literasi">
+    </div>
+
+    <section class="content">
+      <h2>Penjelasan 3 dari 6 Cakupan Literasi Finansial</h2>
+
+      <h3>1. Memahami Transaksi Ekonomi</h3>
+      <p>
+        Kita semua terlibat dalam <strong>transaksi ekonomi</strong> setiap hari, bahkan tanpa sadar. Saat membeli jajanan, membayar ongkos, atau bahkan barter mainan, itu semua adalah bagian dari aktivitas ekonomi. Dengan memahami ini, kita belajar bagaimana <strong>uang berpindah tangan</strong> dan bagaimana <strong>nilai sebuah barang atau jasa</strong> bisa dihitung dan dipertukarkan.
+      </p>
+
+      <h3>2. Mengenali Sumber Pemasukan</h3>
+      <p>
+        Setiap orang memiliki pemasukan, walaupun kecil. Buat pelajar, <strong>uang saku</strong>, <strong>THR</strong>, hadiah, hingga <strong>hasil jualan</strong> barang bekas bisa jadi sumber pemasukan. Penting untuk tahu dari mana uang berasal agar kita bisa menghargainya dan tidak cepat habis. Saat kita sadar penghasilan terbatas, kita jadi lebih bijak dalam menggunakan uang.
+      </p>
+
+      <h3>3. Mengelola Pengeluaran</h3>
+      <p>
+        Ini salah satu kunci utama dalam keuangan. Banyak orang merasa gajinya kecil, padahal masalahnya adalah <strong>pengeluaran yang tidak terkontrol</strong>. Pelajar pun harus belajar <strong>membedakan kebutuhan dan keinginan</strong>, mencatat apa saja yang dibelanjakan, dan belajar menahan diri agar tidak selalu mengikuti keinginan sesaat. Dengan begitu, uang tidak cepat habis dan masih bisa ditabung!
+      </p>
+
+      <p style="text-align:center;font-weight:600">Masih ada 3 cakupan lagi yang tak kalah penting. Yuk lanjut ke halaman berikutnya!</p>
+    </section>
+
+    <div class="cta">
+      <button class="next-btn" onclick="location.href='Tambahan 3.html'">→</button>
+    </div>
+
+    <nav class="navbar">
+      <a class="nav-item" href="Tabungan 1.html">
+        <img src="../Images/Logo_Tabungan1.png" alt="Tabungan">
+        Tabungan
+      </a>
+      <a class="nav-item" href="Investasi 1.html">
+        <img src="../Images/Logo_Investasi1.png" alt="Investasi">
+        Investasi
+      </a>
+      <a class="nav-item" href="Kredit 1.html">
+        <img src="../Images/Logo_Pinjaman1.png" alt="Kredit">
+        Pinjaman
+      </a>
+    </nav>
+  </article>
+</body>
+</html>

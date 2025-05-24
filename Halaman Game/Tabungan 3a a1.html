@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keputusan Aryo - Menabung</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffde2b;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 360px;
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border: 3px solid #000;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .dialog-header {
+      background-color: #fcffc0;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1.5rem; /* Increased font size */
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      display: inline-block;
+      padding: 12px 20px; /* Increased padding */
+      font-size: 1.2rem; /* Increased font size */
+      max-width: 230px;
+      margin: 10px auto;
+      position: relative;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      opacity: 0.7;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: #fff;
+      border-bottom: 0;
+      margin-left: -8px;
+    }
+
+    .image-placeholder {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 35px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 3px solid #000;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bounce 2s infinite; /* Add bounce animation */
+      margin-right: 50%;
+    }
+
+    .image-placeholder img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .btn-next {
+      background-color: #fef6b1;
+      padding: 15px 30px; /* Increased padding */
+      font-size: 1.2rem; /* Increased font size */
+      font-weight: bold;
+      border-radius: 20px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-next:hover {
+      background-color: #fff376;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px); /* Adjust bounce height */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dialog-header">
+      Aryo memilih untuk tidak tergoda diskon. Baginya, menabung lebih penting untuk kebutuhan masa depan.
+    </div>
+
+    <div class="speech-bubble">
+      <i>"Nggak jadi top up deh. Prioritasku nabung buat hal yang lebih penting nanti."</i>
+    </div>
+
+    <div class="image-placeholder">
+        <img src="../Images/Logo_AryoBingung2.png">
+    </div>
+
+    <button class="btn-next" onclick="location.href='Tabungan 3a a2.html'">LANJUT</button>
+  </div>
+
+  <script>
+    // Add a subtle bounce effect to the image on hover
+    document.addEventListener("DOMContentLoaded", function () {
+      const image = document.querySelector(".image-placeholder");
+
+      image.addEventListener("mouseover", function () {
+        image.style.animation = "bounce 0.5s ease";
+      });
+
+      image.addEventListener("animationend", function () {
+        image.style.animation = "";
+      });
+    });
+
+    // Keyframes for bounce effect
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px); /* Reduced bounce height */
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

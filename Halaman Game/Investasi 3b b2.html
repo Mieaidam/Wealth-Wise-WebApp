@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proses Pembukaan Deposito</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe600, #ffd54f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .text-box {
+      background-color: #eaffb0;
+      padding: 1em;
+      width: 85%;
+      max-width: 500px;
+      border-radius: 20px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .bank-img {
+      width: 200px;
+      margin: 1em 0;
+    }
+
+    .speech-section {
+      position: relative;
+      width: 85%;
+      max-width: 500px;
+      margin-bottom: 2em;
+    }
+
+    .speech-bubble {
+      background: #fffacd;
+      padding: 1em;
+      border-radius: 25px;
+      border: 2px solid #000;
+      margin-bottom: 1em;
+      position: relative;
+      opacity: 0.7;
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-top-color: #fffacd;
+      border-bottom: 0;
+      margin-left: -15px;
+    }
+
+    .character-img {
+      width: 200px; /* Enlarged character image */
+      margin-top: 10px;
+      margin-right: 200px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .next-button {
+      background-color: #fff88f;
+      padding: 0.6em 2.2em;
+      border-radius: 15px;
+      font-size: 1.3em;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .next-button:hover {
+      background-color: #f5e342;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="text-box">
+    <p><strong>Bayu pun berangkat ke bank.</strong> Ia mengurus formulir, menyerahkan dokumen seperti KTP, NPWP, dan buku tabungannya kepada petugas. Joni menyetorkan sebagian uang dari tabungannya ke rekening deposito.</p>
+  </div>
+
+  <img class="bank-img" src="..//Images/Logo_Bank.png" alt="Bank Image"> <!-- Placeholder for bank image -->
+
+  <div class="speech-section">
+    <div class="speech-bubble">
+      <p><i>"Kata banknya, uangnya bakal terkunci sampai dua tahun. Memang, rencananya mau begitu... Biar nanti-nanti, dapat tambahan ekstra daripada cuma ditabung."</i></p>
+    </div>
+    <img class="character-img" src="..//Images/Logo_Bayu2.png" alt="Character Image"> <!-- Placeholder for character image -->
+  </div>
+
+  <div class="next-button" onclick="handleNext()">NEXT</div>
+
+  <script>
+    // Add a subtle animation to the "NEXT" button when clicked
+    const nextButton = document.querySelector('.next-button');
+    function handleNext() {
+      nextButton.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        nextButton.style.transform = 'scale(1)';
+        location.href = 'Investasi 3b b3.html'; // Redirect to the next page
+      }, 200);
+    }
+
+    // Add a glow effect to the bank image on hover
+    const bankImg = document.querySelector('.bank-img');
+    bankImg.addEventListener('mouseover', () => {
+      bankImg.style.boxShadow = '0 0 20px rgba(255, 223, 0, 0.8)';
+    });
+    bankImg.addEventListener('mouseout', () => {
+      bankImg.style.boxShadow = 'none';
+    });
+  </script>
+</body>
+</html>

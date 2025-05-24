@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buat Akun - WealthWise</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #f6f8fb;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 32px 24px 24px 24px;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+    .brand-name {
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: bold;
+      color: #4a6572;
+      margin-bottom: 2px;
+    }
+    .tagline {
+      font-size: 1rem;
+      color: #ff9800;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-size: 1.3rem;
+      color: #22223b;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .info-text {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .input-container {
+      width: 100%;
+      max-width: 300px;      /* Limit width for input area */
+      margin: 0 auto 10px auto; /* Center horizontally */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .input-field {
+      width: 100%;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+    }
+    .input-field input {
+      width: 100%;
+      max-width: 260px;      /* Limit width for input box */
+      padding: 12px 16px;
+      border: 1.5px solid #ccc;
+      border-radius: 25px;
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      transition: border 0.2s;
+      background: #f8fafc;
+      display: block;
+      margin: 0 auto;
+    }
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #4682B4;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .register-btn:hover {
+      background: #5A9BD5;
+      transform: scale(1.03);
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #4682B4;
+      text-decoration: underline;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #22223b;
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 18px 4px 12px 4px;
+        max-width: 98vw;
+      }
+      .header {
+        margin-bottom: 8px;
+      }
+      .title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="../Images/Logo_WealthWise.png" class="logo" alt="WealthWise Logo" />
+      <div class="brand-name">WEALTHWISE</div>
+      <div class="tagline">SOLUSI KEUANGANMU</div>
+    </div>
+    <div class="title">Buat Akun Baru</div>
+    <div class="info-text">
+      Silakan isi username dan password untuk membuat akun WealthWise Anda.
+    </div>
+    <form id="registerForm" class="input-container" autocomplete="off">
+      <div class="input-field">
+        <input type="text" id="username" placeholder="Username..." required />
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" placeholder="Password..." required minlength="6" />
+      </div>
+      <button type="submit" class="register-btn">Buat Akun</button>
+    </form>
+    <a class="back-link" href="index.html">&larr; Kembali ke Login</a>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAmm1WHSmprAWkf5KiWA6EH6EzRUY3M60A",
+      authDomain: "wealth-wise-cdff0.firebaseapp.com",
+      projectId: "wealth-wise-cdff0",
+      storageBucket: "wealth-wise-cdff0.appspot.com",
+      messagingSenderId: "236778243947",
+      appId: "1:236778243947:web:1c815a671c487509ecae2e",
+      measurementId: "G-ZH3ZSKES9Q"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (username && password) {
+        try {
+          // Firebase requires an email, so append a domain if not present
+          let email = username;
+          if (!email.includes('@')) {
+            email = username + '@wealthwise.local';
+          }
+          await createUserWithEmailAndPassword(auth, email, password);
+          // Remove alert, just redirect
+          window.location.href = "index.html";
+        } catch (e) {
+          alert('Gagal membuat akun: ' + e.message);
+        }
+      } else {
+        alert('Silakan masukkan username dan password untuk membuat akun!');
+      }
+    });
+  </script>
+</body>
+</html>

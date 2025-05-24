@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penjelasan Pinjaman</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fcd82b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #1e1e1e;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 90vh;
+    }
+    
+    .header-bubble {
+      background-color: #ffffcc;
+      padding: 14px 20px;
+      border-radius: 25px;
+      margin-bottom: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+      border: 2px solid #1e1e1e;
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .content-bubble {
+      background-color: #ffffaa;
+      padding: 20px;
+      border-radius: 25px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: left;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+      border: 2px solid #1e1e1e;
+      animation: fadeIn 1s ease 0.3s both;
+    }
+    
+    .next-button {
+      background-color: #ffff99;
+      color: black;
+      font-weight: bold;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: 2px solid black;
+      width: 85%;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .highlight {
+      font-weight: 600;
+      color: #d32f2f;
+    }
+    
+    .comparison {
+      margin-top: 14px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    .comparison td {
+      padding: 8px 0;
+    }
+    
+    .comparison tr:not(:last-child) {
+      border-bottom: 1px dashed #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Berikut penjelasan mengenai Pinjaman KTA dan menggunakan agunan
+    </div>
+
+    <div class="content-bubble">
+      <p><strong>Pinjaman Kredit Tanpa Agunan (KTA)</strong> adalah pinjaman yang tidak memerlukan jaminan fisik. Ini punya proses yang lebih cepat, tapi biasanya dengan bunga lebih tinggi dan nominal pinjaman lebih kecil.</p>
+      
+      <p><strong>Pinjaman dengan agunan</strong> mengharuskan kamu menyediakan jaminan (seperti rumah, mobil, atau deposito). Meski prosesnya lebih lama, kamu bisa mendapatkan:</p>
+      
+      <ul>
+        <li>Bunga yang lebih rendah</li>
+        <li>Jumlah pinjaman yang lebih besar</li>
+        <li>Jangka waktu pengembalian yang lebih panjang</li>
+      </ul>
+      
+      <p>Perbandingan singkat:</p>
+      
+      <table class="comparison">
+        <tr>
+          <td><strong>KTA:</strong></td>
+          <td>Lebih mudah diakses, proses cepat, tanpa jaminan, tapi bunga lebih tinggi</td>
+        </tr>
+        <tr>
+          <td><strong>Dengan Agunan:</strong></td>
+          <td>Proses lebih kompleks, butuh jaminan, tapi bunga lebih murah dan pinjaman bisa lebih besar</td>
+        </tr>
+      </table>
+      
+      <p>Pilihan terbaik tergantung pada kebutuhanmu, kemampuan bayar, dan apakah kamu punya aset untuk dijaminkan.</p>
+    </div>
+
+    <button class="next-button" onclick="location.href='Pinjaman 2 c5.html'">NEXT</button>
+  </div>
+</body>
+</html>

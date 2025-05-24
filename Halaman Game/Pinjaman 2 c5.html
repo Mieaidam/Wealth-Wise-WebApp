@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinjaman KTA vs Agunan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100vh;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #FFDB58; /* Yellow background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header-box {
+            background-color: white;
+            color: #333;
+            padding: 15px 20px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            padding: 0;
+            background-color: #FFDB58;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .scooter-image {
+            width: 60%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-left: 45%;
+        }
+        
+        .scooter-image img {
+            max-width: 60%;
+            max-height: 250px;
+        }
+        
+        .character-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .character {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .character img {
+            max-height: 300px;
+            max-width: 70%;
+        }
+        
+        .speech-bubble {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            width: 90%;
+            margin: 10px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .decision-prompt {
+            background-color: #FFE066;
+            color: #333;
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            width: 90%;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+            gap: 15px;
+        }
+        
+        .option-button {
+            background-color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            display: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #FFE066;
+        }
+        
+        .show-table-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 15px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-box">
+            Kira-kira lebih cocok pinjaman KTA atau Agunan ya?
+        </div>
+        
+        <div class="content">
+            <div class="scooter-image">
+                <img src="../Images/Logo_Motor.png" alt="Motor Scooter" />
+            </div>
+            
+            <div class="character-section">
+                <div class="character">
+                    <img src="../Images/Logo_BradyKanan.png" alt="Character" />
+                </div>
+                
+                <div class="speech-bubble">
+                    <I>"Hemm... Yang mana ya? Ada sih motor... Kendaraan kan bisa jadi jaminan. Tapi... Kalau gagal bayar terus disita gimana ya?"</I>
+                </div>
+            </div>
+            
+            <div class="decision-prompt">
+                Pilih keputusan untuk brody yuk
+            </div>
+            
+            <div class="buttons-container">
+                <button class="option-button" onclick="location.href='Pinjaman 2 c5 a1.html'">Pinjam KTA</button>
+                <button class="option-button" onclick="location.href='Pinjaman 2 c5 b1.html'">Pinjam Agunan</button>
+            </div>
+            
+            <button class="show-table-button" onclick="toggleComparisonTable()">Lihat Perbandingan Keduanya</button>
+            
+            <div class="comparison-table" id="comparisonTable">
+                <h3>Perbandingan KTA vs Agunan</h3>
+                <table>
+                    <tr>
+                        <th>Fitur</th>
+                        <th>KTA</th>
+                        <th>Agunan</th>
+                    </tr>
+                    <tr>
+                        <td>Jaminan</td>
+                        <td>Tidak perlu</td>
+                        <td>Perlu (barang/kendaraan)</td>
+                    </tr>
+                    <tr>
+                        <td>Bunga</td>
+                        <td>Lebih tinggi (±15-24%)</td>
+                        <td>Lebih rendah (±8-15%)</td>
+                    </tr>
+                    <tr>
+                        <td>Proses</td>
+                        <td>Lebih cepat</td>
+                        <td>Lebih lama (perlu penilaian)</td>
+                    </tr>
+                    <tr>
+                        <td>Risiko</td>
+                        <td>Denda/blacklist</td>
+                        <td>Barang disita jika gagal bayar</td>
+                    </tr>
+                    <tr>
+                        <td>Cocok untuk</td>
+                        <td>Kebutuhan cepat, nilai kecil</td>
+                        <td>Nilai pinjaman besar, jangka panjang</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleComparisonTable() {
+            const table = document.getElementById('comparisonTable');
+            if (table.style.display === 'none' || table.style.display === '') {
+                table.style.display = 'block';
+            } else {
+                table.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinjaman KTA vs Agunan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100vh;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #FFDB58; /* Yellow background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background-color: #FFDB58;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 20px 20px 0 0;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .content {
+            padding: 20px;
+            background-color: #FFDB58;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .character-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .character {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .speech-bubble {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            position: relative;
+            width: 85%;
+            margin-bottom: 20px;
+        }
+        
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-bottom-color: white;
+            border-top: 0;
+            margin-left: -10px;
+        }
+        
+        .scooter-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .decision-prompt {
+            background-color: #FFE066;
+            color: #333;
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            width: 90%;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .option-button {
+            background-color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            display: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #FFE066;
+        }
+        
+        .show-table-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 15px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .info-icon {
+            font-size: 20px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+</body>
+</html>

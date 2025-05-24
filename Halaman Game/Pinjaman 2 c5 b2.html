@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinjaman Agunan Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #fcd82b;
+      color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .top-bubble {
+      background-color: #ffff99;
+      border: 2px solid #000;
+      border-radius: 25px;
+      padding: 15px;
+      margin-bottom: 100px;
+      text-align: center;
+      font-size: 20px;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .scene {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      min-height: 200px;
+    }
+    
+    .person {
+      width: 40%;
+      max-width: 120px;
+      position: relative;
+    }
+    
+    .speech-bubble {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      background-color: #ffff99;
+      border: 2px solid #000;
+      border-radius: 20px;
+      padding: 10px;
+      font-size: 14px;
+      max-width: 180px;
+      width: 180px;
+      text-align: center;
+      z-index: 10;
+      opacity: 0.75;
+    }
+    
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: #ffff99;
+      border-right: 2px solid #000;
+      border-bottom: 2px solid #000;
+      transform: rotate(45deg);
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+    
+    .scooter {
+      width: 35%;
+      max-width: 120px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      animation: float-motor 2.5s ease-in-out infinite;
+    }
+    
+    .scooter-shadow {
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: radial-gradient(ellipse at center, #888 0%, #eee 80%, transparent 100%);
+      opacity: 0.5;
+      z-index: 1;
+      filter: blur(1px);
+    }
+    
+    @keyframes float-motor {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    
+    .scooter img {
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+    }
+    
+    .motor-highlight {
+      position: absolute;
+      top: 18px;
+      left: 30%;
+      width: 40%;
+      height: 20px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);
+      border-radius: 50%;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 3;
+    }
+    
+    .bottom-bubble {
+      background-color: #ffff99;
+      border: 2px solid #000;
+      border-radius: 25px;
+      padding: 15px;
+      margin: 10px 0 20px 0;
+      text-align: center;
+      font-size: 20px;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .next-button {
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 40px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .next-button:hover {
+      background-color: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .character {
+        margin-top: 30px;
+        margin-left: -50px;
+        width: 170%;
+        max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bubble">
+      Seminggu kemudian, pihak bank datang ke Brady untuk mengecek dan memverifikasi motornya.
+    </div>
+    
+    <div class="scene">
+      <div class="person" style="position: relative;">
+        <div class="speech-bubble">
+          <i>"Honda Vario tahun 2018. Di pajak sekarang dibanderol 12 juta."</i>
+        </div>
+        <img src="../Images/Logo_PegawaiBerdiri.png" class="character">
+      </div>
+      
+      <div class="scooter">
+        <div class="scooter-shadow"></div>
+        <img src="../Images/Logo_Motor.png">
+        <div class="motor-highlight"></div>
+      </div>
+      
+      <div class="person">
+        <img src="../Images/Logo_BradyBank.png">
+      </div>
+    </div>
+    
+    <div class="bottom-bubble">
+      Setelah itu, uang pinjaman Brady cair dan dia bisa membayar kuliahnya. Menurutmu, apa kelebihan dan kekurangan menggunakan pinjaman dengan agunan seperti ini?
+    </div>
+    
+    <button class="next-button" onclick="location.href='Pinjaman 2 c5 b3.html'">Next</button>
+  </div>
+</body>
+</html>

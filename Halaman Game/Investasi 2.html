@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=380, initial-scale=1.0">
+  <title>Investasi - Berita Saham</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      height: 100vh;
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 380px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-bubble {
+      background: #ffffcc;
+      border-radius: 18px 18px 32px 32px;
+      margin: 0 0 18px 0;
+      padding: 14px 18px;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 95%;
+      animation: fadeIn 1s;
+    }
+    .scene {
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      min-height: 220px;
+      position: relative;
+    }
+    .character-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+    .tv-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+    .speech-bubble {
+      background: #fffda6;
+      border-radius: 30px;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      opacity: 0.7;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .speech-bubble-tv {
+      background: #fffda6;
+      border-radius: 30px;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      font-weight: bold;
+    }
+    .speech-bubble-tv:after {
+      content: '';
+      position: absolute;
+      right: 30px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .character-img {
+      width: 90px;
+      height: 110px;
+      object-fit: contain;
+      margin-bottom: 0;
+      margin-left: 10px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 20px;
+      border: 2px solid #222;
+    }
+    .tv-img {
+      width: 110px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 0;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 12px;
+      border: 2px solid #222;
+    }
+    .footer-bubble {
+      background: #ffffcc;
+      border-radius: 32px 32px 18px 18px;
+      margin: 18px 0 18px 0;
+      padding: 16px 18px;
+      font-size: 19px;
+      font-weight: normal;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 95%;
+      animation: fadeIn 1s;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    }
+    .next-button {
+      background-color: #ffff99;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 40px;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 0 auto 0 auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @media (max-width: 400px) {
+      .container { width: 100vw; }
+      .header-bubble, .footer-bubble { width: 98vw; }
+      .scene { width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Bayu pun menyantai di ruang keluarga sambil menonton TV. Ia melihat berita terkini yang membuatnya penasaran.
+    </div>
+    <div class="scene">
+      <div class="character-col">
+        <div class="speech-bubble">
+          <i>"Hah saham bank mandiri naik, apa maksudnya???"</i>
+        </div>
+        <img class="character-img" src="../Images/Logo_BayuDuduk.png" alt="Bayu duduk">
+      </div>
+      <div class="tv-col">
+        <div class="speech-bubble-tv">
+          Kabar terkini!<br>
+          Dalam satu minggu terakhir, harga saham PT Bank Mandiri naik drastis hingga 9.8%!
+        </div>
+        <img class="tv-img" src="../Images/Logo_Tv.png" alt="TV">
+      </div>
+    </div>
+    <div class="footer-bubble">
+      Bayu pun terbakar api penasaran, akhirnya ia mencari tau dengan seksama dengan handphonenya dan menemukan...
+    </div>
+    <button class="next-button" onclick="location.href='Investasi 3.html'">NEXT</button>
+  </div>
+</body>
+</html>

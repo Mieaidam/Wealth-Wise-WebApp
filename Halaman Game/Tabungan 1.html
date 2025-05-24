@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabungan Aryo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #ffe600; /* Bright yellow background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      background-color: #ffffcc; /* Light yellow for contrast */
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .header-bubble {
+      background-color: #fffba5; /* Brighter yellow for the header */
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      line-height: 1.6;
+      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: 43%;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #fff; /* White background for the balance box */
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .game-balance-box img {
+      width: 30px; /* Adjust money icon size */
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .arrow-text {
+      position: absolute;
+      top: 48%;
+      right: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .arrow-text::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #222; /* Arrow pointing down */
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
+
+    .speech-bubble {
+      background-color: #fffda6;
+      border-radius: 20px;
+      padding: 15px;
+      font-size: 1em;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 20px;
+      position: relative;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      text-align: left;
+      opacity: 0.7;
+    }
+
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+    }
+
+    .character-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 17px;
+      margin-right: 200px;
+    }
+
+    .character-container img {
+      width: 150px;
+      height: auto;
+    }
+
+    .content-bubble {
+      background-color: #fffda6;
+      border-radius: 20px;
+      padding: 15px;
+      font-size: 1em;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: justify;
+    }
+
+    .next-button {
+      background-color: #fffba5;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 0;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 20px auto 0 auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      letter-spacing: 2px;
+      width: 90%;
+    }
+
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Aryo, siswa SMP, mendapat uang saku Rp 50.000 setiap hari. Bagaimana ia akan mengelola uangnya?
+    </div>
+
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang">
+      <span>Rp 40.000</span>
+    </div>
+
+    <div class="arrow-text">
+      saldonya saat ini
+    </div>
+
+    <div class="speech-bubble">
+      <i>"Hari ini hemat! Cuma keluar Rp 10.000 buat jajan. Sisa uangnya enaknya buat apa ya?"</i>
+    </div>
+
+    <div class="character-container">
+      <img src="../Images/Logo_Aryo.png" alt="Gambar Karakter Aryo">
+    </div>
+
+    <div class="content-bubble">
+      Nah, begitulah Aryo... Kurang fokus sama pelajaran, pikirannya sering ke uang dan main. Istilahnya sih "kupu-kupu" - kuliah pulang, nggak dapat ilmu apa-apa di kampus (cuman ini anak sekolah). Jangan sampai kalian mencontoh Aryo ya!
+    </div>
+
+    <button class="next-button" onclick="location.href = 'Tabungan 2.html'">NEXT</button>
+  </div>
+</body>
+</html>

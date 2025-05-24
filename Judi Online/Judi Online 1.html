@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Slot Machine</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #0f0c29;
+      background-image: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+      color: white;
+      overflow: hidden;
+    }
+
+    .slot-machine {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      aspect-ratio: 4/3;
+      background-color: #c0392b;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      text-align: center;
+      border: 10px solid #8b0000;
+    }
+
+    .machine-top {
+      position: relative;
+      height: 15%;
+      width: 100%;
+      background-color: #8b0000;
+      border-radius: 10px 10px 0 0;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .machine-title {
+      font-size: calc(1vw + 1vh + 0.5vmin);
+      color: #ffda79;
+      text-shadow: 0 0 10px #ff9900;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .reels-container {
+      background-color: #fff;
+      height: 50%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .reel {
+      height: 95%;
+      width: 30%;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      border: 3px solid #333;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .reel-items {
+      position: absolute;
+      width: 100%;
+      transition: top 3s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .reel-item {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: calc(2vw + 2vh);
+      font-weight: bold;
+    }
+
+    .control-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 25%;
+    }
+
+    .lever-container {
+      width: 30%;
+      height: 100%;
+      position: relative;
+    }
+
+    .lever-base {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 30%;
+      background-color: #333;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .lever {
+      position: absolute;
+      bottom: 25%;
+      left: 50%;
+      width: 20%;
+      height: 60%;
+      background-color: #ff9900;
+      border-radius: 10px;
+      transform: translateX(-50%) rotate(-15deg);
+      transform-origin: bottom center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: lever-bounce 1.2s infinite;
+    }
+
+    @keyframes lever-bounce {
+      0%   { transform: translateX(-50%) rotate(-15deg); }
+      10%  { transform: translateX(-50%) rotate(-10deg) scaleY(1.05); }
+      20%  { transform: translateX(-50%) rotate(-20deg) scaleY(0.97); }
+      30%  { transform: translateX(-50%) rotate(-12deg) scaleY(1.03); }
+      40%  { transform: translateX(-50%) rotate(-18deg) scaleY(0.98); }
+      50%  { transform: translateX(-50%) rotate(-15deg) scaleY(1); }
+      100% { transform: translateX(-50%) rotate(-15deg); }
+    }
+
+    .lever::after {
+      content: '';
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150%;
+      height: 30%;
+      background-color: #d4af37;
+      border-radius: 50%;
+    }
+
+    .jackpot-display {
+      width: 65%;
+      height: 90%;
+      background-color: #222;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #ffda79;
+    }
+
+    .jackpot-text {
+      color: #ffda79;
+      font-size: calc(1vw + 1vh + 0.5vmin);
+      font-weight: bold;
+      text-shadow: 0 0 10px #ffcc00;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .next-button {
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 40px;
+      background-color: #ffcc00;
+      color: #333;
+      border: none;
+      border-radius: 50px;
+      font-size: calc(1vw + 1vh);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+    }
+
+    .next-button:hover {
+      background-color: #ffda79;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .slot-machine {
+        width: 95%;
+        aspect-ratio: 3/4;
+      }
+
+      .control-area {
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
+      .lever-container {
+        width: 100%;
+        height: 40%;
+      }
+
+      .jackpot-display {
+        width: 100%;
+        height: 50%;
+      }
+    }
+
+    /* Confetti styles */
+    #confetti-container {
+      pointer-events: none;
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      z-index: 9999;
+      overflow: hidden;
+      display: none;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 18px;
+      border-radius: 3px;
+      opacity: 0.85;
+      will-change: transform, opacity;
+      animation: confetti-fall 2.2s linear forwards;
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(-40px) rotateZ(0deg); opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(100vh) rotateZ(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slot-machine">
+    <div class="machine-top">
+      <h1 class="machine-title">SLOT GACOR</h1>
+    </div>
+    
+    <div class="reels-container">
+      <div class="reel" id="reel1">
+        <div class="reel-items" id="reelItems1">
+          <div class="reel-item">🍊</div>
+          <div class="reel-item">🍇</div>
+          <div class="reel-item">🍒</div>
+          <div class="reel-item">7️⃣</div>
+          <div class="reel-item">🍋</div>
+          <div class="reel-item">🍉</div>
+          <div class="reel-item">7️⃣</div>
+          <div class="reel-item">🍎</div>
+        </div>
+      </div>
+      
+      <div class="reel" id="reel2">
+        <div class="reel-items" id="reelItems2">
+          <div class="reel-item">🍉</div>
+          <div class="reel-item">🍒</div>
+          <div class="reel-item">🍊</div>
+          <div class="reel-item">🍋</div>
+          <div class="reel-item">7️⃣</div>
+          <div class="reel-item">🍇</div>
+          <div class="reel-item">🍎</div>
+          <div class="reel-item">7️⃣</div>
+        </div>
+      </div>
+      
+      <div class="reel" id="reel3">
+        <div class="reel-items" id="reelItems3">
+          <div class="reel-item">🍇</div>
+          <div class="reel-item">🍉</div>
+          <div class="reel-item">🍎</div>
+          <div class="reel-item">🍊</div>
+          <div class="reel-item">🍒</div>
+          <div class="reel-item">🍋</div>
+          <div class="reel-item">🍎</div>
+          <div class="reel-item">7️⃣</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="control-area">
+      <div class="lever-container">
+        <div class="lever-base"></div>
+        <div class="lever" id="leverHandle"></div>
+      </div>
+      
+      <div class="jackpot-display">
+        <div class="jackpot-text" id="jackpotText">JACKPOT!</div>
+      </div>
+    </div>
+    
+    <button class="next-button" id="nextButton" onclick="location.href='Judi Online 2.html'">NEXT →</button>
+  </div>
+
+  <div id="confetti-container"></div>
+
+  <script>
+    function launchConfetti() {
+  const colors = ['#ffda79', '#ff9900', '#ff4e50', '#4fd1c5', '#64b5f6', '#fff176', '#f06292', '#81c784'];
+  const confettiContainer = document.getElementById('confetti-container');
+  confettiContainer.style.display = 'block'; // Make visible
+
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDelay = (Math.random() * 0.7) + 's';
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    confettiContainer.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 2200);
+  }
+
+  // Hide container after animation
+  setTimeout(() => {
+    confettiContainer.style.display = 'none';
+  }, 2500);
+}
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const leverHandle = document.getElementById('leverHandle');
+      const reelItems1 = document.getElementById('reelItems1');
+      const reelItems2 = document.getElementById('reelItems2');
+      const reelItems3 = document.getElementById('reelItems3');
+      const jackpotText = document.getElementById('jackpotText');
+      const nextButton = document.getElementById('nextButton');
+      const confettiContainer = document.getElementById('confetti-container');
+      
+      // Set up initial positions for reel items
+      const setupReels = () => {
+        const reelHeight = document.querySelector('.reel').offsetHeight;
+        const itemHeight = reelHeight;
+        
+        // Position each reel's items
+        reelItems1.style.top = '0px';
+        reelItems2.style.top = '0px';
+        reelItems3.style.top = '0px';
+        
+        // Duplicate items to create the illusion of an infinite reel
+        const items1 = reelItems1.innerHTML;
+        const items2 = reelItems2.innerHTML;
+        const items3 = reelItems3.innerHTML;
+        
+        reelItems1.innerHTML = items1 + items1 + items1;
+        reelItems2.innerHTML = items2 + items2 + items2;
+        reelItems3.innerHTML = items3 + items3 + items3;
+        
+        // Size each reel item
+        const allItems = document.querySelectorAll('.reel-item');
+        allItems.forEach(item => {
+          item.style.height = `${itemHeight}px`;
+        });
+      };
+      
+      setupReels();
+      window.addEventListener('resize', setupReels);
+      
+      let isSpinning = false;
+      
+      leverHandle.addEventListener('click', () => {
+        if (isSpinning) return;
+        isSpinning = true;
+
+        // Stop lever bounce animation while spinning
+        leverHandle.style.animation = 'none';
+
+        // Pull lever animation
+        leverHandle.style.transform = 'translateX(-50%) rotate(30deg)';
+        
+        // Reset jackpot text and next button
+        jackpotText.style.opacity = '0';
+        nextButton.style.opacity = '0';
+        nextButton.style.bottom = '-100px';
+        
+        setTimeout(() => {
+          // Start spinning animation
+          const reelHeight = document.querySelector('.reel').offsetHeight;
+          const itemHeight = reelHeight;
+          const totalItems = 8; // Number of items per reel
+          
+          // Calculate destination (jackpot position - 7️⃣ on all reels)
+          // We'll make sure to land on the 7️⃣ symbols (4th item in reel1, 5th in reel2, 8th in reel3)
+          const jackpotPos1 = -3 * itemHeight; // Position for 7️⃣ in reel1
+          const jackpotPos2 = -4 * itemHeight; // Position for 7️⃣ in reel2
+          const jackpotPos3 = -7 * itemHeight; // Position for 7️⃣ in reel3
+          
+          // Start by moving to a random position many items away
+          const initialOffset = -20 * itemHeight;
+          
+          reelItems1.style.transition = 'top 0.5s ease-in';
+          reelItems2.style.transition = 'top 0.5s ease-in';
+          reelItems3.style.transition = 'top 0.5s ease-in';
+          
+          reelItems1.style.top = `${initialOffset}px`;
+          
+          setTimeout(() => {
+            reelItems2.style.top = `${initialOffset}px`;
+          }, 200);
+          
+          setTimeout(() => {
+            reelItems3.style.top = `${initialOffset}px`;
+            
+            // After initial quick spin, slow down to the jackpot
+            setTimeout(() => {
+              // Change to slower animation
+              reelItems1.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              reelItems2.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              reelItems3.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              
+              // Move to jackpot positions
+              reelItems1.style.top = `${jackpotPos1}px`;
+              
+              setTimeout(() => {
+                reelItems2.style.top = `${jackpotPos2}px`;
+              }, 300);
+              
+              setTimeout(() => {
+                reelItems3.style.top = `${jackpotPos3}px`;
+                
+                // Show jackpot text after all reels stopped
+                setTimeout(() => {
+                  // Return lever to original position
+                  leverHandle.style.transform = 'translateX(-50%) rotate(-15deg)';
+                  // Resume lever bounce animation
+                  leverHandle.style.animation = 'lever-bounce 1.2s infinite';
+
+                  // Show jackpot text
+                  jackpotText.style.opacity = '1';
+
+                  // Launch confetti!
+                  launchConfetti();
+
+                  // Show next button
+                  setTimeout(() => {
+                    nextButton.style.opacity = '1';
+                    nextButton.style.bottom = '-80px';
+                    isSpinning = false;
+                  }, 1000);
+                }, 500);
+              }, 600);
+            }, 1000);
+          }, 400);
+        }, 300);
+      });
+      
+      nextButton.addEventListener('click', () => {
+        // You can replace this with your actual navigation code
+        // (Or leave empty if navigation is handled by the button's onclick attribute)
+      });
+      
+      // Confetti animation
+      const createConfetti = (x, y) => {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${x}px`;
+        confetti.style.top = `${y}px`;
+        confettiContainer.appendChild(confetti);
+        
+        // Remove confetti after animation
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      };
+      
+      // Show confetti on jackpot
+      const showConfetti = () => {
+        confettiContainer.style.display = 'block';
+        
+        // Create confetti pieces
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createConfetti(x, y);
+          }, i * 50);
+        }
+        
+        // Hide confetti container after some time
+        setTimeout(() => {
+          confettiContainer.style.display = 'none';
+        }, 5000);
+      };
+      
+      // Override showConfetti in the spinning sequence
+      leverHandle.addEventListener('click', () => {
+        if (isSpinning) return;
+        isSpinning = true;
+
+        // Stop lever bounce animation while spinning
+        leverHandle.style.animation = 'none';
+
+        // Pull lever animation
+        leverHandle.style.transform = 'translateX(-50%) rotate(30deg)';
+        
+        // Reset jackpot text and next button
+        jackpotText.style.opacity = '0';
+        nextButton.style.opacity = '0';
+        nextButton.style.bottom = '-100px';
+        
+        setTimeout(() => {
+          // Start spinning animation
+          const reelHeight = document.querySelector('.reel').offsetHeight;
+          const itemHeight = reelHeight;
+          const totalItems = 8; // Number of items per reel
+          
+          // Calculate destination (jackpot position - 7️⃣ on all reels)
+          // We'll make sure to land on the 7️⃣ symbols (4th item in reel1, 5th in reel2, 8th in reel3)
+          const jackpotPos1 = -3 * itemHeight; // Position for 7️⃣ in reel1
+          const jackpotPos2 = -4 * itemHeight; // Position for 7️⃣ in reel2
+          const jackpotPos3 = -7 * itemHeight; // Position for 7️⃣ in reel3
+          
+          // Start by moving to a random position many items away
+          const initialOffset = -20 * itemHeight;
+          
+          reelItems1.style.transition = 'top 0.5s ease-in';
+          reelItems2.style.transition = 'top 0.5s ease-in';
+          reelItems3.style.transition = 'top 0.5s ease-in';
+          
+          reelItems1.style.top = `${initialOffset}px`;
+          
+          setTimeout(() => {
+            reelItems2.style.top = `${initialOffset}px`;
+          }, 200);
+          
+          setTimeout(() => {
+            reelItems3.style.top = `${initialOffset}px`;
+            
+            // After initial quick spin, slow down to the jackpot
+            setTimeout(() => {
+              // Change to slower animation
+              reelItems1.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              reelItems2.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              reelItems3.style.transition = 'top 3s cubic-bezier(0.33, 1, 0.68, 1)';
+              
+              // Move to jackpot positions
+              reelItems1.style.top = `${jackpotPos1}px`;
+              
+              setTimeout(() => {
+                reelItems2.style.top = `${jackpotPos2}px`;
+              }, 300);
+              
+              setTimeout(() => {
+                reelItems3.style.top = `${jackpotPos3}px`;
+                
+                // Show jackpot text after all reels stopped
+                setTimeout(() => {
+                  // Return lever to original position
+                  leverHandle.style.transform = 'translateX(-50%) rotate(-15deg)';
+                  // Resume lever bounce animation
+                  leverHandle.style.animation = 'lever-bounce 1.2s infinite';
+
+                  // Show jackpot text
+                  jackpotText.style.opacity = '1';
+
+                  // Launch confetti!
+                  launchConfetti();
+
+                  // Show next button
+                  setTimeout(() => {
+                    nextButton.style.opacity = '1';
+                    nextButton.style.bottom = '-80px';
+                    isSpinning = false;
+                  }, 1000);
+                }, 500);
+              }, 600);
+            }, 1000);
+          }, 400);
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=340, initial-scale=1.0">
+  <title>Investasi - Gagal</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      height: 100vh;
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 340px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      padding: 24px 0 24px 0;
+    }
+    .header-bubble, .footer-bubble {
+      background: #ffffcc;
+      border-radius: 22px;
+      margin: 0 0 18px 0;
+      padding: 16px 18px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 95%;
+      animation: fadeIn 1s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .footer-bubble {
+      font-weight: normal;
+      font-size: 18px;
+      margin: 18px 0 18px 0;
+      border-radius: 22px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0;
+    }
+    .scene {
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      min-height: 220px;
+      position: relative;
+    }
+    .speech-bubble {
+      background: #fffda6;
+      border-radius: 22px;
+      padding: 14px 18px 18px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 10px;
+      margin-left: -25px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      font-weight: bold;
+      max-width: 95%; /* Increased width */
+      width: 90%;
+      text-align: left;
+      z-index: 2;
+      opacity: 0.7;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      left: 38px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .speech-bubble-tv {
+      background: #fffda6;
+      border-radius: 22px;
+      padding: 14px 18px 18px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      font-weight: bold;
+      max-width: 90%;
+      text-align: left;
+      z-index: 2;
+    }
+    .speech-bubble-tv:after {
+      content: '';
+      position: absolute;
+      right: 38px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .character-img {
+      width: 90px;
+      height: 110px;
+      object-fit: contain;
+      margin-bottom: 0;
+      margin-left: 10px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 20px;
+      border: 2px solid #222;
+    }
+    .tv-img {
+      width: 110px;
+      height: 80px;
+      object-fit: contain;
+      margin-top: -10px; /* Adjusted position */
+      margin-left: 60px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 12px;
+      border: 2px solid #222;
+    }
+    .failure-banner {
+      background: #ff5252;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+      padding: 12px 0;
+      border-radius: 25px;
+      border: 2px solid #b71c1c;
+      margin: 18px 0;
+      width: 90%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      animation: popIn 1.2s;
+    }
+    .next-button {
+      background-color: #ffff99;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 0;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 0 auto 0 auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      display: block;
+      width: 95%; /* Increased width */
+    }
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @media (max-width: 400px) {
+      .container { width: 100vw; }
+      .header-bubble, .footer-bubble { width: 98vw; }
+      .scene { width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Bayu pun langsung membeli saham bank namun beberapa minggu kemudian...
+    </div>
+    <div class="scene">
+      <div class="character-col">
+        <div class="speech-bubble">
+          <i>"Loh loh, kok tiba-tiba harganya anjlok?! Tapi aku taruh semua uangku di sana..!!"</i>
+        </div>
+        <img class="character-img" src="../Images/Logo_BayuDuduk.png">
+      </div>
+      <div class="tv-col">
+        <div class="speech-bubble-tv">
+          Dikabarkan, kinerja PT Bank Asia ikut memburuk, ini berakibat pada turunnya harga saham hingga 63.2%...
+        </div>
+        <img class="tv-img" src="../Images/Logo_Tv.png">
+      </div>
+    </div>
+    <div class="footer-bubble">
+      Bayu pun kehilangan semua uangnya untuk mencukupi kehidupannya. Awalnya ia berharap agar uangnya menambah jadi lebih banyak, tapi kenyataannya malah habis.
+    </div>
+    <div class="failure-banner">
+      GAGAL!!
+    </div>
+    <button class="next-button" onclick="location.href='Investasi 3a a2.html'">NEXT</button>
+  </div>
+</body>
+</html>

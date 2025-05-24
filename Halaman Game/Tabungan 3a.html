@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keputusan Aryo - Top Up Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffde2b;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 380px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .dialog-header {
+      background-color: #fcffc0;
+      border: 3px solid #000;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: 54%;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .game-balance-box img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      max-width: 270px;
+      margin-bottom: 15px;
+      opacity: 0.65;
+    }
+
+    .image-placeholder {
+      width: 280px;
+      height: 190px;
+      margin: 0 auto 20px;
+      margin-left: -10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 1.2rem;
+      background: none; /* Removes the white background */
+      border: none; /* Removes the dashed outline */
+    }
+
+    .image-placeholder img {
+      max-width: 100%; /* Ensures the image doesn't exceed the container's width */
+      max-height: 100%; /* Ensures the image doesn't exceed the container's height */
+      object-fit: contain; /* Ensures the image maintains its aspect ratio */
+      display: block; /* Removes any inline spacing issues */
+      margin: 0 auto; /* Centers the image horizontally */
+      cursor: pointer; /* Adds a pointer cursor for interactivity */
+      transition: transform 0.3s ease; /* Smooth transition for effects */
+    }
+
+    .image-placeholder img.bounce {
+      animation: bounce 0.5s ease; /* Applies the bounce animation */
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px); /* Moves the image up */
+      }
+    }
+
+    .flat-box {
+      background-color: #fef6b1;
+      padding: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 2px solid #000;
+      margin-bottom: 12px;
+    }
+
+    .btn-big {
+      background-color: #fef6b1;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 25px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .btn-big:hover {
+      background-color: #fff376;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Saldo Box -->
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang" />
+      <span>Rp 90.000</span>
+    </div>
+
+    <!-- Narasi -->
+    <div class="dialog-header">
+      Pada esok harinya, Aryo menemukan penawaran diskon top up untuk game favoritnya. Namun ia bimbang akan menggunakan uangnya atau ditabung.
+    </div>
+
+    <!-- Dialog Balon -->
+    <div class="speech-bubble">
+      <i>"Ada penawaran top-up diamond game, diskon 50% katanya… harganya jadi 90.000. Kalau kelewat rugi sih… Tapi, juga masih perlu nabung…"</i>
+    </div>
+
+    <!-- Placeholder Gambar -->
+    <div class="image-placeholder">
+        <img src="../Images/Logo_AryoTV.png"> 
+    </div>
+
+    <!-- Flat Prompt Box -->
+    <div class="flat-box">Pilih keputusan untuk Aryo!!</div>
+
+    <!-- Opsi Tombol -->
+    <button class="btn-big" onclick="location.href = 'Tabungan 3a a1.html'">Disimpan</button>
+    <button class="btn-big" onclick="location.href = 'Tabungan 3a b1.html'">Pakai untuk top up</button>
+  </div>
+
+  <script>
+    // JavaScript to add a bounce effect on image click
+    document.addEventListener("DOMContentLoaded", function () {
+      const image = document.querySelector(".image-placeholder img");
+
+      image.addEventListener("click", function () {
+        // Add the bounce class
+        image.classList.add("bounce");
+
+        // Remove the bounce class after the animation ends
+        image.addEventListener("animationend", function () {
+          image.classList.remove("bounce");
+        }, { once: true });
+      });
+    });
+  </script>
+</body>
+</html>
+

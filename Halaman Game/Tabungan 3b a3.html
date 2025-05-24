@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilihan Aryo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f9d923;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }
+    .container {
+      background-color: #f9d923;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+    }
+    .top-box {
+      background-color: #fff;
+      border: 3px solid #000;
+      border-radius: 20px;
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .game-balance-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      margin: 0 auto 10px auto;
+      width: fit-content;
+    }
+    .game-balance-box img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .speech-bubble {
+      position: relative;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 15px;
+      padding: 10px;
+      margin: 20px auto;
+      max-width: 220px;
+      font-size: 16px;
+      opacity: 0.7;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      border-width: 15px 15px 0;
+      border-style: solid;
+      border-color: #fff transparent;
+      display: block;
+      width: 0;
+    }
+    .character-img {
+      width: 200px;
+      height: auto;
+      margin: 0 auto 10px;
+      display: block;
+      border: none;
+      background: none;
+    }
+    .character-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .next-button {
+      margin-top: 15px;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      padding: 10px 30px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .next-button:hover {
+      background-color: #ffe066;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-box">
+      Aryo berhasil membeli sepatu baru karena itu adalah <b>kebutuhan penting</b>. Tapi sekarang uangnya jadi agak menipis.
+    </div>
+
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang">
+      <span>Rp 30.000</span>
+    </div>
+
+    <div class="speech-bubble">
+      <i>"Sepatunya udah kebeli, tapi uangku sekarang tinggal sedikit. Harus lebih hemat nih."</i>
+    </div>
+
+    <div class="character-img"><img src="../Images/Logo_AryoBingung4.png" alt="Aryo"></div>
+
+    <button class="next-button" onclick="location.href='Tabungan 3b a4.html'">NEXT</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinjaman Online Aman</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #FFD700, #FFC300);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+      animation: backgroundMove 10s infinite alternate;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .container {
+      background: #fffde1;
+      border: 2px solid #000;
+      border-radius: 25px;
+      max-width: 360px;
+      width: 100%;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .info-box {
+      background: #fff89a;
+      border: 2px solid #000;
+      border-radius: 20px;
+      padding: 22px;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-box b {
+      color: #000;
+    }
+
+    .success-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #8eff8e, #76e676);
+      border: 2px solid #000;
+      border-radius: 30px;
+      padding: 12px 35px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #8eff8e;
+      cursor: pointer;
+    }
+
+    .success-button:hover {
+      background: linear-gradient(90deg, #76e676, #8eff8e);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #76e676;
+    }
+
+    .home-button {
+      background: #fff89a;
+      border: 2px solid #000;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      margin: auto;
+      width: fit-content;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #f0e68c;
+      transform: scale(1.08);
+      box-shadow: 0 0 15px #f0e68c;
+    }
+
+    .home-icon {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="info-box">
+    Pinjaman online terdaftar <b>OJK</b> adalah layanan pinjaman yang dilakukan melalui platform digital dan telah mendapat izin serta diawasi oleh <b>Otoritas Jasa Keuangan</b>, sehingga lebih aman karena mengikuti regulasi resmi yang meliputi transparansi suku bunga, perlindungan data pribadi, serta prosedur penagihan yang tertib.
+  </div>
+
+  <button class="success-button" onclick="launchConfetti()">SUKSES!!</button>
+
+  <button class="home-button" onclick="location.href='Halaman Game 2.html';">
+    <img src="../Images/Logo_Home.png" class="home-icon" alt="Home Icon">
+    HOME
+  </button>
+
+</div>
+
+<script>
+  localStorage.setItem('levelCompleted', 'Pinjaman');
+  function launchConfetti() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+    confetti({
+      particleCount: 50,
+      spread: 100,
+      origin: { y: 0.3 }
+    });
+  }
+  localStorage.setItem('levelCompleted', 'Pinjaman');
+    // === Add reward (10,000) to balance ===
+  const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+  const newBalance = currentBalance + 10000;
+  localStorage.setItem('balance', newBalance);
+
+  // === Success animation ===
+  const successBanner = document.getElementById('success-banner');
+  successBanner.style.opacity = 0;
+  successBanner.style.transform = 'scale(0.8)';
+  setTimeout(() => {
+    successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
+    successBanner.style.opacity = 1;
+    successBanner.style.transform = 'scale(1)';
+  }, 500);
+
+  const characterImg = document.querySelector('.character-img');
+  setInterval(() => {
+    characterImg.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      characterImg.style.transform = 'translateY(0)';
+    }, 300);
+  }, 2000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinjaman 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFD700; /* Yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background-color: #FFD700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .story-box {
+            background-color: #FFF;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.6;
+            border: 2px solid black;
+        }
+
+        .speech-bubble {
+            background-color: #FFF;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 20px;
+            position: relative;
+            text-align: left;
+            border: 2px solid black;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 10px 0 10px;
+            border-color: #FFF transparent transparent transparent;
+        }
+
+        /* First speech bubble */
+        .speech-bubble.one {
+            width: 100%; /* Default width */
+        }
+
+        /* Second speech bubble */
+        .speech-bubble.two {
+            background-color: #FFF; /* White background */
+            opacity: 0.8; /* Increased transparency */
+            width: 50%; /* Further reduced width to make it taller */
+            line-height: 2.2; /* Increased line spacing for better vertical stretch */
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 20px;
+            position: relative;
+            top: 24px;
+            right: -54px;
+            opacity: 0.45; /* Slightly transparent */
+            text-align: center;
+
+        }
+
+        .speech-bubble.two::after {
+            border-color: #FFF transparent transparent transparent; /* Matches white background */
+        }
+
+        .character {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .character img {
+            width: 190px;
+            height: auto;
+        }
+
+        .decision-box {
+            background-color: #000000; /* Light cream color for the decision box */
+            padding: 15px;
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for emphasis */
+            font-size: 18px; /* Slightly larger font size */
+            color: #ffffff; 
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #000000; /* Orange border for contrast */
+            text-transform: uppercase; /* Makes the text uppercase for emphasis */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .decision-button {
+            background-color: #FFF;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .decision-button:hover {
+            transform: scale(1.05);
+            background-color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="story-box">
+            Satu hari, Brady bingung karena nggak punya uang buat bayar kos, kuliah, dan makan. Semua uangnya habis buat judi, dan sekarang dia terpaksa pinjam ke orang lain.
+        </div>
+        <div class="speech-bubble one">
+            <i>"Duh, ibu kos udah nagih. Aku beneran nggak punya uang. Hari ini aja belum makan… aku pinjam aja ya?"</i>
+        </div>
+        <div class="speech-bubble two">
+            <b><i>"Segera bayar, ya. Kalau tidak, kamu harus keluar dari kos!"</i></b>
+        </div>
+        <div class="character">
+            <img src="../Images/Logo_Orang2.png">
+        </div>
+        <div class="decision-box">
+            Bantu Brady pilih jalan keluar:
+        </div>
+        <div class="button-container">
+            <button class="decision-button" onclick="location.href='Pinjaman 2 a1.html'">Pinjam ke teman</button>
+            <button class="decision-button" onclick="location.href='Pinjaman 2 b1.html'">Pinjam ke pinjol</button>
+            <button class="decision-button" onclick="location.href='Pinjaman 2 c1.html'">Pinjam ke bank</button>
+        </div>
+    </div>
+<script>
+    localStorage.setItem('levelCompleted', 'Pinjaman');
+</script>
+</body>
+</html>

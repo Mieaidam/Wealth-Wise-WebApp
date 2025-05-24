@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brady ke Bank</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fcd82b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #1e1e1e;
+      overflow: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .bubble-header {
+      background-color: #ffffcc;
+      padding: 16px;
+      border-radius: 20px 20px 40px 40px;
+      margin-bottom: 38px;
+      font-size: 22px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+      border: 2px solid #1e1e1e;
+      animation: fadeIn 1s ease forwards;
+    }
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 38px;
+      border: 3px solid #1e1e1e;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .scene img.background {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .character {
+      position: absolute;
+      width: 100px;
+      z-index: 1;
+    }
+    .character.brady {
+        width: 150px;
+    }
+    .brady {
+      bottom: 5px;
+      left: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .teller {
+      bottom: 5px;
+      right: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .speech {
+      position: absolute;
+      max-width: 180px;
+      padding: 14px 16px;
+      font-size: 14px;
+      border-radius: 16px;
+      font-weight: 500;
+      color: #333;
+      z-index: 2;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      line-height: 1.5;
+      background-color: #fff;
+    }
+    .speech::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      border: 10px solid transparent;
+    }
+    .brady-speech {
+      top: 40px;
+      left: 20px;
+      background: linear-gradient(145deg, #ffffff, #e0f7fa);
+      border: 2px solid #4dd0e1;
+      animation: popIn 0.6s ease;
+    }
+    .brady-speech::after {
+      left: 20px;
+      border-top-color: #e0f7fa;
+    }
+    .teller-speech {
+      top: 160px;
+      right: 20px;
+      background: linear-gradient(145deg, #ffffff, #ffe0f0);
+      border: 2px solid #f06292;
+      animation: popIn 0.8s ease;
+    }
+    .teller-speech::after {
+      right: 20px;
+      border-top-color: #ffe0f0;
+    }
+    .next-button {
+      background-color: #ffff99;
+      color: black;
+      font-weight: bold;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: 2px solid black;
+      width: 85%;
+      margin: 0 auto 24px auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Decorative elements */
+    .decor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .decor.money1 {
+      top: 30px;
+      left: 50px;
+      background: url('https://img.icons8.com/emoji/48/money-with-wings.png') no-repeat center/contain;
+    }
+    .decor.money2 {
+      top: 120px;
+      right: 60px;
+      background: url('https://img.icons8.com/emoji/48/money-bag.png') no-repeat center/contain;
+      animation-delay: 2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="bubble-header">
+      Suatu hari, Brady ingin pergi ke bank untuk meminjam uang. <b>Ia lebih memilih di bank karena menurutnya bank lebih terpercaya dan aman.</b>
+    </div>
+
+    <div class="scene">
+      <img src="../Images/Logo_BGbank.png" class="background" alt="Bank Background">
+
+      <!-- Speech Bubbles -->
+      <div class="speech brady-speech">
+        <i>"Di sini apakah sedia jasa pinjaman kakak?<br>Saya kebetulan belum gajian butuh duit..."</i>
+      </div>
+      <div class="speech teller-speech">
+        <i>"Ada yang bisa dibantu?"</i>
+      </div>
+
+      <!-- Characters -->
+      <img src="../Images/Logo_BradyBank.png" class="character brady" alt="Brady">
+      <img src="../Images/Logo_PegawaiBank.png" class="character teller" alt="Teller">
+
+      <!-- Decorative animations -->
+      <div class="decor money1"></div>
+      <div class="decor money2"></div>
+    </div>
+
+    <button class="next-button" onclick="location.href='Pinjaman 2 c3.html'">NEXT</button>
+  </div>
+</body>
+</html>

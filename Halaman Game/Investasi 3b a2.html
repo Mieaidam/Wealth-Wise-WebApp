@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelebihan & Kekurangan Emas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom, #ffe600, #ffb400);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .intro {
+      background-color: #dff28f;
+      padding: 1em;
+      border-radius: 20px;
+      width: 85%;
+      max-width: 500px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      margin-bottom: 1.5em;
+    }
+
+    .content {
+      background-color: #fffccf;
+      padding: 1.5em;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 550px;
+      text-align: left;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    ul {
+      padding-left: 1em;
+      margin-top: 0.3em;
+    }
+
+    li {
+      margin-bottom: 0.8em;
+      line-height: 1.4em;
+    }
+
+    .button-success {
+      margin-top: 2em;
+      background-color: #9eff6b;
+      padding: 0.7em 2em;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-success:hover {
+      background-color: #7be63e;
+    }
+
+    .home-button {
+      margin-top: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fffba5;
+      padding: 0.5em 1em;
+      border-radius: 15px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: #f7e84f;
+    }
+
+    .home-button img {
+      width: 30px;
+      margin-right: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <p><strong>Apasih kelebihan dan kekurangan investasi emas??</strong></p>
+  </div>
+
+  <div class="content">
+    <div class="section-title">Kelebihan Investasi Emas:</div>
+    <ul>
+      <li>Nilainya cenderung stabil dan terus meningkat dalam jangka panjang.</li>
+      <li>Cepat dicairkan karena sangat likuid.</li>
+      <li>Tidak bergantung pada kinerja perusahaan atau pemerintah.</li>
+      <li>Membantu diversifikasi portofolio.</li>
+      <li>Permintaan global cenderung stabil sepanjang waktu.</li>
+    </ul>
+
+    <div class="section-title">Kekurangan Investasi Emas:</div>
+    <ul>
+      <li>Tidak memberikan penghasilan pasif seperti dividen atau bunga.</li>
+      <li>Membutuhkan biaya tambahan untuk penyimpanan dan keamanan.</li>
+      <li>Bisa berfluktuasi dalam jangka pendek.</li>
+      <li>Pertumbuhan nilai tidak secepat aset lain seperti saham.</li>
+      <li>Dapat terpengaruh oleh kebijakan ekonomi global.</li>
+    </ul>
+  </div>
+
+  <div class="button-success" id="success-button">SUKSES!!</div>
+
+  <div class="home-button" onclick="location.href='Halaman Game 2.html'">
+    <img src="../Images/Logo_Home.png"> <!-- Placeholder for home icon -->
+    <span><strong>HOME</strong></span>
+  </div>
+
+  <script>
+    localStorage.setItem('levelCompleted', 'Investasi');
+    // Add a confetti effect when the "SUKSES!!" button is clicked
+    const successButton = document.getElementById('success-button');
+    successButton.addEventListener('click', () => {
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.borderRadius = '50%';
+        confetti.style.top = `${Math.random() * window.innerHeight}px`;
+        confetti.style.left = `${Math.random() * window.innerWidth}px`;
+        confetti.style.animation = 'fall 2s ease-out forwards';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 2000);
+      }
+    });
+
+    // Generate random colors for confetti
+    function getRandomColor() {
+      const colors = ['#ff4081', '#3f51b5', '#4caf50', '#ffeb3b', '#ff5722'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Add keyframes for confetti animation
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(`
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `, styleSheet.cssRules.length);
+      // === Add reward (10,000) to balance ===
+  const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+  const newBalance = currentBalance + 10000;
+  localStorage.setItem('balance', newBalance);
+
+  // === Success animation ===
+  const successBanner = document.getElementById('success-banner');
+  successBanner.style.opacity = 0;
+  successBanner.style.transform = 'scale(0.8)';
+  setTimeout(() => {
+    successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
+    successBanner.style.opacity = 1;
+    successBanner.style.transform = 'scale(1)';
+  }, 500);
+
+  const characterImg = document.querySelector('.character-img');
+  setInterval(() => {
+    characterImg.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      characterImg.style.transform = 'translateY(0)';
+    }, 300);
+  }, 2000);
+  </script>
+</body>
+</html>

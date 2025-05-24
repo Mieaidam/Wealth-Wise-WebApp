@@ -1,0 +1,16 @@
+# Node.js modules
+ai-assistant/node_modules/
+
+# Local development logs/temp files
+.DS_Store
+.env
+*.log
+
+# Firebase CLI internal files (often inside the 'Firebase' subfolder, but good to ensure)
+.firebase/
+.firebaserc
+
+# Any other folders not part of your deployable website
+# Add any of these if they are present and you don't want them deployed:
+Level completion node code/
+ai-assistant/backend/

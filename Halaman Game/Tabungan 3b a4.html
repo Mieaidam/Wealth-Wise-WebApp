@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Film Baru Aryo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe66d, #ffd700);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 370px;
+      text-align: center;
+      padding: 25px;
+      background-color: #fffef3;
+      border: 5px solid #000;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .dialog-header {
+      background: #fcffc0;
+      border: 3px solid #222;
+      border-radius: 20px 20px 0 20px;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      box-shadow: 2px 2px 0 #000;
+      color: #222;
+    }
+
+    .balance-box {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+      border: 2px solid #000;
+      transform: rotate(2deg);
+      animation: bounceIn 0.8s ease;
+    }
+
+    .balance-box img {
+      width: 35px;
+      height: auto;
+      margin-right: 12px;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 3px solid #000;
+      border-radius: 30px;
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      max-width: 280px;
+      margin-bottom: 15px;
+      position: relative;
+      box-shadow: 2px 4px 0 #000;
+      opacity: 0.7;
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 30%;
+      border-width: 20px 20px 0;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+      transform: rotate(-5deg);
+    }
+
+    .image-placeholder {
+      width: 250px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: none;
+    }
+
+    .image-placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border: 5px solid #000;
+      border-radius: 50%;
+      animation: bounce 2s infinite;
+    }
+
+    .decision-box {
+      background-color: #fff6a0;
+      padding: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 2px solid #000;
+      margin: 20px 0 10px 0;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .choice-button {
+      background-color: #fff376;
+      padding: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 3px 3px 0 #000;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .choice-button:hover {
+      transform: scale(1.05);
+      background-color: #ffe156;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.1) rotate(3deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(2deg);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Balance -->
+    <div class="balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Uang Icon" />
+      <span>Rp 30.000</span>
+    </div>
+
+    <!-- Story -->
+    <div class="dialog-header">
+      Esok harinya Aryo melihat ada film baru. Sayangnya ia telat, karena teman-temannya sudah menonton duluan.
+    </div>
+
+    <!-- Speech -->
+    <div class="speech-bubble">
+      <i>"Ada film baru keluar... Teman sekelasku udah nonton semua. Tiketnya Rp 30.000 sih... Tapi kalau aku beli, uangku langsung habis. Duh, gimana ya?"</i>
+    </div>
+
+    <!-- Placeholder -->
+    <div class="image-placeholder">
+      <img src="../Images/Logo_AryoHp.png" alt="Aryo melihat ponsel">
+    </div>
+
+    <!-- Decision Prompt -->
+    <div class="decision-box">
+      Pilih keputusan untuk Aryo yuk!
+    </div>
+
+    <!-- Choices -->
+    <button class="choice-button" onclick="location.href='Tabungan 3b a4 a1.html'">Uangnya Ditabung</button>
+    <button class="choice-button" onclick="location.href='Tabungan 3b a4 b1.html'">Pakai ke Bioskop</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=340, initial-scale=1.0">
+  <title>Investasi - Pilihan Bayu</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      height: 100vh;
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 330px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .header-bubble, .footer-bubble {
+      background: #ffffcc;
+      border-radius: 22px;
+      margin: 0 0 32px 0;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: justify;
+      width: 95%;
+      animation: fadeIn 1s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .footer-bubble {
+      font-weight: normal;
+      font-size: 15px;
+      margin: 18px 0 18px 0;
+      border-radius: 22px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .scene {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+      min-height: 220px;
+      position: relative;
+    }
+    .speech-bubble {
+      background: #fffda6;
+      border-radius: 30px;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #222;
+      border: 2px solid #222;
+      margin-bottom: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      animation: popIn 1s;
+      max-width: 90%;
+      opacity: 0.7;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      left: 40px;
+      bottom: -18px;
+      width: 22px;
+      height: 22px;
+      background: #fffda6;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .character-img {
+      width: 120px;
+      height: 140px;
+      object-fit: contain;
+      margin-top: 0;
+      margin-left: -170px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      background: #fffbe6;
+      border-radius: 20px;
+      border: 2px solid #222;
+      animation: floatChar 2.5s ease-in-out infinite;
+    }
+    @keyframes floatChar {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+      100% { transform: translateY(0);}
+    }
+    .prompt-text {
+      margin: 12px 0 8px 0;
+      font-size: 17px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 1px;
+      animation: fadeIn 1.2s;
+    }
+    .choice-btn {
+      background-color: #ffffcc;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 0;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 8px 0;
+      width: 90%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.13);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 1px;
+      animation: popIn 1.2s;
+    }
+    .choice-btn:hover {
+      background-color: #ffe600;
+      transform: scale(1.04);
+    }
+    .decorative-chart {
+      position: absolute;
+      bottom: 38px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background: #fffbe6;
+      border-radius: 12px;
+      border: 2px solid #388e3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px #388e3c22;
+      z-index: 10;
+      font-size: 22px;
+      color: #388e3c;
+      animation: chartPop 2.5s infinite alternate;
+    }
+    @keyframes coinSpin {
+      0% { transform: rotateY(0deg);}
+      100% { transform: rotateY(360deg);}
+    }
+    @keyframes chartPop {
+      0% { transform: scale(1);}
+      50% { transform: scale(1.13);}
+      100% { transform: scale(1);}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @media (max-width: 400px) {
+      .container { width: 100vw; }
+      .header-bubble, .footer-bubble { width: 98vw; }
+      .scene { width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+  Bayu akhirnya mulai paham hal yang bikin dia penasaran waktu itu.
+</div>
+
+<div class="scene">
+  <div class="speech-bubble">
+    <i>"Ohh... Jadi kalau punya saham, itu kayak punya bagian kecil dari perusahaannya, ya... Bisa dapat untung juga, keren!"</i>
+  </div>
+  <img class="character-img" src="../Images/Logo_OrangHP.png" alt="Bayu pegang HP">
+</div>
+
+<div class="footer-bubble">
+  Bayu sekarang tahu bahwa <b>investasi itu artinya menanamkan uang supaya nilainya bisa bertambah.</b> Tapi dia masih bingung gimana cara kerja saham, soalnya terlihat cukup rumit. Bayu pun jadi ragu, lebih baik mulai dari saham atau jenis investasi lain dulu ya?
+</div>
+
+<div class="prompt-text">
+  Yuk bantu Bayu memilih jalur investasinya!
+</div>
+    <button class="choice-btn" onclick="location.href='Investasi 3a.html'">Investasi Saham</button>
+    <button class="choice-btn" onclick="location.href='Investasi 3b.html'">Investasi lainnya</button>
+  </div>
+</body>
+</html>

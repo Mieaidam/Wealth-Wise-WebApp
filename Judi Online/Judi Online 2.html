@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Definisi Judi & Judi Online</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f4f8fb 0%, #eaf3fa 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+    
+    .image-card {
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .image-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .content-section {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--secondary-color);
+    }
+    
+    .section-title {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px dashed #e0e0e0;
+      padding-bottom: 10px;
+    }
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, rgba(52, 152, 219, 0.2) 40%);
+      padding: 0 5px;
+    }
+    
+    .info-box {
+      background-color: rgba(52, 152, 219, 0.1);
+      border-left: 4px solid var(--secondary-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .warning-box {
+      background-color: rgba(231, 76, 60, 0.1);
+      border-left: 4px solid var(--accent-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .key-point {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .key-point-icon {
+      margin-right: 15px;
+      min-width: 30px;
+      height: 30px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      min-width: 600px; /* Ensure table doesn't shrink too much */
+      overflow-x: auto;
+      display: block;
+    }
+    
+    .comparison-table th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    .comparison-table td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .next-button {
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .next-button:hover {
+      background: #2980b9;
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+      transform: translateY(-2px);
+    }
+    
+    .arrow-icon {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .next-button:hover .arrow-icon {
+      transform: translateX(5px);
+    }
+    
+    /* Animated elements */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .pop-in {
+      animation: popIn 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48) forwards;
+    }
+    
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+      }
+      to {
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .comparison-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="pop-in">Definisi Judi & Judi Online</h1>
+    </div>
+    
+    <div class="image-container">
+      <div class="image-card glow">
+        <img src="../Images/Logo_Togel.jpg" alt="Ilustrasi perjudian tradisional" />
+      </div>
+      <div class="image-card glow">
+        <img src="../Images/Logo_Judol1.jpg" alt="Ilustrasi perjudian online" />
+      </div>
+    </div>
+    
+    <div class="content-section fade-in" id="definisi-judi">
+      <h2 class="section-title">Memahami Hakikat Perjudian</h2>
+      <p>
+        Mari kita mulai dengan membedah makna dari <span class="highlight">judi</span> atau perjudian. Pada intinya, judi adalah aktivitas di mana seseorang mempertaruhkan sesuatu yang bernilai—biasanya uang—pada suatu kejadian dengan hasil yang tidak pasti, dengan harapan mendapatkan keuntungan lebih besar. Istilah "judi" sendiri berasal dari bahasa Arab "Al-Qimar" yang merujuk pada permainan untung-untungan, menunjukkan bahwa konsep ini telah dikenal sejak lama dalam peradaban manusia.
+      </p>
+      
+      <div class="info-box">
+        <strong>Tiga Pilar Utama dalam Aktivitas Perjudian:</strong>
+        <div class="key-point">
+          <div class="key-point-icon">1</div>
+          <div><strong>Taruhan</strong>: Sejumlah nilai atau harta yang dipertaruhkan sebagai "tiket" untuk berpartisipasi. Ini bisa berupa uang, barang berharga, atau bahkan waktu dan tenaga.</div>
+        </div>
+        <div class="key-point">
+          <div class="key-point-icon">2</div>
+          <div><strong>Unsur Ketidakpastian</strong>: Hasil yang tidak bisa diprediksi dengan pasti, baik karena faktor acak, ketidaktahuan, atau variabel yang tidak terkontrol.</div>
+        </div>
+        <div class="key-point">
+          <div class="key-point-icon">3</div>
+          <div><strong>Imbalan Potensial</strong>: Janji untuk mendapatkan sesuatu yang bernilai lebih tinggi dari taruhan awal—inilah yang membuat judi begitu menarik bagi banyak orang.</div>
+        </div>
+      </div>
+      
+      <p>
+        Dalam perspektif hukum dan sosial, perjudian sering diartikan sebagai aktivitas spekulatif di mana seseorang mempertaruhkan aset berharga pada hasil yang tidak pasti. Meski sering dikaitkan dengan keberuntungan semata, faktanya beberapa bentuk judi justru membutuhkan keterampilan dan strategi tertentu—seperti dalam permainan poker atau blackjack.
+      </p>
+      
+      <p>
+        Menariknya, jejak perjudian bisa ditelusuri hingga ribuan tahun lalu. Arkeolog menemukan bukti aktivitas judi di peradaban kuno seperti Mesopotamia, Tiongkok, dan Romawi. Bahkan di Nusantara, tradisi judi telah ada dalam berbagai bentuk permainan tradisional. Seiring berjalannya waktu, praktik perjudian terus berevolusi, mengikuti perkembangan teknologi dan perubahan sosial masyarakat.
+      </p>
+    </div>
+    
+    <div class="content-section fade-in" id="judi-online">
+      <h2 class="section-title">Revolusi Digital: Lahirnya Judi Online</h2>
+      <p>
+        Di era digital ini, <span class="highlight">judi online</span> muncul sebagai transformasi modern dari perjudian konvensional. Bayangkan—dulu Anda harus pergi ke kasino fisik untuk bermain, sekarang cukup dengan smartphone dan koneksi internet, dunia perjudian ada di genggaman Anda. Inilah yang membuat judi online begitu revolusioner sekaligus kontroversial.
+      </p>
+      
+      <div class="info-box">
+        <strong>Ciri Khas yang Membuat Judi Online Berbeda:</strong>
+        <div class="key-point">
+          <div class="key-point-icon">•</div>
+          <div><strong>Akses Tanpa Batas</strong>: Buka 24 jam sehari, 7 hari seminggu, dari mana saja—bahkan dari sofa nyaman di rumah Anda.</div>
+        </div>
+        <div class="key-point">
+          <div class="key-point-icon">•</div>
+          <div><strong>Pilihan Tak Terbatas</strong>: Ratusan jenis permainan dalam satu platform, dari slot hingga taruhan olahraga eksotis.</div>
+        </div>
+        <div class="key-point">
+          <div class="key-point-icon">•</div>
+          <div><strong>Kenyamanan Ekstra</strong>: Tidak perlu repot dengan dress code, antrian, atau biaya transportasi ke kasino.</div>
+        </div>
+        <div class="key-point">
+          <div class="key-point-icon">•</div>
+          <div><strong>Privasi Terjaga</strong>: Identitas Anda bisa tetap anonim, berbeda dengan judi konvensional yang mengharuskan interaksi tatap muka.</div>
+        </div>
+      </div>
+      
+      <p>
+        Perjalanan judi online dimulai pada pertengahan 1990-an, seiring dengan booming-nya internet. Microgaming, salah satu pionir di bidang ini, meluncurkan kasino online pertama di tahun 1994. Sejak itu, industri ini berkembang pesat—tahun 2023 saja, nilai pasar judi online global diperkirakan mencapai $92.9 miliar! Perkembangan teknologi seperti live streaming, VR, dan cryptocurrency semakin mendorong inovasi di sektor ini.
+      </p>
+      
+      <h3>Ragam Permainan Judi Online yang Populer</h3>
+      <table class="comparison-table">
+        <tr>
+          <th>Kategori</th>
+          <th>Contoh Populer</th>
+          <th>Keunikan</th>
+        </tr>
+        <tr>
+          <td>Kasino Virtual</td>
+          <td>Slot Digital, Roulette Online, Blackjack Live</td>
+          <td>Mengemas pengalaman kasino fisik dalam format digital dengan grafis memukau dan fitur interaktif</td>
+        </tr>
+        <tr>
+          <td>Taruhan Olahraga</td>
+          <td>Sepak Bola, Basket, E-Sports, Bahkan Politik</td>
+          <td>Memungkinkan taruhan tidak hanya pada hasil akhir, tetapi juga berbagai aspek dalam pertandingan</td>
+        </tr>
+        <tr>
+          <td>Arena Poker Digital</td>
+          <td>Texas Hold'em, Omaha Hi-Lo, Turnamen Online</td>
+          <td>Menggabungkan strategi, psikologi, dan sedikit keberuntungan dalam pertarungan virtual</td>
+        </tr>
+        <tr>
+          <td>Lotere & Undian</td>
+          <td>Lotto Internasional, Kartu Gosok Digital</td>
+          <td>Menawarkan hadiah fantastis dengan modal relatif kecil, meski peluangnya tipis</td>
+        </tr>
+        <tr>
+          <td>Taruhan Inovatif</td>
+          <td>Prediksi Harga Saham, Cryptocurrency</td>
+          <td>Bentuk hibrida antara investasi dan perjudian dengan risiko tinggi</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="content-section fade-in" id="perbandingan">
+      <h2 class="section-title">Dua Wajah Perjudian: Tradisional vs Digital</h2>
+      
+      <table class="comparison-table">
+        <tr>
+          <th>Aspek Pembeda</th>
+          <th>Judi Konvensional</th>
+          <th>Judi Online</th>
+        </tr>
+        <tr>
+          <td>Kemudahan Akses</td>
+          <td>Terikat lokasi dan jam operasional tertentu—tidak semua orang punya kasino di kotanya</td>
+          <td>Hanya butuh perangkat dan internet—bisa dimainkan bahkan saat bepergian</td>
+        </tr>
+        <tr>
+          <td>Aspek Sosial</td>
+          <td>Interaksi langsung dengan bandar dan pemain lain menciptakan pengalaman sosial unik</td>
+          <td>Komunikasi via chat atau video, lebih individual meski ada fitur multiplayer</td>
+        </tr>
+        <tr>
+          <td>Pengalaman Sensorik</td>
+          <td>Suasana kasino yang hidup dengan lampu, suara, dan energi khusus</td>
+          <td>Grafis dan efek suara canggih, tapi tetap tidak sama dengan pengalaman fisik</td>
+        </tr>
+        <tr>
+          <td>Sistem Transaksi</td>
+          <td>Dominan tunai, kadang menggunakan chip khusus sebagai alat tukar</td>
+          <td>Beragam metode digital: e-wallet, transfer bank, hingga cryptocurrency</td>
+        </tr>
+        <tr>
+          <td>Transparansi</td>
+          <td>Proses bisa dilihat langsung, seperti pengocokan kartu atau putaran roda</td>
+          <td>Mengandalkan RNG (Random Number Generator) yang perlu diverifikasi keadilannya</td>
+        </tr>
+        <tr>
+          <td>Variasi & Inovasi</td>
+          <td>Terbatas pada ruang fisik, sulit untuk sering update permainan baru</td>
+          <td>Bisa menawarkan ratusan varian game dengan tema dan mekanika berbeda</td>
+        </tr>
+      </table>
+      
+      <p>
+        Perlu dicatat bahwa meski berbeda dalam banyak aspek, baik judi tradisional maupun online sama-sama memiliki risiko kecanduan dan masalah finansial. Kemudahan akses judi online justru bisa menjadi pedang bermata dua—di satu sisi memudahkan, di sisi lain meningkatkan potensi masalah bagi mereka yang rentan.
+      </p>
+    </div>
+    
+    <div class="content-section fade-in" id="implikasi">
+      <h2 class="section-title">Dampak & Realita Hukum Perjudian</h2>
+      
+      <p>
+        Membahas perjudian tidak lengkap tanpa menyentuh aspek hukum dan dampak sosialnya. Ini adalah topik kompleks yang berbeda di setiap negara, bahkan di setiap wilayah dalam satu negara.
+      </p>
+      
+      <div class="warning-box">
+        <strong>Lanskap Hukum yang Beragam:</strong>
+        <p>
+          Status legalitas perjudian sangat bervariasi di seluruh dunia. Macau dan Las Vegas terkenal sebagai surga judi legal, sementara di banyak negara Asia Tenggara, perjudian dilarang keras. Yang menarik, beberapa negara melarang judi konvensional tapi belum memiliki regulasi jelas untuk judi online—menciptakan area abu-abu hukum. Di Indonesia sendiri, semua bentuk perjudian dilarang berdasarkan Kitab Undang-Undang Hukum Pidana.
+        </p>
+      </div>
+      
+      <h3>Dampak Sosial yang Perlu Dipahami</h3>
+      <p>
+        Perjudian, baik online maupun offline, membawa berbagai konsekuensi sosial yang tidak bisa diabaikan:
+      </p>
+      <ul>
+        <li><strong>Masalah Kecanduan</strong>: Perjudian bisa memicu ketergantungan psikologis serius, di mana seseorang terus bermain meski sudah mengalami kerugian besar.</li>
+        <li><strong>Dampak Finansial</strong>: Bukan rahasia lagi bahwa banyak keluarga hancur secara ekonomi karena masalah judi—mulai dari utang menumpuk hingga penjualan aset.</li>
+        <li><strong>Aspek Ekonomi Makro</strong>: Di negara yang melegalkan, industri judi menyumbang pendapatan pajak signifikan dan menciptakan lapangan kerja.</li>
+        <li><strong>Kejahatan Terkait</strong>: Mulai dari pencucian uang, penipuan online, hingga pemerasan sering dikaitkan dengan dunia perjudian ilegal.</li>
+        <li><strong>Dampak Psikologis</strong>: Stres, kecemasan, hingga depresi sering menyertai para penjudi bermasalah dan keluarganya.</li>
+      </ul>
+      
+      <p>
+        Menariknya, beberapa penelitian menunjukkan bahwa judi online justru memiliki tingkat kecanduan lebih tinggi dibanding judi konvensional. Faktor-faktor seperti kemudahan akses, privasi, dan kecepatan permainan diduga menjadi penyebabnya. Namun di sisi lain, platform judi online legal biasanya menyediakan lebih banyak alat untuk mengontrol diri, seperti batas deposit dan opsi self-exclusion.
+      </p>
+    </div>
+    
+    <button class="next-button" id="next-btn">
+      Lanjut
+      <span class="arrow-icon">→</span>
+    </button>
+  </div>
+
+  <script>
+    // Animation for fade-in elements
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Next button functionality
+      const nextButton = document.getElementById('next-btn');
+      nextButton.addEventListener('click', function() {
+        // Add animation when clicking
+        this.classList.add('pop-in');
+        
+        // Here you would typically navigate to the next page
+        // For demonstration, we'll just show an alert
+        setTimeout(() => {
+          alert('Navigating to the next page!');
+          // window.location.href = 'next-page.html'; // Uncomment to actually navigate
+        }, 300);
+        
+        // Remove animation class after a delay
+        setTimeout(() => {
+          this.classList.remove('pop-in');
+        }, 500);
+      });
+      
+      // Interactive table rows
+      const tableRows = document.querySelectorAll('.comparison-table tr');
+      tableRows.forEach(row => {
+        row.addEventListener('mouseover', function() {
+          this.style.backgroundColor = 'rgba(52, 152, 219, 0.1)';
+        });
+        
+        row.addEventListener('mouseout', function() {
+          // Reset to original color
+          if (this.querySelector('th')) {
+            this.style.backgroundColor = ''; // Header row
+          } else if ([...this.parentNode.children].indexOf(this) % 2 === 1) {
+            this.style.backgroundColor = '#f2f2f2'; // Even rows
+          } else {
+            this.style.backgroundColor = ''; // Odd rows
+          }
+        });
+      });
+      
+      // Progress tracker (for demonstration)
+      let readProgress = 0;
+      const sections = document.querySelectorAll('.content-section');
+      const totalSections = sections.length;
+      
+      window.addEventListener('scroll', function() {
+        let visibleSections = 0;
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const isVisible = (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          );
+          
+          if (isVisible) {
+            section.style.borderLeft = '5px solid var(--accent-color)';
+            visibleSections++;
+          } else {
+            section.style.borderLeft = '';
+          }
+        });
+        
+        readProgress = Math.round((visibleSections / totalSections) * 100);
+        console.log(`Reading progress: ${readProgress}%`);
+      });
+    });
+  </script>
+</body>
+</html>

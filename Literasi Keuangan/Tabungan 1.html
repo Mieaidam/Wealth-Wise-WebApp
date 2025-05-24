@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Wise — Tabungan</title>
+
+<!-- ====== GOOGLE FONT ====== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/*********** CSS RESET ***********/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  min-height:100vh;
+  display:flex;                  /* vertical‑center entire card */
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#bbdefb,#e3f2fd);
+}
+
+/*********** CARD ***********/
+.card{
+  width:90%;
+  max-width:360px;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+  position:relative;
+  animation:fadeUp .8s ease;
+}
+
+/*********** HEADER ***********/
+header{
+  background:#64b5f6;
+  color:#fff;
+  text-align:center;
+  padding:18px 12px 22px;
+  position:relative;
+}
+header h1{font-size:1.2rem;font-weight:700}
+header p {font-size:.85rem;margin-top:4px}
+.back-btn{
+  position:absolute;top:14px;left:14px;
+  width:34px;height:34px;
+  border-radius:50%;
+  border:none;
+  background:#e3f2fd;
+  font-size:1.25rem;
+  color:#0d47a1;
+  display:flex;justify-content:center;align-items:center;
+  cursor:pointer;transition:.25s;
+}
+.back-btn:hover{background:#bbdefb;transform:scale(1.05)}
+
+/* Logo */
+.logo{
+  position:absolute;top:10px;right:14px;width:48px;height:48px;object-fit:contain;z-index:2;
+}
+
+/*********** HERO IMAGE ***********/
+.hero{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#cfd8dc url("https://via.placeholder.com/600x338?text=Ilustrasi+Tabungan") center/cover no-repeat;
+}
+.caption{background:#e3f2fd;padding:6px 12px;font-size:.7rem;color:#37474f}
+
+/*********** CONTENT ***********/
+section.content{
+  padding:20px 18px 30px;
+  color:#263238;
+}
+.content h2{font-size:1.15rem;color:#0d47a1;margin-bottom:12px;text-align:center}
+.content p{font-size:.93rem;line-height:1.55;margin-bottom:14px;text-align:justify}
+
+/*********** CTA ***********/
+.cta{
+  display:flex;justify-content:center;
+  margin-bottom: 24px; /* semakin besar nilainya, tombol makin naik */
+}
+.next-btn{
+  width:58px;height:58px;
+  border:3px solid #90caf9;
+  border-radius:16px;
+  background:#f1f8ff;
+  font-size:1.45rem;color:#0d47a1;
+  display:flex;justify-content:center;align-items:center;
+  cursor:pointer;transition:.3s;
+}
+.next-btn:hover{background:#e3f2fd;transform:translateY(-2px) scale(1.05)}
+
+/*********** NAV BAR ***********/
+.navbar{
+  background:#64b5f6;
+  display:flex;gap:8px;justify-content:space-around;
+  padding:14px 0 18px;
+}
+.nav-item{
+  flex:1;text-align:center;color:#fff;
+  font-size:.8rem;font-weight:600;text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.nav-item img{width:34px;height:34px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+
+/*********** ANIMATION ***********/
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<article class="card">
+  <!-- Logo & Back -->
+  <img src="../Images/Logo_WealthWise.png" alt="Logo" class="logo">
+  <button class="back-btn" onclick="history.back()">←</button>
+
+  <!-- Header -->
+  <header>
+    <h1>Wealth Wise</h1>
+    <p>Edukasi Keuangan untuk Pelajar</p>
+  </header>
+
+  <!-- Hero Image -->
+  <div class="hero" style="background:none;padding:0;">
+    <img src="../Images/Logo_Tabungan2.jpg" style="width:100%;height:auto;display:block;border-radius:0;">
+  </div>
+
+  <!-- Content -->
+  <section class="content">
+    <h2>Apa Itu Tabungan?</h2>
+    <p><strong>Tabungan</strong> adalah dana yang kamu simpan di bank dan bisa ditarik sewaktu‑waktu sesuai aturan. Setiap setoran maupun penarikan akan tercatat otomatis sehingga kamu dapat memantau arus uang dengan mudah.</p>
+    <p>Saat ini, kebanyakan bank sudah mengganti <em>buku tabungan fisik</em> dengan layanan <em>mobile banking</em> yang menampilkan riwayat transaksi secara real‑time. Aksesnya menggunakan kartu debit + PIN atau aplikasi dengan verifikasi ganda, jadi aman selama kamu menjaga kerahasiaan data.</p>
+    <p>Menurut OJK (2019), menabung secara rutin membantu:
+      <ul style="padding-left:20px;margin-top:6px">
+        <li>Membangun dana darurat untuk kebutuhan tak terduga.</li>
+        <li>Mencapai tujuan jangka pendek seperti membeli gawai atau biaya kursus.</li>
+        <li>Membentuk kebiasaan disiplin mengelola pendapatan sejak dini.</li>
+      </ul>
+    </p>
+    <p style="margin-top:14px">Ingin tahu manfaat menabung lebih lanjut? Ketuk tombol panah di bawah!</p>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta" style="margin-top:-18px;">
+    <button class="next-btn" onclick="location.href='Tabungan 2.html'">→</button>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a class="nav-item" href="Tabungan 1.html">
+      <img src="../Images/Logo_Tabungan1.png" alt="Tabungan">
+      Tabungan
+    </a>
+    <a class="nav-item" href="Investasi 1.html">
+      <img src="../Images/Logo_Investasi1.png" alt="Investasi">
+      Investasi
+    </a>
+    <a class="nav-item" href="Kredit 1.html">
+      <img src="../Images/Logo_Pinjaman1.png" alt="Pinjaman">
+      Pinjaman
+    </a>
+  </nav>
+</article>
+
+<!-- ====== SMALL JS EFFECT ====== -->
+<script>
+// simple ripple effect on buttons
+const buttons=[...document.querySelectorAll('button')];
+buttons.forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    const circle=document.createElement('span');
+    const diameter=Math.max(btn.clientWidth,btn.clientHeight);
+    const radius=diameter/2;
+    circle.style.width=circle.style.height=`${diameter}px`;
+    circle.style.left=`${e.clientX-btn.offsetLeft-radius}px`;
+    circle.style.top=`${e.clientY-btn.offsetTop-radius}px`;
+    circle.classList.add('ripple');
+    const ripple=btn.getElementsByClassName('ripple')[0];
+    if(ripple) ripple.remove();
+    btn.appendChild(circle);
+  });
+});
+</script>
+<style>
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(144,202,249,.45);
+  transform:scale(0);
+  animation:rip 600ms linear;
+  pointer-events:none;
+}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+button{position:relative;overflow:hidden}
+</style>
+
+</body>
+</html>

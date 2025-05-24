@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320, initial-scale=1.0">
+  <title>Kelebihan & Kekurangan Agunan</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 320px;
+      background: #FFD700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+    .header-bubble {
+      background: #ffffcc;
+      border-radius: 18px 18px 32px 32px;
+      margin: 18px 0 18px 0;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 90%;
+      animation: fadeIn 1s;
+    }
+    .info-box {
+      background: #ffffcc;
+      border-radius: 18px;
+      border: 2px solid #222;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      margin: 0 0 18px 0;
+      padding: 18px 16px 18px 16px;
+      width: 90%;
+      font-size: 15px;
+      color: #222;
+      animation: popIn 1s;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    }
+    .info-box ul, .info-box ol {
+      margin: 8px 0 8px 18px;
+      padding: 0;
+    }
+    .info-box li {
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .info-box .highlight {
+      font-weight: bold;
+    }
+    .info-box .highlight:first-of-type {
+      color: #388e3c; /* Green for Kelebihan */
+    }
+    .info-box .highlight:last-of-type {
+      color: #d32f2f; /* Red for Kekurangan */
+    }
+    .success-banner {
+      background: linear-gradient(90deg, #4CAF50 80%, #81c784 100%);
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 18px 0 0 0;
+      border-radius: 16px;
+      letter-spacing: 2px;
+      width: 90%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      animation: bounceIn 1.2s;
+      border: 2px solid #388e3c;
+      text-shadow: 1px 1px 2px #388e3c33;
+    }
+    .home-button {
+      display: flex;
+      align-items: center;
+      margin: 22px 0 0 0;
+      width: 90%;
+      justify-content: center;
+    }
+    .home-button a {
+      background: #FFFAD7;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+      text-decoration: none;
+      border: 2px solid #222;
+      flex-direction: column;
+      transition: background 0.2s;
+      margin-right: 12px;
+    }
+    .home-button a:hover {
+      background: #ffe066;
+    }
+    .home-icon {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 2px;
+    }
+    .home-label {
+      font-size: 16px;
+      color: #222;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0;}
+      60% { transform: scale(1.15); opacity: 1;}
+      80% { transform: scale(0.95);}
+      100% { transform: scale(1);}
+    }
+    .decorative-line {
+      width: 60px;
+      height: 6px;
+      background: linear-gradient(90deg, #4caf50 0%, #ffd700 100%);
+      border-radius: 3px;
+      margin: 0 auto 12px auto;
+      opacity: 0.6;
+      animation: popIn 1.2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Yuk kita bahas kelebihan dan kekurangan agunan!
+    </div>
+    <div class="decorative-line"></div>
+    <div class="info-box">
+      <span class="highlight">Kelebihan Agunan:</span>
+      <ol>
+        <li>Proses pinjaman biasanya lebih mudah disetujui.</li>
+        <li>Bunga lebih rendah dibandingkan tanpa agunan.</li>
+        <li>Jumlah pinjaman bisa lebih besar.</li>
+        <li>Meningkatkan kredibilitas: Menunjukkan keseriusan dan tanggung jawab dalam membayar utang.</li>
+      </ol>
+      <span class="highlight">Kekurangan Agunan:</span>
+      <ol>
+        <li>Risiko kehilangan aset jika gagal membayar pinjaman.</li>
+        <li>Proses penilaian aset: Membutuhkan waktu dan biaya tambahan.</li>
+        <li>Tidak semua aset bisa dijadikan agunan (aset tertentu saja).</li>
+        <li>Likuiditas terbatas: Aset fisik sulit dijual atau diakses dengan cepat jika dibutuhkan.</li>
+      </ol>
+      <div style="margin-top:10px; font-size:13px; color:#555;">
+        <b>Tips:</b> Pilih jenis pinjaman sesuai kebutuhan dan kemampuanmu. Selalu baca syarat dan risiko sebelum mengajukan pinjaman!
+      </div>
+    </div>
+    <div class="success-banner">
+      SUKSES!!
+    </div>
+    <div class="home-button">
+      <a href="Halaman Game 2.html">
+        <img class="home-icon" src="../Images/Logo_Home.png">
+      </a>
+      <span class="home-label">HOME</span>
+    </div>
+  </div>
+  <script>
+    localStorage.setItem('levelCompleted', 'Pinjaman');
+      // === Add reward (10,000) to balance ===
+  const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+  const newBalance = currentBalance + 10000;
+  localStorage.setItem('balance', newBalance);
+
+  // === Success animation ===
+  const successBanner = document.getElementById('success-banner');
+  successBanner.style.opacity = 0;
+  successBanner.style.transform = 'scale(0.8)';
+  setTimeout(() => {
+    successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
+    successBanner.style.opacity = 1;
+    successBanner.style.transform = 'scale(1)';
+  }, 500);
+
+  const characterImg = document.querySelector('.character-img');
+  setInterval(() => {
+    characterImg.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      characterImg.style.transform = 'translateY(0)';
+    }, 300);
+  }, 2000);
+    </script>
+</body>
+</html>

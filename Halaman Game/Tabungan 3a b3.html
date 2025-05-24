@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skala Prioritas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffec3d, #ffd600);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      width: 360px;
+      background-color: #fffef3;
+      border: 4px solid #000;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      animation: bounceIn 0.6s ease-out;
+    }
+
+    .title {
+      background-color: #f7ffb6;
+      border: 2px solid #000;
+      border-radius: 30px;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .message-box {
+      background-color: #f9ffa6;
+      border: 2px solid #000;
+      border-radius: 20px;
+      padding: 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .home-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff86b;
+      border: 2px solid #000;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #000;
+      box-shadow: 2px 2px 0 #000;
+      transition: all 0.2s ease;
+      width: 60%;
+      margin: 0 auto; /* Center the button horizontally */
+    }
+
+    .home-btn:hover {
+      transform: scale(1.05);
+      background-color: #fff95e;
+    }
+
+    .home-btn img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .img-placeholder {
+      width: 100%;
+      max-width: 240px;      /* Make the placeholder wider */
+      height: 160px;
+      margin: 0 auto 18px auto;
+      background: none;
+      border: none;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* Show the whole image without cropping */
+      display: block;
+      border: none;
+      border-radius: 24px;
+      box-sizing: border-box;
+      background: #fff;
+    }
+
+    @keyframes bounceIn {
+      0%   { transform: scale(0.8); opacity: 0; }
+      60%  { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="title">Baiklah, yuk bahas soal skala prioritas!</div>
+
+    <div class="img-placeholder">
+      <img src="../Images/Logo_SkalaPrioritas.png">
+    </div>
+
+    <div class="message-box">
+      Dalam mengatur keuangan, penting banget buat ngerti <strong>skala prioritas</strong>. Artinya, kita perlu mendahulukan hal-hal yang paling penting dan mendesak — seperti kebutuhan pokok, pendidikan, atau tabungan darurat — dibanding membeli hal yang hanya memberi kesenangan sesaat.<br><br>
+
+      Kalau kita terus mengutamakan keinginan dibanding kebutuhan, bisa-bisa uang habis sebelum hal penting terpenuhi.<br><br>
+
+      Yuk, biasakan membuat daftar prioritas sebelum belanja. Dengan begitu, kita bisa jadi lebih bijak dan siap menghadapi masa depan!
+    </div>
+
+    <button class="home-btn" onclick="location.href='Halaman Game 2.html'">
+      <img src="../Images/Logo_Home.png">
+      HOME
+    </button>
+  </div>
+  <script>
+    // Optional: Add any JavaScript functionality here
+    localStorage.setItem('levelCompleted', 'Tabungan');
+  </script>
+</body>
+</html>

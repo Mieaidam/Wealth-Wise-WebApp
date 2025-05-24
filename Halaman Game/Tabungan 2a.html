@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aryo Nabung</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffde2b;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+      background-size: 20px 20px; /* Adds a subtle dotted pattern */
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 380px;
+      position: relative;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .dialog-header {
+      background-color: #fcffc0;
+      border: 3px solid #000;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 1.3rem;
+      margin-bottom: 90px;
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: 200px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .game-balance-box img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .balance-label {
+      margin-top: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      max-width: 250px;
+      margin-bottom: 15px;
+      opacity: 0.7;
+    }
+
+    .image-box {
+      width: 250px;
+      height: 180px;
+      margin: 0 auto 20px;
+      background: url('placeholder-activity.png') no-repeat center / contain;
+      border: 5px dashed #000; /* Adds a decorative dashed border */
+      border-radius: 20px; /* Matches the rounded corners of the image */
+      padding: 10px; /* Adds spacing between the image and the border */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds depth to the box */
+    }
+
+    .image-box img {
+      border-radius: 15px; /* Adds rounded corners */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+      border: 3px solid #000; /* Adds a border to make it stand out */
+      transition: transform 0.3s ease; /* Smooth animation on hover */
+    }
+
+    .image-box img:hover {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    .btn-next {
+      background-color: #fef6b1;
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-radius: 25px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-next:hover {
+      background-color: #fff376;
+    }
+
+    .decorative-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000;
+      margin-top: 10px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow to the text */
+    }
+
+    .decorative-icon {
+      width: 50px;
+      height: 50px;
+      margin: 10px auto;
+      display: block;
+      background: url('../Images/Star_Icon.png') no-repeat center / contain; /* Example decorative icon */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Uang Box -->
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang" />
+      <span>Rp 40.000</span>
+    </div>
+
+    <!-- Narasi -->
+    <div class="dialog-header">
+      Pada akhirnya Aryo memutuskan untuk tidak ikut nongkrong. Ia memilih menabung uang sakunya dan melakukan aktivitas di rumahnya.
+    </div>
+
+    <!-- Balon dan Gambar -->
+    <div class="speech-bubble"><i>"Tiktokan ahh..."</i></div>
+    <div class="image-box">
+      <img src="../Images/Logo_AryoTikTok.png" alt="Placeholder for Activity Image" style="width: 100%; height: 100%; object-fit: contain;" />
+    </div>
+
+    <!-- Tombol Next -->
+    <button class="btn-next" onclick="location.href ='Tabungan 3a.html'">NEXT</button>
+  </div>
+</body>
+</html>

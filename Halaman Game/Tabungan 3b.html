@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keputusan Aryo - Top Up Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffde2b;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 380px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .dialog-header {
+      background-color: #fcffc0;
+      border: 3px solid #000;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: 54%;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .game-balance-box img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      max-width: 270px;
+      margin-bottom: 15px;
+      opacity: 0.65;
+    }
+
+    .image-placeholder {
+      width: 280px;
+      height: 190px;
+      margin: 0 auto 20px;
+      margin-left: -10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+    }
+
+    .image-placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .image-placeholder img.bounce {
+      animation: bounce 0.5s ease;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .flat-box {
+      background-color: #fef6b1;
+      padding: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 2px solid #000;
+      margin-bottom: 12px;
+    }
+
+    .btn-big {
+      background-color: #fef6b1;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 25px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .btn-big:hover {
+      background-color: #fff376;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Saldo Box -->
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang" />
+      <span>Rp 50.000</span>
+    </div>
+
+    <!-- Narasi -->
+    <div class="dialog-header">
+      Aryo baru saja menerima uang Rp 50.000 dari orang tuanya. Ia berencana menabung, namun hari ini ada penawaran top-up game dengan diskon menarik.
+    </div>
+
+    <!-- Dialog Balon -->
+    <div class="speech-bubble">
+      <i>"Diskonnya cuma hari ini... Top-up jadi Rp 50.000 saja! Tapi uang ini harusnya aku tabung..."</i>
+    </div>
+
+    <!-- Gambar -->
+    <div class="image-placeholder">
+      <img src="../Images/Logo_AryoTV.png" alt="Gambar Aryo berpikir">
+    </div>
+
+    <!-- Prompt -->
+    <div class="flat-box">Apa keputusan terbaik untuk Aryo?</div>
+
+    <!-- Tombol Opsi -->
+    <button class="btn-big" onclick="location.href = 'Tabungan 3b a1.html'">Menabung</button>
+    <button class="btn-big" onclick="location.href = 'Tabungan 3b b1.html'">Top-Up Game</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const image = document.querySelector(".image-placeholder img");
+
+      image.addEventListener("click", function () {
+        image.classList.add("bounce");
+        image.addEventListener("animationend", function () {
+          image.classList.remove("bounce");
+        }, { once: true });
+      });
+    });
+  </script>
+</body>
+</html>

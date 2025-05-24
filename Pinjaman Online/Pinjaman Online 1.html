@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>News Collage</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;   /* Align to top */
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg, #e3f0ff 0%, #b6d0f7 100%);
+  padding:150px 0 40px 0;    /* Increase top padding to move everything down */
+}
+
+/* === COLLAGE AREA === */
+.stage{
+  position:relative;
+  width:95vw;
+  max-width:840px;
+  height:460px;
+  perspective:900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === PHOTO CARD === */
+.card{
+  position:absolute;top:50%;left:50%;
+  width:240px;
+  height:320px; /* Much taller for vertical sizing */
+  transform-origin:center;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  cursor:pointer;
+  transition:transform .45s, box-shadow .45s, opacity .5s;
+  opacity:0;
+}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* On hover or when “active” */
+.card:hover,
+.card.active{
+  box-shadow:0 16px 28px rgba(0,0,0,.35);
+  transform:translate(-50%,-50%) scale(1.12) rotate(0deg) !important;
+  z-index:10;
+}
+
+/* === NEXT BTN === */
+.next-btn{
+  margin-top:160px; /* More space below the collage */
+  width:66px;
+  height:66px;
+  border-radius:18px;
+  border:3px solid #64b5f6;
+  background:#fff;
+  font-size:1.7rem;
+  color:#1976d2;
+  font-weight:600;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:.3s;
+}
+.next-btn:hover{background:#e3f2fd;transform:translateY(-3px) scale(1.05)}
+</style>
+</head>
+<body>
+
+<section class="stage" id="stage">
+  <!-- six placeholders -->
+  <div class="card"><img src="../Images/Logo_News1.png" alt="News 1"></div>
+  <div class="card"><img src="../Images/Logo_News2.png" alt="News 2"></div>
+  <div class="card"><img src="../Images/Logo_News3.png" alt="News 3"></div>
+  <div class="card"><img src="../Images/Logo_News4.png" alt="News 4"></div>
+  <div class="card"><img src="../Images/Logo_News5.png" alt="News 5"></div>
+  <div class="card"><img src="../Images/Logo_News6.png" alt="News 6"></div>
+</section>
+
+<button class="next-btn" onclick="location.href='Pinjaman Online 2.html'">→</button>
+
+<script>
+/* Scatter every card around the centre with more dynamic random rotation & offset */
+const cards = [...document.querySelectorAll('.card')];
+const total = cards.length;
+const radiusX = 80;  // less horizontal spread
+const radiusY = 200; // more vertical spread
+
+cards.forEach((c, i) => {
+  // Arrange in a vertical ellipse for better phone visibility
+  const angle = (i / total) * 2 * Math.PI;
+  const dx = Math.cos(angle) * radiusX;
+  const dy = Math.sin(angle) * radiusY;
+  const rot = (Math.random() * 40 - 20).toFixed(1); // -20deg to 20deg
+  c.style.transform = `translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) rotate(${rot}deg)`;
+  c.style.transitionDelay = `${i * 0.08}s`;
+  setTimeout(() => c.style.opacity = 1, 50);
+});
+
+/* Click to bring to front (toggle) */
+cards.forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('.card.active').forEach(a=>a.classList.remove('active'));
+    c.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

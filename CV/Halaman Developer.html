@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Identity</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f0ff 0%, #b6d0f7 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dev-card {
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.16);
+            padding: 64px 56px 48px 56px;
+            min-width: 380px;
+            max-width: 600px;   /* Much larger max width */
+            width: 100%;        /* Responsive width */
+            text-align: center;
+        }
+        .dev-card h2 {
+            color: #1976d2;
+            margin-bottom: 32px;
+            font-size: 2.4rem;    /* Even larger title */
+            letter-spacing: 1.5px;
+        }
+        .dev-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+        .dev-list li {
+            margin-bottom: 32px;
+        }
+        .dev-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 22px 32px; /* Larger button */
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+            transition: background 0.2s, box-shadow 0.2s;
+            font-size: 1.35rem; /* Larger link text */
+        }
+        .dev-link:hover {
+            background: #bbdefb;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+        }
+        .dev-icon {
+            font-size: 1.3em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 6px;
+            padding: 7px 16px;
+            background: #e3f2fd;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #bbdefb;
+        }
+    </style>
+</head>
+<body>
+    <div class="dev-card">
+        <h2>Identitas Developer</h2>
+        <ul class="dev-list">
+            <li>
+                <a class="dev-link" href="../CV/CV Carlen.pdf" target="_blank">
+                    <span class="dev-icon">👤</span> Ketua (Carlen)
+                </a>
+            </li>
+            <li>
+                <a class="dev-link" href="../CV/CV Idam.pdf" target="_blank">
+                    <span class="dev-icon">👥</span> Anggota (Idam)
+                </a>
+            </li>
+        </ul>
+        <a class="back-link" href="../Halaman Utama.html">← Kembali</a>
+    </div>
+</body>
+</html>

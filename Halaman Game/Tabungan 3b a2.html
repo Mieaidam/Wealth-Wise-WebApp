@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insiden Aryo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #ffe66d 0%, #ffd700 100%);
+      font-family: 'Comic Sans MS', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 370px;
+      text-align: center;
+      padding: 25px;
+      background-color: #fffef3;
+      border: 5px solid #000;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .dialog-header {
+      background: #fcffc0;
+      border: 3px solid #222;
+      border-radius: 20px 20px 0 20px;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      box-shadow: 2px 2px 0 #000;
+      color: #222;
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+      border: 2px solid #000;
+      transform: rotate(2deg);
+      animation: bounceIn 0.8s ease;
+    }
+
+    .game-balance-box img {
+      width: 35px;
+      height: auto;
+      margin-right: 12px;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 3px solid #000;
+      border-radius: 30px;
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      max-width: 280px;
+      margin-bottom: 15px;
+      position: relative;
+      box-shadow: 2px 4px 0 #000;
+      opacity: 0.7;
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 60%;
+      border-width: 20px 20px 0;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+      transform: rotate(-5deg);
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .image-placeholder {
+      width: 120px;
+      height: 120px;
+      background-color: #d0f0fd;
+      border: 4px dashed #007bff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 0.9rem;
+      border-radius: 20px;
+    }
+
+    .flat-box {
+      background-color: #fff6a0;
+      padding: 15px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 2px solid #000;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .btn-next {
+      background-color: #fff376;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 3px 3px 0 #000;
+      width: 100%;
+    }
+
+    .btn-next:hover {
+      transform: scale(1.05);
+      background-color: #ffe156;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.1) rotate(3deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(2deg);
+      }
+    }
+
+    .image-placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Balance Box -->
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang" />
+      <span>Rp 100.000</span>
+    </div>
+
+    <!-- Story Intro -->
+    <div class="dialog-header">
+      Hari ini Aryo terjatuh saat bersepeda dan mengalami sedikit kecelakaan. Untungnya, Aryo tidak terluka serius… tapi sepatunya hancur!
+    </div>
+
+    <!-- Thought Bubble -->
+    <div class="speech-bubble">
+      <i>"Duh... sepatuku robek semua. Harus ganti baru, tapi pakai apa ya?"</i>
+    </div>
+
+    <!-- Image Container -->
+    <div class="image-container">
+      <!-- First Image Placeholder -->
+      <div class="image-placeholder">
+        <img src="../Images/Logo_Sepatu2.png">
+      </div>
+
+      <!-- Second Image Placeholder -->
+      <div class="image-placeholder">
+        <img src="../Images/Logo_AryoBingung.png">
+      </div>
+    </div>
+
+    <!-- Consequence Box -->
+    <div class="flat-box">
+      Untung Aryo punya tabungan! Ia bisa beli sepatu baru tanpa harus pinjam. Tabungan bisa bantu saat keadaan darurat, lho!
+    </div>
+
+    <!-- Next Button -->
+    <button class="btn-next" onclick="location.href='Tabungan 3b a3.html'">NEXT</button>
+  </div>
+</body>
+</html>

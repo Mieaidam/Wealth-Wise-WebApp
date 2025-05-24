@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keputusan Aryo - Beli Battle Pass</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffec3d, #ffd600);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 380px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .dialog-header {
+      background-color: #fcffc0;
+      border: 3px solid #000;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 1.2rem; /* Reduced font size slightly */
+      margin-bottom: 20px; /* Reduced margin */
+    }
+
+    .game-balance-box {
+      position: absolute;
+      top: 54%;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .game-balance-box img {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .speech-bubble {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.1rem; /* Reduced font size slightly */
+      max-width: 270px;
+      margin-bottom: 10px; /* Reduced margin */
+      opacity: 0.65;
+    }
+
+    .image-placeholder {
+      width: 260px; /* Reduced size */
+      height: 170px; /* Reduced size */
+      margin: 0 auto 15px; /* Reduced margin */
+      margin-left: -10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+    }
+
+    .image-placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .image-placeholder img.bounce {
+      animation: bounce 0.5s ease;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px); /* Reduced bounce height */
+      }
+    }
+
+    .flat-box {
+      background-color: #fef6b1;
+      padding: 10px; /* Reduced padding */
+      font-size: 1.1rem; /* Reduced font size */
+      font-weight: bold;
+      border: 2px solid #000;
+      margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .btn-big {
+      background-color: #fef6b1;
+      padding: 12px 18px; /* Reduced padding */
+      font-size: 1.1rem; /* Reduced font size */
+      font-weight: bold;
+      border-radius: 25px;
+      border: 3px solid #000;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 10px; /* Reduced margin */
+      width: 100%;
+    }
+
+    .btn-big:hover {
+      background-color: #fff376;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="game-balance-box">
+      <img src="../Images/Logo_Duit.png" alt="Ikon Uang" />
+      <span>Rp 70.000</span>
+    </div>
+
+    <div class="dialog-header">
+      Aryo hari ini punya Rp 70.000. Ia ingin menabung, tapi ada penawaran Battle Pass keren di game favoritnya!
+    </div>
+
+    <div class="speech-bubble">
+      <i>"Battle Pass-nya keren banget! Harganya Rp 70.000 pas... Tapi kan aku mau nabung..."</i>
+    </div>
+
+    <div class="image-placeholder">
+      <img src="../Images/Logo_AryoTV.png" alt="Gambar Aryo berpikir">
+    </div>
+
+    <div class="flat-box">Apa yang sebaiknya Aryo lakukan?</div>
+
+    <button class="btn-big" onclick="location.href = 'Tabungan 3c a1.html'">Menabung</button>
+    <button class="btn-big" onclick="location.href = 'Tabungan 3c b1.html'">Beli Battle Pass</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const image = document.querySelector(".image-placeholder img");
+
+      image.addEventListener("click", function () {
+        image.classList.add("bounce");
+        image.addEventListener("animationend", function () {
+          image.classList.remove("bounce");
+        }, { once: true });
+      });
+    });
+  </script>
+</body>
+</html>

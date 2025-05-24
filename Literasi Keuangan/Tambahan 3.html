@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Wise — Cakupan Lanjutan Literasi Finansial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* reset */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* layout */
+body{
+  min-height:100vh;display:flex;justify-content:center;align-items:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#bbdefb,#e3f2fd);
+}
+.card{
+  width:90%;max-width:360px;background:#fff;border-radius:24px;overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);animation:fadeUp .8s ease
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
+
+/* header */
+header{background:#64b5f6;color:#fff;text-align:center;padding:18px 12px 22px;position:relative}
+header h1{font-size:1.2rem;font-weight:700}
+header p{font-size:.85rem;margin-top:4px}
+.back-btn{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:50%;border:none;
+  background:#e3f2fd;font-size:1.25rem;color:#0d47a1;display:flex;justify-content:center;align-items:center;cursor:pointer;transition:.25s}
+.back-btn:hover{background:#bbdefb;transform:scale(1.05)}
+.logo{position:absolute;top:10px;right:14px;width:48px;height:48px;object-fit:contain;z-index:2}
+
+/* hero */
+.hero{width:100%;height:160px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* content */
+section.content{padding:20px 18px 30px;color:#263238}
+.content h2{font-size:1.15rem;color:#0d47a1;margin-bottom:12px;text-align:center}
+
+/* list */
+.content ol{padding-left:20px}
+.content li{
+  margin-bottom:14px;font-size:.93rem;line-height:1.55;text-align:justify;
+}
+.content ol li::marker{color:#263238;font-weight:600}   /* angka 4-6 berwarna sama */
+
+/* strong text */
+.content strong{color:inherit;font-weight:700}          /* hanya sub-judul biru */
+
+/* CTA & navbar */
+.cta{display:flex;justify-content:center;margin-bottom:24px}
+.next-btn{width:58px;height:58px;border:3px solid #90caf9;border-radius:16px;background:#f1f8ff;
+  font-size:1.45rem;color:#0d47a1;display:flex;justify-content:center;align-items:center;cursor:pointer;transition:.3s}
+.next-btn:hover{background:#e3f2fd;transform:translateY(-2px) scale(1.05)}
+
+.navbar{background:#64b5f6;display:flex;gap:8px;justify-content:space-around;padding:14px 0 18px}
+.nav-item{flex:1;text-align:center;color:#fff;font-size:.8rem;font-weight:600;text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;gap:4px}
+.nav-item img{width:34px;height:34px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+</style>
+</head>
+
+<body>
+<article class="card">
+  <img src="../Images/Logo_WealthWise.png" alt="Logo" class="logo">
+  <button class="back-btn" onclick="history.back()">←</button>
+
+  <header>
+    <h1>Wealth Wise</h1>
+    <p>Cakupan Literasi Finansial — Bagian 3</p>
+  </header>
+
+  <div class="hero">
+    <img src="../Images/Logo_Sedekah.jpg" alt="Ilustrasi Rencana Keuangan">
+  </div>
+
+  <section class="content">
+    <h2>Cakupan Literasi Finansial (Lanjutan)</h2>
+    <ol start="4">
+      <li><strong>Merancang Tabungan</strong> — Setelah kebutuhan pokok terpenuhi, penting untuk menyisihkan sebagian uang untuk tabungan. Tabungan bukan hanya tempat menyimpan dana, tetapi juga sarana melatih <strong>kesabaran dan kedisiplinan</strong>. Dengan menabung, kamu bisa membeli barang idaman <em>tanpa harus berutang</em> sekaligus memupuk modal awal untuk investasi yang lebih besar di masa depan.</li>
+      <li><strong>Alokasi untuk Berbagi</strong> — Mengelola uang tidak hanya soal kebutuhan pribadi; kita juga perlu mengalokasikan sebagian rezeki untuk <strong>berbagi</strong>. Bentuknya bisa berupa <em>pajak</em> kepada negara, <em>zakat</em> bagi yang beragama Islam, <em>sedekah</em> kepada mereka yang membutuhkan, atau donasi sukarela untuk kegiatan sosial. Berbagi memperkuat rasa empati, tanggung jawab sosial, dan memperkaya nilai kemanusiaan dalam literasi finansial.</li>
+      <li><strong>Mengenali Kejahatan Finansial</strong> — Tidak semua tawaran keuangan itu baik. Penting memahami praktik buruk seperti <strong>penipuan investasi, pinjaman online ilegal, dan korupsi</strong>. Dengan literasi yang baik, kita lebih waspada terhadap modus keuangan mencurigakan—mulai dari skema ponzi, phishing, sampai penyalahgunaan data pribadi—sehingga dapat melindungi diri, keluarga, dan aset dari kerugian.</li>
+    </ol>
+  </section>
+
+  <div class="cta">
+    <button class="next-btn" onclick="location.href='../Halaman Utama.html'">🏠</button>
+  </div>
+
+  <nav class="navbar">
+    <a class="nav-item" href="Tabungan 1.html"><img src="../Images/Logo_Tabungan1.png" alt="Tabungan">Tabungan</a>
+    <a class="nav-item" href="Investasi 1.html"><img src="../Images/Logo_Investasi1.png" alt="Investasi">Investasi</a>
+    <a class="nav-item" href="Kredit 1.html"><img src="../Images/Logo_Pinjaman1.png" alt="Kredit">Pinjaman</a>
+  </nav>
+</article>
+</body>
+</html>

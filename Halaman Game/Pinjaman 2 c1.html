@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilihan Brady</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fcd82b;
+      color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .bubble-top, .bubble-bottom {
+      background-color: #ffff99;
+      padding: 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .speech-bubble {
+      background: #ffff99;
+      padding: 15px 20px;
+      border-radius: 20px;
+      display: inline-block;
+      position: relative;
+      font-style: italic;
+      font-size: 15px;
+      max-width: 250px;
+      margin: 0 auto;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-top-color: #ffff99;
+      border-bottom: 0;
+      margin-left: -15px;
+      margin-bottom: -15px;
+    }
+
+    .bank-card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      margin: 0 auto;
+      width: fit-content;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    .bank-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+
+    .bank-logo {
+      width: 130px;
+      margin: 0
+    }
+
+    .brady-logo {
+      width: 170px;
+      margin: 0 auto;
+      margin-right: 58%;
+      display: block;
+    }
+
+    .next-button {
+      background-color: #ffff99;
+      color: black;
+      font-weight: bold;
+      padding: 10px 30px;
+      border-radius: 25px;
+      margin-top: 10px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      border: 2px solid black;
+      transition: all 0.3s ease;
+    }
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="bubble-top">
+      Suatu hari, Brady ingin meminjam uang. Ia memilih pergi ke bank karena menurutnya bank lebih aman dan bisa dipercaya.
+    </div>
+
+    <div class="bank-card">
+      <img src="../Images/Logo_Bank.png" class="bank-logo" alt="Gambar Bank">
+    </div>
+
+    <div class="speech-bubble">
+      "Aku pinjam di bank aja, deh... Biar lebih jelas dan aman."
+    </div>
+
+    <img src="../Images/Logo_BradyBank.png" class="brady-logo" alt="Gambar Brady">
+
+    <div class="bubble-bottom">
+      Pilihan Brady sudah tepat. Bank diawasi oleh pemerintah dan wajib mengikuti aturan yang ketat agar nasabah tetap terlindungi.
+    </div>
+
+    <button class="next-button" onclick="location.href='Pinjaman 2 c2.html'">NEXT</button>
+  </div>
+</body>
+</html>

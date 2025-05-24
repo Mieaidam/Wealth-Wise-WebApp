@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=360, initial-scale=1.0">
+  <title>Penjelasan KTA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #FFD700;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .app-container {
+      width: 360px;
+      min-height: 640px;
+      background-color: #FFD700;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 24px;
+      position: relative;
+    }
+    .speech-bubble {
+      background: #FFFAD7;
+      border-radius: 20px;
+      margin: 24px 16px 35px 16px;
+      padding: 18px 18px 18px 18px;
+      font-size: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      position: relative;
+      border: 2px solid #222;
+      font-style: italic;
+      text-align: center;
+      animation: fadeIn 1s;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -16px;
+      transform: translateX(-50%) rotate(45deg);
+      width: 28px;
+      height: 28px;
+      background: #FFFAD7;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      z-index: 1;
+    }
+    .small-bubble {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 16px;
+      margin: 0 0 0 32px;
+      font-size: 14px;
+      width: fit-content;
+      max-width: 70%;
+      border: 2px solid #222;
+      position: relative;
+      font-style: italic;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      animation: popIn 1s;
+      opacity: 0.7;
+    }
+    .small-bubble:after {
+      content: '';
+      position: absolute;
+      left: 18px;
+      bottom: -12px;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-bottom: 2px solid #222;
+      border-right: 2px solid #222;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .character-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      min-height: 160px;
+      margin: 10px 0 0 0;
+      position: relative;
+    }
+    .character-img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-right: 12px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.13));
+      animation: floatChar 2.5s ease-in-out infinite;
+      background: #fffbe6;
+      border-radius: 50%;
+      border: 2px solid #222;
+    }
+    @keyframes floatChar {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+      100% { transform: translateY(0);}
+    }
+    .bottom-bubble {
+      background: #FFFAD7;
+      border-radius: 18px;
+      padding: 18px 16px 18px 16px;
+      margin: 18px 16px 0 16px;
+      font-size: 15px;
+      border: 2px solid #222;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      text-align: justify;
+      animation: fadeIn 1.2s;
+    }
+    .bottom-bubble strong {
+      color: #388e3c;
+      font-weight: bold;
+    }
+    .tips-box {
+      background: linear-gradient(90deg, #e0ffe0 60%, #b2ffb2 100%);
+      border-radius: 12px;
+      margin: 18px 16px 0 16px;
+      padding: 12px 14px;
+      font-size: 14px;
+      border-left: 5px solid #4caf50;
+      color: #222;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      font-style: italic;
+      animation: popIn 1.2s;
+    }
+    .success-banner {
+      background: linear-gradient(90deg, #4CAF50 80%, #81c784 100%);
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 24px 0 0 0;
+      border-radius: 16px;
+      letter-spacing: 2px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      animation: bounceIn 1.2s;
+      width: 40%;
+    }
+    .home-button {
+      display: flex;
+      justify-content: center;
+      margin: 22px 0 0 0;
+    }
+    .home-button a {
+      background: #FFFAD7;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+      text-decoration: none;
+      border: 2px solid #222;
+      flex-direction: column;
+      transition: background 0.2s;
+    }
+    .home-button a:hover {
+      background: #ffe066;
+    }
+    .lock-icon {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 2px;
+    }
+    .home-button div {
+      font-size: 14px;
+      color: #222;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0;}
+      60% { transform: scale(1.15); opacity: 1;}
+      80% { transform: scale(0.95);}
+      100% { transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="speech-bubble">
+      Joko kurang teliti membaca ketentuan bank. Memang uangnya cair cepat, tapi ternyata bunganya cukup besar dan waktu pelunasannya singkat.
+    </div>
+    <div class="small-bubble">
+      "Terpaksa weekend kerja..."
+    </div>
+    <div class="character-container">
+      <img class="character-img" src="../Images/Logo_OrangDuduk.png">
+    </div>
+    <div class="bottom-bubble">
+      <strong>KTA (Kredit Tanpa Agunan)</strong> adalah pinjaman yang tidak memerlukan jaminan atau aset sebagai syarat. Prosesnya biasanya lebih cepat dan mudah, cocok untuk kebutuhan mendesak. Namun, <strong>bunga KTA cenderung lebih tinggi</strong> dan tenor (jangka waktu) lebih pendek dibandingkan pinjaman dengan agunan. Bank menilai risiko dari riwayat keuangan dan kemampuan membayar peminjam.
+    </div>
+    <div class="tips-box">
+      💡 <b>Tips:</b> Selalu baca syarat dan ketentuan sebelum mengambil pinjaman apa pun. Pastikan kamu mampu membayar cicilan tepat waktu agar tidak terkena denda atau bunga tambahan!
+    </div>
+    <div class="success-banner">
+      SUKSES!!
+    </div>
+    <div class="home-button">
+      <a href="Halaman Game 2.html">
+        <img class="lock-icon" src="../Images/Logo_Home.png">
+      </a>
+    </div>
+  </div>
+  <script>
+    localStorage.setItem('levelCompleted', 'Pinjaman');
+      // === Add reward (10,000) to balance ===
+  const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+  const newBalance = currentBalance + 10000;
+  localStorage.setItem('balance', newBalance);
+
+  // === Success animation ===
+  const successBanner = document.getElementById('success-banner');
+  successBanner.style.opacity = 0;
+  successBanner.style.transform = 'scale(0.8)';
+  setTimeout(() => {
+    successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
+    successBanner.style.opacity = 1;
+    successBanner.style.transform = 'scale(1)';
+  }, 500);
+
+  const characterImg = document.querySelector('.character-img');
+  setInterval(() => {
+    characterImg.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      characterImg.style.transform = 'translateY(0)';
+    }, 300);
+  }, 2000);
+  </script>
+</body>
+</html>

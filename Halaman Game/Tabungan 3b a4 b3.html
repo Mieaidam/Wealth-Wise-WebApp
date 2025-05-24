@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bagaimana Agar Tidak Gagal Menabung</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    body, html {
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffee58, #ffeb3b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+    }
+    .container {
+      width: 90%;
+      max-width: 400px;
+      background-color: #fffde7;
+      border: 4px solid #fbc02d;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #4e342e;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .section.penyebab h2 {
+      color: #d84315;
+    }
+    .section.konsistensi h2 {
+      color: #2e7d32;
+    }
+    ul {
+      list-style-type: square;
+      text-align: left;
+      padding-left: 20px;
+      color: #424242;
+      font-size: 0.98rem;
+    }
+    .info-box {
+      background-color: #fff9c4;
+      border: 1px solid #fdd835;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #33691e;
+      margin-bottom: 20px;
+    }
+    .home-button {
+      margin: 0 auto;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffca28;
+      color: #212121;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 12px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      width: fit-content;
+    }
+    .home-button:hover {
+      background-color: #f9a825;
+    }
+    .home-button img {
+      width: 24px;
+      margin-right: 10px;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container > * {
+      animation: fadeInUp 0.6s ease both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bagaimana Agar Tidak Gagal Menabung?</h1>
+
+    <div class="section penyebab">
+      <h2>Kenapa Bisa Gagal Menabung?</h2>
+      <ul>
+        <li>Sering tergoda belanja hal yang tidak penting</li>
+        <li>Tidak punya tujuan menabung yang jelas</li>
+        <li>Tidak disiplin dan mudah menyerah</li>
+        <li>Selalu menunda untuk mulai menabung</li>
+      </ul>
+    </div>
+
+    <div class="section konsistensi">
+      <h2>Cara Agar Sukses Menabung</h2>
+      <ul>
+        <li>Tentukan tujuan menabung yang kamu mau</li>
+        <li>Tabung jumlah kecil tapi rutin (contoh: 5.000/hari)</li>
+        <li>Gunakan celengan atau dompet khusus</li>
+        <li>Catat setiap kali kamu menabung</li>
+        <li>Rayakan pencapaian kecil agar makin semangat</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      Gagal menabung bukan akhir segalanya. Yang penting, kamu belajar dari kesalahan dan mulai konsisten sedikit demi sedikit. Yuk, semangat nabung lagi!
+    </div>
+
+    <button onclick="location.href='Halaman Game 2.html'" class="home-button">
+      <img src="../Images/Logo_Home.png">
+      HOME
+    </button>
+  </div>
+  <script>
+    // Mark level as completed
+    localStorage.setItem('levelCompleted', 'Tabungan');
+  </script>
+</body>
+</html>

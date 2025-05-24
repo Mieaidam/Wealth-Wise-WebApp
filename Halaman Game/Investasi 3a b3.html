@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=340, initial-scale=1.0">
+  <title>Investasi - Apa Itu Saham</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      height: 100vh;
+      background: #FFD700;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 340px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      padding: 24px 0 24px 0;
+    }
+    .header-bubble {
+      background: #ffffcc;
+      border-radius: 22px;
+      margin: 0 0 18px 0;
+      padding: 16px 18px;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+      border: 2px solid #222;
+      text-align: center;
+      width: 95%;
+      animation: fadeIn 1s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .phone-frame {
+      width: 240px;
+      height: 540px;
+      background: #000;
+      border-radius: 40px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #ffffcc;
+      border-radius: 30px;
+      padding: 16px;
+      box-sizing: border-box;
+      font-size: 15px;
+      color: #222;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      line-height: 1.6;
+      text-align: justify;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .phone-notch {
+      width: 60px;
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .phone-button {
+      width: 50px;
+      height: 50px;
+      background: #FFD700;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      top: 86%;
+      transform: translateX(-50%);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .next-button {
+      background-color: #ffff99;
+      color: #222;
+      font-weight: bold;
+      padding: 14px 0;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid #222;
+      margin: 18px auto 0 auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      letter-spacing: 2px;
+      width: 90%;
+    }
+    .next-button:hover {
+      background-color: #ffe600;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 400px) {
+      .container { width: 100vw; }
+      .header-bubble { width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bubble">
+      Mari kita ketahui apa itu investasi saham!
+    </div>
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+       <b>Investasi Saham</b>: Membeli sebagian kecil kepemilikan perusahaan di <b>Bursa Efek</b>. Sebagai <b>pemegang saham</b>, kamu berpotensi untung dari <b>kenaikan harga saham</b> (jual lebih tinggi dari beli) dan <b>dividen</b> (pembagian laba perusahaan). Ini bisa menjadi cara untuk mengembangkan asetmu seiring dengan pertumbuhan perusahaan.
+       <br><br> Namun, perhatikan risikonya: Harga saham bisa <b>turun</b> (rugi jika dijual murah) dan ada risiko terburuk yaitu <b>perusahaan bangkrut</b> (nilai saham bisa jadi nol).
+      </div>
+      <div class="phone-button"></div>
+    </div>
+    <button class="next-button" onclick="location.href='Investasi 3a b4.html'">NEXT</button>
+  </div>
+    <script>
+    localStorage.setItem('levelCompleted', 'Investasi');
+  </script>
+</body>
+</html>
