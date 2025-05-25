@@ -340,22 +340,6 @@
   </div>
 
   <script>
-    document.getElementById('loginBtn').addEventListener('click', function() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      if (username && password) {
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-        if (!localStorage.getItem('levelCompleted')) {
-          localStorage.setItem('levelCompleted', 'Pinjaman');
-        }
-        window.location.href = "../Halaman Utama.html";
-      } else {
-        alert('Silakan masukkan username dan password yang valid!');
-      }
-    });
-
     // Redirect to register page on "Buat Akun" click
     document.getElementById('registerBtn').addEventListener('click', function() {
       window.location.href = "/Firebase/register.html";
