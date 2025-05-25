@@ -420,40 +420,11 @@
 
     <script>
         window.onload = function() {
-            // Try to get username from URL parameters first
-            const urlParams = new URLSearchParams(window.location.search);
-            let username = urlParams.get('username');
-            
-            // If not in URL, try localStorage
-            if (!username) {
-                username = localStorage.getItem('username');
-            }
-            
-            // Update the greeting if username exists
-            if (username) {
-                document.getElementById('usernameDisplay').textContent = username;
-            }
-
-            // Logout functionality
-            const logoutButton = document.getElementById('logoutBtn');
-            if (logoutButton) {
-                logoutButton.addEventListener('click', function() {
-                    // Clear any stored user data
-                    localStorage.removeItem('username');
-                    
-                    // Redirect to login page in Firebase folder
-                    window.location.href = '/Wealth Wise/index.html';
-                });
-            } else {
-                console.error('Logout button not found!');
-            }
-        };
-        window.onload = function() {
-    // Display username from URL or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    let username = urlParams.get('username');
-    if (!username) username = localStorage.getItem('username');
-    if (username) document.getElementById('usernameDisplay').textContent = username;
+        // Display username from URL or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        let username = urlParams.get('username');
+        if (!username) username = localStorage.getItem('username');
+        if (username) document.getElementById('usernameDisplay').textContent = username;
 
     // Logout button
     const logoutButton = document.getElementById('logoutBtn');
