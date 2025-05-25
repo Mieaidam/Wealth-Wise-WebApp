@@ -246,7 +246,13 @@
             for (let i = 0; i < 10; i++) {
                 createConfetti(button);
             }
-        }
+
+              localStorage.setItem('levelCompleted', 'Pinjaman');
+                    // === Add reward (10,000) to balance ===
+                const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+                const newBalance = currentBalance + 10000;
+                localStorage.setItem('balance', newBalance);
+            }
 
         function createConfetti(button) {
             const confetti = document.createElement('div');
