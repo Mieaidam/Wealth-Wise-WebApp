@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WealthWise AI Assistant</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    body {
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .iframe-container {
+      flex: 1 1 auto;
+      width: 100vw;
+      height: 100vh;
+      min-height: 0;
+      min-width: 0;
+      display: flex;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <button 
+    onclick="window.location.href = '../Halaman Utama.html';"
+    style="
+      position: absolute;
+      top: 19px;
+      left: 64%;
+      z-index: 10;
+      padding: 9px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #1976d2;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    ">
+    Kembali
+  </button>
+  <div class="iframe-container">
+    <iframe
+      src="https://www.chatbase.co/chatbot-iframe/-rD78gwniFLkWOvoKwq0e"
+      allow="clipboard-write"
+      title="WealthWise AI Chatbot"
+    ></iframe>
+  </div>
+</body>
+</html>
