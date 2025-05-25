@@ -220,19 +220,21 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       // === Unlock Logic ===
-      const levelCompleted = localStorage.getItem('levelCompleted');
+      const levelOrder = ['Pinjaman', 'Investasi', 'Tabungan'];
+      const levelCompleted = localStorage.getItem('levelCompleted') || 'Pinjaman';
+      const completedIdx = levelOrder.indexOf(levelCompleted);
+
       const investasiItem = document.querySelector('.menu-grid .menu-item:nth-child(2)');
       const tabunganItem = document.querySelector('.menu-grid .menu-item:nth-child(3)');
 
-      // By default, only Pinjaman is unlocked (handled by HTML)
       // Unlock Investasi if user has completed Pinjaman or higher
-      if (levelCompleted === 'Investasi' || levelCompleted === 'Tabungan') {
+      if (completedIdx >= levelOrder.indexOf('Pinjaman')) {
         investasiItem.classList.remove('locked');
         investasiItem.setAttribute('onclick', "startLevel('Investasi')");
       }
 
-      // Unlock Tabungan only if user has completed Investasi and reached Tabungan
-      if (levelCompleted === 'Tabungan') {
+      // Unlock Tabungan only if user has completed Investasi or higher
+      if (completedIdx >= levelOrder.indexOf('Investasi')) {
         tabunganItem.classList.remove('locked');
         tabunganItem.setAttribute('onclick', "startLevel('Tabungan')");
       }
