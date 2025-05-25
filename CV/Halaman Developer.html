@@ -11,68 +11,83 @@
             padding: 0;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
             align-items: center;
         }
         .dev-card {
             background: #fff;
-            border-radius: 22px;
-            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.16);
-            padding: 64px 56px 48px 56px;
+            border-radius: 36px;
+            box-shadow: 0 18px 60px rgba(44, 62, 80, 0.18);
+            padding: 72px 56px 56px 56px; /* Bigger box */
             min-width: 380px;
-            max-width: 600px;   /* Much larger max width */
-            width: 100%;        /* Responsive width */
+            max-width: 700px;
+            width: 100%;
             text-align: center;
+            margin-top: 0;
         }
         .dev-card h2 {
             color: #1976d2;
-            margin-bottom: 32px;
-            font-size: 2.4rem;    /* Even larger title */
-            letter-spacing: 1.5px;
+            margin-bottom: 48px;
+            font-size: 4.2rem; /* Increased */
+            letter-spacing: 2px;
+            font-weight: 900;
         }
         .dev-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 24px 0;
+            margin: 0 0 48px 0;
         }
         .dev-list li {
-            margin-bottom: 32px;
+            margin-bottom: 48px;
         }
         .dev-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 24px;
             text-decoration: none;
             background: #e3f2fd;
             color: #1976d2;
-            font-weight: 600;
-            border-radius: 10px;
-            padding: 22px 32px; /* Larger button */
-            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+            font-weight: 700;
+            border-radius: 18px;
+            padding: 38px 64px;
+            box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10);
             transition: background 0.2s, box-shadow 0.2s;
-            font-size: 1.35rem; /* Larger link text */
+            font-size: 2.8rem; /* Increased */
         }
         .dev-link:hover {
             background: #bbdefb;
-            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+            box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
         }
         .dev-icon {
-            font-size: 1.3em;
+            font-size: 2.8em; /* Increased */
         }
         .back-link {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 32px;
             color: #1976d2;
             text-decoration: none;
-            font-size: 1rem;
-            border-radius: 6px;
-            padding: 7px 16px;
+            font-size: 2.2rem; /* Increased */
+            border-radius: 10px;
+            padding: 18px 40px;
             background: #e3f2fd;
             transition: background 0.2s;
+            font-weight: 600;
         }
         .back-link:hover {
             background: #bbdefb;
+        }
+        @media (max-width: 700px) {
+            .dev-card {
+                min-width: 0;
+                max-width: 98vw;
+                padding: 32px 8vw 32px 8vw;
+            }
+            .dev-link {
+                padding: 24px 8vw;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
