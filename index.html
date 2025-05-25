@@ -363,11 +363,11 @@
   </script>
 
   <script type="module">
-  import { auth, db } from './Firebase/firebase.js';
+  import { auth, db } from '/Firebase/firebase.js'; // Changed from './Firebase/' to '/Firebase/'
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-analytics.js";
   import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
   import { ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
-  import { googleSignIn } from './Firebase/auth.js';
+  import { googleSignIn } from '/Firebase/auth.js';   // Changed from './Firebase/' to '/Firebase/'
 
   // Google Sign-In
   document.getElementById('googleSignInBtn').addEventListener('click', async function () {
