@@ -277,15 +277,14 @@
         const investasiItem = document.querySelector('.menu-grid .menu-item:nth-child(2)');
         const tabunganItem = document.querySelector('.menu-grid .menu-item:nth-child(3)');
 
-        if (completedIdx >= levelOrder.indexOf('Pinjaman')) {
-          investasiItem.classList.remove('locked');
-          investasiItem.onclick = null; // Remove old inline handler if any
-          investasiItem.addEventListener('click', () => startLevel('Investasi'));
-        }
+        // Always unlock Investasi from the start
+        investasiItem.classList.remove('locked');
+        investasiItem.onclick = null;
+        investasiItem.addEventListener('click', () => startLevel('Investasi'));
 
         if (completedIdx >= levelOrder.indexOf('Investasi')) {
           tabunganItem.classList.remove('locked');
-          tabunganItem.onclick = null; // Remove old inline handler if any
+          tabunganItem.onclick = null;
           tabunganItem.addEventListener('click', () => startLevel('Tabungan'));
         }
 
@@ -301,10 +300,8 @@
       if (pinjamanBtn) {
         pinjamanBtn.addEventListener('click', () => startLevel('Pinjaman'));
       }
-      const investasiBtn = document.getElementById('investasi-btn');
-      if (investasiBtn) {
-        investasiBtn.addEventListener('click', showLockedMessage);
-      }
+      // Remove alert for Investasi button, handler is set above
+      // Remove alert for Tabungan button if not unlocked
       const tabunganBtn = document.getElementById('tabungan-btn');
       if (tabunganBtn) {
         tabunganBtn.addEventListener('click', showLockedMessage);
