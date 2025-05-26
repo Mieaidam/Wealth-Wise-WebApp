@@ -350,7 +350,7 @@
   import { auth, db } from '/Firebase/firebase.js'; // Changed from './Firebase/' to '/Firebase/'
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-analytics.js";
   import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
-  import { ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
   import { googleSignIn } from '/Firebase/auth.js';   // Changed from './Firebase/' to '/Firebase/'
 
   // Google Sign-In
@@ -376,14 +376,23 @@
         const user = result.user;
         localStorage.setItem('username', username);
 
-        // Simpan progres default jika belum pernah disimpan
-        const level = localStorage.getItem('levelCompleted') || 'Pinjaman';
-        localStorage.setItem('levelCompleted', level);
-
-        await set(ref(db, 'users/' + user.uid), {
-          username: username,
-          levelCompleted: level
-        });
+        // Load progress from database
+        const progressRef = ref(db, 'users/' + user.uid + '/progress');
+        const snapshot = await get(progressRef);
+        let level = 'Pinjaman';
+        if (snapshot.exists()) {
+          const progress = snapshot.val();
+          level = progress.levelCompleted || 'Pinjaman';
+          localStorage.setItem('levelCompleted', level);
+          if (progress.balance !== undefined) {
+            localStorage.setItem('balance', progress.balance);
+          }
+        } else {
+          // If no progress, initialize it
+          await set(progressRef, { levelCompleted: level, balance: 0 });
+          localStorage.setItem('levelCompleted', level);
+          localStorage.setItem('balance', 0);
+        }
 
         window.location.href = "Halaman Utama.html";
       } catch (e) {
