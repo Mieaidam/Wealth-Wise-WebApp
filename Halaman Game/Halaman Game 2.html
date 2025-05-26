@@ -189,11 +189,11 @@
           <img src="../Images/Logo_Pinjaman.png">
           <p>Pinjaman</p>
         </div>
-        <div class="menu-item locked" onclick="showLockedMessage()">
+        <div class="menu-item locked" id="investasi-btn">
           <img src="../Images/Logo_Investasi.png">
           <p>Investasi</p>
         </div>
-        <div class="menu-item locked" onclick="showLockedMessage()">
+        <div class="menu-item locked" id="tabungan-btn">
           <img src="../Images/Logo_Tabungan.png">
           <p>Tabungan</p>
         </div>
@@ -279,12 +279,14 @@
 
         if (completedIdx >= levelOrder.indexOf('Pinjaman')) {
           investasiItem.classList.remove('locked');
-          investasiItem.setAttribute('onclick', "startLevel('Investasi')");
+          investasiItem.onclick = null; // Remove old inline handler if any
+          investasiItem.addEventListener('click', () => startLevel('Investasi'));
         }
 
         if (completedIdx >= levelOrder.indexOf('Investasi')) {
           tabunganItem.classList.remove('locked');
-          tabunganItem.setAttribute('onclick', "startLevel('Tabungan')");
+          tabunganItem.onclick = null; // Remove old inline handler if any
+          tabunganItem.addEventListener('click', () => startLevel('Tabungan'));
         }
 
         // === Display Balance ===
@@ -298,6 +300,14 @@
       const pinjamanBtn = document.getElementById('pinjaman-btn');
       if (pinjamanBtn) {
         pinjamanBtn.addEventListener('click', () => startLevel('Pinjaman'));
+      }
+      const investasiBtn = document.getElementById('investasi-btn');
+      if (investasiBtn) {
+        investasiBtn.addEventListener('click', showLockedMessage);
+      }
+      const tabunganBtn = document.getElementById('tabungan-btn');
+      if (tabunganBtn) {
+        tabunganBtn.addEventListener('click', showLockedMessage);
       }
     });
   </script>
