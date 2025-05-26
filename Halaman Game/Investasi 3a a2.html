@@ -111,8 +111,31 @@
       <span>HOME</span>
     </div>
   </div>
-      <script>
-        localStorage.setItem('levelCompleted', 'Investasi');
-    </script>
+    <script type="module">
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from '../Firebase/firebase.js';
+
+  // Fallback for guests
+  function saveProgressGuest({ levelCompleted }) {
+    if (levelCompleted !== undefined) {
+      localStorage.setItem('levelCompleted', levelCompleted);
+    }
+  }
+
+  // Save progress when page loads
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Save to Realtime Database for logged-in user
+      await set(ref(db, 'users/' + user.uid + '/progress'), { levelCompleted: 'Investasi' });
+    } else {
+      // Save to localStorage for guest
+      saveProgressGuest({ levelCompleted: 'Investasi' });
+    }
+  });
+</script>
 </body>
 </html>

@@ -130,5 +130,35 @@
 <script>
   localStorage.setItem('levelCompleted', 'Pinjaman');
 </script>
+<script type="module">
+  import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from '../Firebase/firebase.js';
+
+  // Fallback for guests
+  function saveProgressGuest({ levelCompleted, balance }) {
+    if (levelCompleted !== undefined) {
+      localStorage.setItem('levelCompleted', levelCompleted);
+    }
+    if (balance !== undefined) {
+      localStorage.setItem('balance', balance);
+    }
+  }
+
+  // Save progress when page loads
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Logged in: load, update, and save progress in Realtime Database
+      const snapshot = await get(ref(db, 'users/' + user.uid + '/progress'));
+      const progress = snapshot.exists() ? snapshot.val() : { levelCompleted: 'Pinjaman', balance: 0 };
+      await set(ref(db, 'users/' + user.uid + '/progress'), { levelCompleted: 'Pinjaman', balance: progress.balance || 0 });
+    } else {
+      // Guest: use localStorage
+      saveProgressGuest({ levelCompleted: 'Pinjaman' });
+    }
+  });
+</script>
 </body>
 </html>

@@ -137,9 +137,32 @@
       HOME
     </button>
   </div>
-    <script>
-    // Mark level as completed
-    localStorage.setItem('levelCompleted', 'Tabungan');
-  </script>
+    <script type="module">
+  import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from '../Firebase/firebase.js';
+
+  // Fallback for guests
+  function saveProgressGuest({ levelCompleted }) {
+    if (levelCompleted !== undefined) {
+      localStorage.setItem('levelCompleted', levelCompleted);
+    }
+  }
+
+  // Save progress (no balance update) when page loads
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Logged in: load current progress, update only levelCompleted in Realtime Database
+      const snapshot = await get(ref(db, 'users/' + user.uid + '/progress'));
+      const progress = snapshot.exists() ? snapshot.val() : { levelCompleted: 'Pinjaman', balance: 0 };
+      await set(ref(db, 'users/' + user.uid + '/progress'), { levelCompleted: 'Tabungan', balance: progress.balance || 0 });
+    } else {
+      // Guest: use localStorage
+      saveProgressGuest({ levelCompleted: 'Tabungan' });
+    }
+  });
+</script>
 </body>
 </html>

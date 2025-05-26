@@ -135,31 +135,61 @@
       HOME
     </button>
   </div>
-  <script>
-  // Mark level as completed
-  localStorage.setItem('levelCompleted', 'Tabungan');
-  // === Add reward (10,000) to balance ===
-  const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
-  const newBalance = currentBalance + 10000;
-  localStorage.setItem('balance', newBalance);
+  <script type="module">
+  import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from '../Firebase/firebase.js';
 
-  // === Success animation ===
+  // Fallback for guests
+  function saveProgressGuest({ levelCompleted, balance }) {
+    if (levelCompleted !== undefined) {
+      localStorage.setItem('levelCompleted', levelCompleted);
+    }
+    if (balance !== undefined) {
+      localStorage.setItem('balance', balance);
+    }
+  }
+
+  // Save progress and update balance when page loads
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+  auth.onAuthStateChanged(async (user) => {
+    let newBalance;
+    if (user) {
+      // Logged in: load, update, and save progress in Realtime Database
+      const snapshot = await get(ref(db, 'users/' + user.uid + '/progress'));
+      const progress = snapshot.exists() ? snapshot.val() : { levelCompleted: 'Pinjaman', balance: 0 };
+      newBalance = (progress.balance || 0) + 10000;
+      await set(ref(db, 'users/' + user.uid + '/progress'), { levelCompleted: 'Tabungan', balance: newBalance });
+    } else {
+      // Guest: use localStorage
+      const currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+      newBalance = currentBalance + 10000;
+      saveProgressGuest({ levelCompleted: 'Tabungan', balance: newBalance });
+    }
+  });
+
+  // === Success animation (optional, only if elements exist) ===
   const successBanner = document.getElementById('success-banner');
-  successBanner.style.opacity = 0;
-  successBanner.style.transform = 'scale(0.8)';
-  setTimeout(() => {
-    successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
-    successBanner.style.opacity = 1;
-    successBanner.style.transform = 'scale(1)';
-  }, 500);
+  if (successBanner) {
+    successBanner.style.opacity = 0;
+    successBanner.style.transform = 'scale(0.8)';
+    setTimeout(() => {
+      successBanner.style.transition = 'opacity 1s ease, transform 1s ease';
+      successBanner.style.opacity = 1;
+      successBanner.style.transform = 'scale(1)';
+    }, 500);
+  }
 
   const characterImg = document.querySelector('.character-img');
-  setInterval(() => {
-    characterImg.style.transform = 'translateY(-10px)';
-    setTimeout(() => {
-      characterImg.style.transform = 'translateY(0)';
-    }, 300);
-  }, 2000);
+  if (characterImg) {
+    setInterval(() => {
+      characterImg.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        characterImg.style.transform = 'translateY(0)';
+      }, 300);
+    }, 2000);
+  }
 </script>
 </body>
 </html>

@@ -407,9 +407,12 @@
         localStorage.setItem('username', username);
         localStorage.setItem('levelCompleted', 'Pinjaman');
 
-        await set(ref(db, 'users/' + user.uid), {
-          username: username,
-          levelCompleted: 'Pinjaman'
+        await set(ref(db, 'users/' + user.uid + '/progress'), {
+          levelCompleted: 'Pinjaman',
+          balance: 0 // or whatever default you want
+        });
+        await set(ref(db, 'users/' + user.uid + '/profile'), {
+          username: username
         });
 
         alert('Akun berhasil dibuat! Silakan login.');

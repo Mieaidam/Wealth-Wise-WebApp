@@ -203,7 +203,44 @@
     <button class="logout-button" onclick="logout()">Keluar</button>
   </div>
 
-  <script>
+  <script type="module">
+    import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+    import { app } from '../Firebase/firebase.js';
+
+    const db = getDatabase(app);
+
+    // Fallback for guests
+    function saveProgressGuest({ levelCompleted, balance }) {
+      if (levelCompleted !== undefined) {
+        localStorage.setItem('levelCompleted', levelCompleted);
+      }
+      if (balance !== undefined) {
+        localStorage.setItem('balance', balance);
+      }
+    }
+
+    function loadProgressGuest() {
+      return {
+        levelCompleted: localStorage.getItem('levelCompleted') || 'Pinjaman',
+        balance: parseInt(localStorage.getItem('balance')) || 0
+      };
+    }
+
+    function resetProgressGuest() {
+      localStorage.removeItem('levelCompleted');
+      localStorage.removeItem('balance');
+    }
+
+    async function saveProgressRealtime(userId, progressData) {
+      await set(ref(db, 'users/' + userId + '/progress'), progressData);
+    }
+
+    async function loadProgressRealtime(userId) {
+      const snapshot = await get(ref(db, 'users/' + userId + '/progress'));
+      return snapshot.exists() ? snapshot.val() : { levelCompleted: 'Pinjaman', balance: 0 };
+    }
+
     function startLevel(level) {
       if (level === 'Pinjaman') {
         location.href = 'Pinjaman 1.html';
@@ -218,40 +255,45 @@
       alert('Level ini terkunci! Selesaikan level sebelumnya terlebih dahulu.');
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // === Unlock Logic ===
-      const levelOrder = ['Pinjaman', 'Investasi', 'Tabungan'];
-      const levelCompleted = localStorage.getItem('levelCompleted') || 'Pinjaman';
-      const completedIdx = levelOrder.indexOf(levelCompleted);
-
-      const investasiItem = document.querySelector('.menu-grid .menu-item:nth-child(2)');
-      const tabunganItem = document.querySelector('.menu-grid .menu-item:nth-child(3)');
-
-      // Unlock Investasi if user has completed Pinjaman or higher
-      if (completedIdx >= levelOrder.indexOf('Pinjaman')) {
-        investasiItem.classList.remove('locked');
-        investasiItem.setAttribute('onclick', "startLevel('Investasi')");
-      }
-
-      // Unlock Tabungan only if user has completed Investasi or higher
-      if (completedIdx >= levelOrder.indexOf('Investasi')) {
-        tabunganItem.classList.remove('locked');
-        tabunganItem.setAttribute('onclick', "startLevel('Tabungan')");
-      }
-
-      // === Display Balance ===
-      const balanceSpan = document.getElementById('balance-value');
-      const savedBalance = parseInt(localStorage.getItem('balance')) || 0;
-      if (balanceSpan) {
-        balanceSpan.textContent = savedBalance.toLocaleString('id-ID');
-      }
-    });
-
     function logout() {
-      localStorage.removeItem('levelCompleted');
-      localStorage.removeItem('balance');
+      resetProgressGuest();
       location.href = '../Halaman Utama.html';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const auth = getAuth(app);
+      auth.onAuthStateChanged(async (user) => {
+        let progress;
+        if (user) {
+          progress = await loadProgressRealtime(user.uid);
+        } else {
+          progress = loadProgressGuest();
+        }
+
+        // === Unlock Logic ===
+        const levelOrder = ['Pinjaman', 'Investasi', 'Tabungan'];
+        const completedIdx = levelOrder.indexOf(progress.levelCompleted);
+
+        const investasiItem = document.querySelector('.menu-grid .menu-item:nth-child(2)');
+        const tabunganItem = document.querySelector('.menu-grid .menu-item:nth-child(3)');
+
+        if (completedIdx >= levelOrder.indexOf('Pinjaman')) {
+          investasiItem.classList.remove('locked');
+          investasiItem.setAttribute('onclick', "startLevel('Investasi')");
+        }
+
+        if (completedIdx >= levelOrder.indexOf('Investasi')) {
+          tabunganItem.classList.remove('locked');
+          tabunganItem.setAttribute('onclick', "startLevel('Tabungan')");
+        }
+
+        // === Display Balance ===
+        const balanceSpan = document.getElementById('balance-value');
+        if (balanceSpan) {
+          balanceSpan.textContent = progress.balance.toLocaleString('id-ID');
+        }
+      });
+    });
   </script>
 </body>
 </html>

@@ -164,6 +164,7 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAmm1WHSmprAWkf5KiWA6EH6EzRUY3M60A",
@@ -185,13 +186,20 @@
 
       if (username && password) {
         try {
-          // Firebase requires an email, so append a domain if not present
           let email = username;
           if (!email.includes('@')) {
             email = username + '@wealthwise.local';
           }
           await createUserWithEmailAndPassword(auth, email, password);
-          // Remove alert, just redirect
+
+          // Initialize progress in Realtime Database
+          const db = getDatabase(app);
+          const user = auth.currentUser;
+          await set(ref(db, 'users/' + user.uid + '/progress'), {
+            levelCompleted: 'Pinjaman',
+            balance: 0
+          });
+
           window.location.href = "../index.html";
         } catch (e) {
           alert('Gagal membuat akun: ' + e.message);

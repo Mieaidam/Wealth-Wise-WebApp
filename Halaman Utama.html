@@ -418,6 +418,109 @@
         </div>
     </div>
 
+    <script type="module">
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from './Firebase/firebase.js';
+
+  // Display username from Realtime Database or fallback to localStorage
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      // Try to get username from Realtime Database
+      const snapshot = await get(ref(db, 'users/' + user.uid + '/profile'));
+      let username = "user";
+      if (snapshot.exists() && snapshot.val().username) {
+        username = snapshot.val().username;
+      } else if (user.email) {
+        username = user.email.split('@')[0];
+      }
+      document.getElementById('usernameDisplay').textContent = username;
+    } else {
+      // Fallback: use localStorage or URL param
+      let username = localStorage.getItem('username');
+      if (!username) {
+        const urlParams = new URLSearchParams(window.location.search);
+        username = urlParams.get('username') || "user";
+      }
+      document.getElementById('usernameDisplay').textContent = username;
+    }
+  });
+
+  // Logout button (clears auth and localStorage)
+  document.getElementById('logoutBtn').addEventListener('click', async function () {
+    try {
+      await signOut(auth);
+    } catch (e) {}
+    localStorage.removeItem('username');
+    localStorage.removeItem('hasSeenTutorial');
+    window.location.href = 'index.html';
+  });
+
+  // Run tutorial if first time
+  if (!localStorage.getItem('hasSeenTutorial')) {
+    runTutorial();
+  }
+
+  function runTutorial() {
+    const steps = [
+      {
+        selector: '.menu-item:nth-child(1)',
+        text: 'Ini merupakan materi pembelajaran "Literasi Keuangan", tempat kamu belajar dasar-dasar pengelolaan uang dengan bijak.'
+      },
+      {
+        selector: '.menu-item:nth-child(2)',
+        text: '"Pinjaman Online" membahas cara kerja pinjaman digital, risiko, dan cara menghindari jebakan utang.'
+      },
+      {
+        selector: '.menu-item:nth-child(3)',
+        text: 'Bagian ini menjelaskan bahaya "Judi Online" dan dampaknya terhadap keuangan dan kehidupan.'
+      },
+      {
+        selector: '.menu-item:nth-child(4)',
+        text: 'Di sini kamu bisa bermain game interaktif untuk menguji seberapa baik kamu memahami pengelolaan keuangan!'
+      },
+      {
+        selector: '.menu-item:nth-child(6)',
+        text: '"WealthWise AI" adalah asisten pintar yang bisa kamu tanya apa saja tentang keuangan — gunakan sepuasnya!'
+      }
+    ];
+
+    const overlay = document.getElementById('tutorialOverlay');
+    const highlightBox = document.getElementById('tutorialHighlight');
+    const textBox = document.getElementById('tutorialText');
+    const nextBtn = document.getElementById('nextTutorialBtn');
+
+    let currentStep = 0;
+
+    function showStep(step) {
+      const target = document.querySelector(step.selector);
+      const rect = target.getBoundingClientRect();
+
+      highlightBox.style.width = rect.width + 'px';
+      highlightBox.style.height = rect.height + 'px';
+      highlightBox.style.top = rect.top + window.scrollY + 'px';
+      highlightBox.style.left = rect.left + window.scrollX + 'px';
+
+      textBox.textContent = step.text;
+    }
+
+    overlay.style.display = 'flex';
+    showStep(steps[currentStep]);
+
+    nextBtn.onclick = () => {
+      currentStep++;
+      if (currentStep < steps.length) {
+        showStep(steps[currentStep]);
+      } else {
+        overlay.style.display = 'none';
+        localStorage.setItem('hasSeenTutorial', 'true');
+      }
+    };
+  }
+</script>
     <script>
         window.onload = function() {
         // Display username from URL or localStorage

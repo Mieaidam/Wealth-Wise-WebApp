@@ -220,10 +220,43 @@
             <img src="../Images/Logo_Home.png" alt="Home Icon"> HOME
         </button>
     </div>
-    <script>
-        localStorage.setItem('levelCompleted', 'Pinjaman');
+    <script type="module">
+        import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { app } from '../Firebase/firebase.js';
 
-        function showRippleEffect(event) {
+        // Fallback for guests
+        function saveProgressGuest({ levelCompleted, balance }) {
+            if (levelCompleted !== undefined) {
+                localStorage.setItem('levelCompleted', levelCompleted);
+            }
+            if (balance !== undefined) {
+                localStorage.setItem('balance', balance);
+            }
+        }
+
+        async function updateProgressAndBalance() {
+            const auth = getAuth(app);
+            const db = getDatabase(app);
+            const user = auth.currentUser;
+            let newBalance;
+            if (user) {
+                // Logged in: load, update, and save progress in Realtime Database
+                const snapshot = await get(ref(db, 'users/' + user.uid + '/progress'));
+                const progress = snapshot.exists() ? snapshot.val() : { levelCompleted: 'Pinjaman', balance: 0 };
+                newBalance = (progress.balance || 0) + 10000;
+                await set(ref(db, 'users/' + user.uid + '/progress'), { levelCompleted: 'Pinjaman', balance: newBalance });
+            } else {
+                // Guest: use localStorage
+                let currentBalance = parseInt(localStorage.getItem('balance'), 10);
+                if (isNaN(currentBalance)) currentBalance = 0;
+                newBalance = currentBalance + 10000;
+                saveProgressGuest({ levelCompleted: 'Pinjaman', balance: newBalance });
+            }
+            console.log('Balance updated:', newBalance);
+        }
+
+        window.showRippleEffect = async function(event) {
             const button = event.currentTarget;
 
             // Ripple effect
@@ -241,34 +274,21 @@
 
             setTimeout(() => {
                 ripple.remove();
-            }, 600); // Remove ripple after animation
+            }, 600);
 
             // Confetti effect
             for (let i = 0; i < 10; i++) {
                 createConfetti(button);
             }
 
-            localStorage.setItem('levelCompleted', 'Pinjaman');
-            // === Add reward (10,000) to balance ===
-            let currentBalance = parseInt(localStorage.getItem('balance'), 10);
-            if (isNaN(currentBalance)) currentBalance = 0;
-            const newBalance = currentBalance + 10000;
-            localStorage.setItem('balance', newBalance);
-            console.log('Balance updated:', newBalance);
-        }
+            await updateProgressAndBalance();
+        };
 
-        function goHome() {
-            // === Add reward (10,000) to balance ===
-            let currentBalance = parseInt(localStorage.getItem('balance'), 10);
-            if (isNaN(currentBalance)) currentBalance = 0;
-            const newBalance = currentBalance + 10000;
-            localStorage.setItem('balance', newBalance);
-            localStorage.setItem('levelCompleted', 'Pinjaman');
-            console.log('Balance updated:', newBalance);
-
+        window.goHome = async function() {
+            await updateProgressAndBalance();
             // Go to game selection page
             location.href = 'Halaman Game 2.html';
-        }
+        };
 
         function createConfetti(button) {
             const confetti = document.createElement('div');
@@ -279,12 +299,12 @@
 
             confetti.style.left = `${x}px`;
             confetti.style.top = `${y}px`;
-            confetti.style.backgroundColor = getRandomColor(); // Random confetti color
+            confetti.style.backgroundColor = getRandomColor();
             button.appendChild(confetti);
 
             setTimeout(() => {
                 confetti.remove();
-            }, 1000); // Remove confetti after animation
+            }, 1000);
         }
 
         function getRandomColor() {
