@@ -200,7 +200,7 @@
       </div>
     </div>
 
-    <button class="logout-button" onclick="logout()">Keluar</button>
+    <button class="logout-button" id="logout-btn">Keluar</button>
   </div>
 
   <script type="module">
@@ -308,6 +308,12 @@
       const tabunganBtn = document.getElementById('tabungan-btn');
       if (tabunganBtn) {
         tabunganBtn.addEventListener('click', showLockedMessage);
+      }
+
+      // Attach event handler for logout button
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
       }
     });
   </script>
