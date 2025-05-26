@@ -185,7 +185,7 @@
     <div class="game-menu">
       <h2>Pilih Skenariomu</h2>
       <div class="menu-grid">
-        <div class="menu-item" onclick="startLevel('Pinjaman 1.html')">
+        <div class="menu-item" id="pinjaman-btn">
           <img src="../Images/Logo_Pinjaman.png">
           <p>Pinjaman</p>
         </div>
@@ -293,6 +293,12 @@
           balanceSpan.textContent = progress.balance.toLocaleString('id-ID');
         }
       });
+
+      // Attach event handler for Pinjaman button
+      const pinjamanBtn = document.getElementById('pinjaman-btn');
+      if (pinjamanBtn) {
+        pinjamanBtn.addEventListener('click', () => startLevel('Pinjaman'));
+      }
     });
   </script>
 </body>
