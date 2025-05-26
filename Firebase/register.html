@@ -161,61 +161,65 @@
     </form>
     <a class="back-link" href="../index.html">&larr; Kembali ke Login</a>
     <div style="text-align:center; color:#888; font-size:0.95rem; margin-top:2px;">
-      (Apabila telah menunggu lama, klik ini.)
+      (Sudah selesai? Klik ini untuk kembali ke halaman login.)
     </div>
   </div>
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
+ <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-database.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAmm1WHSmprAWkf5KiWA6EH6EzRUY3M60A",
-    authDomain: "wealth-wise-cdff0.firebaseapp.com",
-    projectId: "wealth-wise-cdff0",
-    storageBucket: "wealth-wise-cdff0.appspot.com",
-    messagingSenderId: "236778243947",
-    appId: "1:236778243947:web:1c815a671c487509ecae2e",
-    measurementId: "G-ZH3ZSKES9Q",
-    databaseURL: "https://wealth-wise-cdff0-default-rtdb.firebaseio.com"  // ✅ Needed for Realtime Database
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAmm1WHSmprAWkf5KiWA6EH6EzRUY3M60A",
+      authDomain: "wealth-wise-cdff0.firebaseapp.com",
+      projectId: "wealth-wise-cdff0",
+      storageBucket: "wealth-wise-cdff0.appspot.com",
+      messagingSenderId: "236778243947",
+      appId: "1:236778243947:web:1c815a671c487509ecae2e",
+      measurementId: "G-ZH3ZSKES9Q",
+      databaseURL: "https://wealth-wise-cdff0-default-rtdb.firebaseio.com"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getDatabase(app); // ✅ use initialized db with correct URL
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
 
-  document.getElementById('registerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = document.getElementById('registerForm');
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
 
-    if (username && password) {
-      try {
-        let email = username;
-        if (!email.includes('@')) {
-          email = username + '@wealthwise.local';
+      if (username && password) {
+        try {
+          let email = username;
+          if (!email.includes('@')) {
+            email = username + '@wealthwise.local';
+          }
+
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+
+          await set(ref(db, 'users/' + user.uid + '/progress'), {
+            levelCompleted: 'Pinjaman',
+            balance: 0
+          });
+
+          // ✅ Clear the form after successful registration
+          form.reset();
+
+          // ✅ Delay redirect slightly to ensure auth state and DB write are complete
+          setTimeout(() => {
+            window.location.href = "../index.html";
+          }, 500);
+
+        } catch (e) {
+          alert('Gagal membuat akun: ' + e.message);
         }
-
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        await set(ref(db, 'users/' + user.uid + '/progress'), {
-          levelCompleted: 'Pinjaman',
-          balance: 0
-        });
-
-        // ✅ Delay redirect slightly to ensure auth state and DB write are complete
-        setTimeout(() => {
-          window.location.href = "../index.html";
-        }, 500);
-        
-      } catch (e) {
-        alert('Gagal membuat akun: ' + e.message);
+      } else {
+        alert('Silakan masukkan username dan password untuk membuat akun!');
       }
-    } else {
-      alert('Silakan masukkan username dan password untuk membuat akun!');
-    }
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
