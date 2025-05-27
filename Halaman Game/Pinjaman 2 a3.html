@@ -256,7 +256,7 @@
             console.log('Balance updated:', newBalance);
         }
 
-        window.showRippleEffect = async function(event) {
+        window.showRippleEffect = function(event) {
             const button = event.currentTarget;
 
             // Ripple effect
@@ -280,8 +280,7 @@
             for (let i = 0; i < 10; i++) {
                 createConfetti(button);
             }
-
-            await updateProgressAndBalance();
+            // No balance update here!
         };
 
         window.goHome = async function() {
